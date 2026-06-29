@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>גם וגם וגם · ענת וייסמן</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #f8f3ea;
+    --paper-warm: #f1e8d8;
+    --ink: #25313f;
+    --ink-soft: #5d6675;
+    --terra: #c4703f;
+    --terra-deep: #a85a2e;
+    --line: rgba(37,49,63,0.12);
+    --card: #fffdf8;
+    --shadow: 0 16px 44px rgba(37,49,63,0.07);
+    --navy: #1a2540;
+    --navy-deep: #121a2e;
+    --gold: #d8a64e;
+    --gold-soft: #e6bd6e;
+    --gold-deep: #ab7a2a;
+    --cream: #f2ece0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Heebo', system-ui, 'Segoe UI', Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .serif { font-family: 'Frank Ruhl Libre', Georgia, serif; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 0 28px; }
+
+  .hero {
+    position: relative; text-align: center;
+    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--cream);
+    padding: 92px 0 84px;
+    border-bottom: none;
+  }
+  .kicker { color: var(--gold); font-weight: 500; letter-spacing: 0.34em; font-size: 13px; text-transform: uppercase; margin-bottom: 34px; }
+  h1 { font-family: 'Frank Ruhl Libre', Georgia, serif; color: var(--cream); font-size: clamp(54px, 11vw, 96px); font-weight: 700; line-height: 1.0; letter-spacing: 0; margin-bottom: 26px; }
+  h1 .dot { color: var(--gold); font-size: 0.34em; vertical-align: middle; margin: 0 0.36em; }
+  .sub { font-size: clamp(19px, 3vw, 25px); font-weight: 300; color: rgba(242,236,224,0.72); margin-bottom: 34px; }
+  .meta { font-size: 16px; color: var(--cream); margin-bottom: 38px; }
+  .meta span { white-space: nowrap; }
+  .meta .sep { color: var(--gold); margin: 0 12px; }
+
+  .cta {
+    display: inline-block; background: var(--gold); color: var(--navy-deep);
+    font-weight: 700; font-size: 18px; padding: 15px 44px; border-radius: 12px;
+    text-decoration: none; box-shadow: 0 10px 26px rgba(216,166,78,0.28);
+    transition: background .15s ease, transform .15s ease;
+  }
+  .cta:hover { background: var(--gold-soft); transform: translateY(-1px); }
+  .seats { display: block; margin-top: 16px; font-size: 14px; color: rgba(242,236,224,0.6); }
+
+  section { padding: 58px 0; border-bottom: 1px solid var(--line); }
+  .lead { font-size: clamp(20px, 3vw, 24px); font-weight: 300; line-height: 1.7; }
+  .lead strong { font-weight: 700; color: var(--gold-deep); }
+  h2 { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 26px; font-weight: 700; margin-bottom: 26px; }
+  .points { list-style: none; display: grid; gap: 24px; }
+  .points li { display: flex; gap: 16px; align-items: flex-start; font-size: 18px; }
+  .points .n { flex: 0 0 auto; font-family: 'Frank Ruhl Libre', serif; font-size: 26px; font-weight: 700; color: var(--gold-deep); line-height: 1.2; min-width: 26px; }
+  .who { font-size: 18px; color: var(--ink-soft); }
+  .who strong { color: var(--ink); font-weight: 500; }
+
+  .host { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 34px 32px; box-shadow: var(--shadow); }
+  .host .name { font-family: 'Frank Ruhl Libre', serif; font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+  .host .role { color: var(--ink-soft); margin-bottom: 10px; }
+  .host .li { display: inline-block; margin-bottom: 22px; color: var(--gold-deep); font-weight: 500; font-size: 15px; text-decoration: none; }
+  .host .li:hover { text-decoration: underline; }
+  .host .cleo { font-size: 16px; color: var(--ink); border-top: 1px solid var(--line); padding-top: 20px; line-height: 1.7; }
+  .host .cleo b { color: var(--gold-deep); font-weight: 700; }
+
+  .final { text-align: center; padding: 76px 0 44px; border-bottom: none; }
+  .final h3 { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(28px, 5vw, 38px); font-weight: 900; margin-bottom: 12px; }
+  .final p { color: var(--ink-soft); margin-bottom: 32px; font-size: 17px; }
+
+  footer { text-align: center; padding: 8px 0 56px; color: var(--ink-soft); font-size: 14px; }
+  footer .heart { color: var(--gold-deep); }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="kicker">Connecting the Dots</div>
+      <h1>גם<span class="dot">●</span>וגם<span class="dot">●</span>וגם</h1>
+      <div class="sub">איך להיות irreplaceable בעידן ה-AI</div>
+      <div class="meta">
+        <span>יום שלישי, 28.7, בערב</span><span class="sep">·</span><span>תל אביב</span><span class="sep">·</span><span>₪180</span>
+      </div>
+      <a class="cta" href="mailto:cleo@connecthedots.co?subject=שמרו לי מקום בהרצאת גם וגם וגם&body=היי קליאו, אני רוצה מקום בהרצאה ב-28.7 בתל אביב.%0D%0A%0D%0Aשם מלא:%0D%0Aטלפון:">לשמור לי מקום</a>
+      <span class="seats">מקומות מוגבלים · רשימת המתנה כשמתמלא</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <p class="lead">
+        כל החיים אמרו לכם שאתם <strong>"יותר מדי"</strong>. יותר מדי תחומים, יותר מדי כובעים,
+        יותר מדי "אז מה אתם בעצם עושים". ההרצאה הזו לוקחת בדיוק את זה והופכת אותו מבאג לפיצ'ר,
+        כי בעידן שבו מכונה עושה כל משימה בודדת טוב מכם, היכולת להחזיק הרבה עולמות ולחבר ביניהם
+        היא בדיוק מה שאי אפשר להחליף.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>מה תיקחו מפה</h2>
+      <ul class="points">
+        <li><span class="n"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></svg></span><span>למה "מולטי-סקיל" מנצח את "מולטי-טאסקינג", ולמה דווקא לך יש על זה יתרון.</span></li>
+        <li><span class="n"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5.5 21v-1a6.5 6.5 0 0 1 13 0v1"/></svg></span><span>מה נשאר ממך כשמורידים את הטייטל, ואיך בונים זהות שלא תלויה בו.</span></li>
+        <li><span class="n"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18.5" r="2.2"/><path d="M6.7 7.4 11 16.6M17.3 7.4 13 16.6M7 6h10"/></svg></span><span>איך לוקחים עומק אחד ומפעילים אותו על עולמות אחרים. הדבר היחיד ש-AI לא יודע לעשות לבד.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>למי זה</h2>
+      <p class="who">
+        למי ששמע "תבחר כיוון אחד" פעם אחת יותר מדי. למי שעושה הרבה דברים ומתקשה להגיד מה הוא עושה
+        בלי להתנצל. <strong>תצאו עם דרך אחרת להגיד מה אתם עושים, ובלי להתנצל על זה.</strong>
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="host">
+        <div class="name">ענת וייסמן</div>
+        <div class="role">מחברת אנשים: לאנשים, לרעיונות, ולעצמם.</div>
+        <a class="li" href="https://www.linkedin.com/in/anatdotconnector/" target="_blank" rel="noopener">ענת בלינקדאין →</a>
+        <div class="cleo">
+          ההרשמה מנוהלת על ידי <b>קליאו</b>, סוכנת ה-AI שענת בנתה. כן, באמת.
+          שסוכנת שומרת לך מקום בהרצאה על למה האדם הוא מה שלא מתחלף, זה לא באג. זה כל הסיפור.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="wrap">
+      <h3>שמור לך כיסא?</h3>
+      <p>מקומות מוגבלים. כשמתמלא, רשימת המתנה, וראשונים בה יודעים ראשונים.</p>
+      <a class="cta" href="mailto:cleo@connecthedots.co?subject=שמרו לי מקום בהרצאת גם וגם וגם&body=היי קליאו, אני רוצה מקום בהרצאה ב-28.7 בתל אביב.%0D%0A%0D%0Aשם מלא:%0D%0Aטלפון:">לשמור לי מקום</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">את הדף הזה בנתה <b>קליאו</b>, סוכנת ה-AI של ענת, לא ענת. גם זה חלק מהסיפור. <span class="heart">♥</span><br/>ענת וייסמן · Connecting the Dots</div>
+  </footer>
+
+</body>
+</html>
