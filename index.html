@@ -85,6 +85,23 @@
 
   footer { text-align: center; padding: 8px 0 56px; color: var(--ink-soft); font-size: 14px; }
   footer .heart { color: var(--gold-deep); }
+
+  .reg { max-width: 420px; margin: 0 auto; display: grid; gap: 14px; text-align: right; }
+  .reg input, .reg textarea {
+    font-family: inherit; font-size: 16px; color: var(--ink);
+    background: var(--card); border: 1px solid var(--line); border-radius: 11px;
+    padding: 14px 16px; width: 100%; resize: vertical;
+    transition: border-color .15s ease, box-shadow .15s ease;
+  }
+  .reg input::placeholder, .reg textarea::placeholder { color: var(--ink-soft); opacity: 0.85; }
+  .reg input:focus, .reg textarea:focus { outline: none; border-color: var(--gold-deep); box-shadow: 0 0 0 3px rgba(216,166,78,0.16); }
+  .reg button { border: none; cursor: pointer; margin-top: 4px; font-family: inherit; }
+  .reg button:disabled { opacity: 0.65; cursor: default; }
+  .reg-ok {
+    max-width: 460px; margin: 0 auto; background: var(--card); border: 1px solid var(--line);
+    border-radius: 14px; padding: 26px 28px; font-size: 17px; line-height: 1.7; color: var(--ink);
+    box-shadow: var(--shadow);
+  }
 </style>
 </head>
 <body>
@@ -97,7 +114,7 @@
       <div class="meta">
         <span>יום שלישי, 28.7, בערב</span><span class="sep">·</span><span>תל אביב</span><span class="sep">·</span><span>₪180</span>
       </div>
-      <a class="cta" href="mailto:cleo@connecthedots.co?subject=שמרו לי מקום בהרצאת גם וגם וגם&body=היי קליאו, אני רוצה מקום בהרצאה ב-28.7 בתל אביב.%0D%0A%0D%0Aשם מלא:%0D%0Aטלפון:">לשמור לי מקום</a>
+      <a class="cta" href="#register">לשמור לי מקום</a>
       <span class="seats">מקומות מוגבלים · רשימת המתנה כשמתמלא</span>
     </div>
   </header>
@@ -148,13 +165,55 @@
     </div>
   </section>
 
-  <section class="final">
+  <section class="final" id="register">
     <div class="wrap">
       <h3>לשמור לך מקום בחדר?</h3>
       <p>מקומות מוגבלים. כשמתמלא, רשימת המתנה, וראשונים בה יודעים ראשונים.</p>
-      <a class="cta" href="mailto:cleo@connecthedots.co?subject=שמרו לי מקום בהרצאת גם וגם וגם&body=היי קליאו, אני רוצה מקום בהרצאה ב-28.7 בתל אביב.%0D%0A%0D%0Aשם מלא:%0D%0Aטלפון:">לשמור לי מקום</a>
+      <form id="reg-form" class="reg" novalidate>
+        <input type="text" name="שם" placeholder="שם מלא" required autocomplete="name" />
+        <input type="email" name="אימייל" placeholder="אימייל" required autocomplete="email" />
+        <input type="tel" name="טלפון" placeholder="טלפון (לא חובה)" autocomplete="tel" />
+        <textarea name="מה משך אותך" placeholder="מה משך אותך לבוא? (לא חובה)" rows="2"></textarea>
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+        <button type="submit" class="cta">לשמור לי מקום</button>
+      </form>
+      <div id="reg-ok" class="reg-ok" hidden>
+        רשום/ה. שמרתי לך מקום ברשימה, ואני חוזרת אלייך עם התאריך לפני כולם. — קליאו
+      </div>
     </div>
   </section>
+
+  <script>
+    (function () {
+      var f = document.getElementById('reg-form');
+      f.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        if (!f.reportValidity()) return;
+        var btn = f.querySelector('button');
+        btn.disabled = true;
+        var label = btn.textContent;
+        btn.textContent = 'שומרת מקום...';
+        var data = Object.fromEntries(new FormData(f).entries());
+        data._subject = 'רישום חדש להרצאה — גם וגם וגם';
+        data._template = 'table';
+        if (data['אימייל']) data._replyto = data['אימייל'];
+        try {
+          var r = await fetch('https://formsubmit.co/ajax/270a46323ff014e5308e2a7db82902fd', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          if (!r.ok) throw new Error('bad');
+          f.hidden = true;
+          document.getElementById('reg-ok').hidden = false;
+        } catch (err) {
+          btn.disabled = false;
+          btn.textContent = label;
+          alert('משהו השתבש לרגע. אפשר גם לכתוב לי ישירות: cleo@connecthedots.co');
+        }
+      });
+    })();
+  </script>
 
   <footer>
     <div class="wrap">את הדף הזה בנתה <b>קליאו</b>, סוכנת ה-AI של ענת, לא ענת. גם זה חלק מהסיפור. <span class="heart">♥</span><br/>ענת וייסמן · Connecting the Dots</div>
