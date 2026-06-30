@@ -4,6 +4,18 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>גם וגם וגם · ענת וייסמן</title>
+<meta name="description" content="הרצאה של ענת וייסמן. ערב אחד, תל אביב, מקומות מוגבלים. על למה דווקא ה'יותר מדי' שלך הוא מה שאי אפשר להחליף בעידן ה-AI." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://gam.connecthedots.co/" />
+<meta property="og:title" content="גם · וגם · וגם — איך להיות irreplaceable בעידן ה-AI" />
+<meta property="og:description" content="הרצאה של ענת וייסמן. ערב אחד, תל אביב, מקומות מוגבלים. על למה דווקא ה'יותר מדי' שלך הוא מה שאי אפשר להחליף." />
+<meta property="og:image" content="https://gam.connecthedots.co/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="he_IL" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="גם · וגם · וגם — איך להיות irreplaceable בעידן ה-AI" />
+<meta name="twitter:image" content="https://gam.connecthedots.co/og.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" />
@@ -102,6 +114,17 @@
     border-radius: 14px; padding: 26px 28px; font-size: 17px; line-height: 1.7; color: var(--ink);
     box-shadow: var(--shadow);
   }
+  .share { margin-top: 34px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .share .ask { font-size: 15px; color: var(--ink-soft); }
+  .share button {
+    display: inline-flex; align-items: center; gap: 9px; cursor: pointer;
+    font-family: inherit; font-size: 15px; font-weight: 500; color: var(--ink);
+    background: transparent; border: 1px solid var(--line); border-radius: 11px; padding: 11px 22px;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  .share button:hover { border-color: var(--gold-deep); color: var(--gold-deep); }
+  .share button svg { width: 17px; height: 17px; }
+  .share .copied { font-size: 13px; color: var(--gold-deep); min-height: 16px; }
 </style>
 </head>
 <body>
@@ -180,6 +203,15 @@
       <div id="reg-ok" class="reg-ok" hidden>
         רשום/ה. שמרתי לך מקום ברשימה, ואני חוזרת אלייך עם התאריך לפני כולם. — קליאו
       </div>
+
+      <div class="share">
+        <span class="ask">מכירים מישהו שצריך לשמוע את זה?</span>
+        <button id="share-btn" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>
+          שתפו את ההרצאה
+        </button>
+        <span class="copied" id="share-msg"></span>
+      </div>
     </div>
   </section>
 
@@ -210,6 +242,23 @@
           btn.disabled = false;
           btn.textContent = label;
           alert('משהו השתבש לרגע. אפשר גם לכתוב לי ישירות: cleo@connecthedots.co');
+        }
+      });
+
+      var sBtn = document.getElementById('share-btn');
+      var sMsg = document.getElementById('share-msg');
+      var shareUrl = 'https://gam.connecthedots.co/';
+      var shareText = 'גם וגם וגם — הרצאה של ענת וייסמן על איך להיות irreplaceable בעידן ה-AI. ערב אחד, תל אביב.';
+      sBtn.addEventListener('click', async function () {
+        if (navigator.share) {
+          try { await navigator.share({ title: 'גם וגם וגם', text: shareText, url: shareUrl }); return; }
+          catch (e) { if (e && e.name === 'AbortError') return; }
+        }
+        try {
+          await navigator.clipboard.writeText(shareUrl);
+          sMsg.textContent = 'הקישור הועתק. אפשר להדביק לכל מי שצריך.';
+        } catch (e) {
+          window.open('https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + shareUrl), '_blank');
         }
       });
     })();
