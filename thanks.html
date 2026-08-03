@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>שמרתי לך מקום · The Human is the Loop</title>
+<meta name="description" content="ההרשמה נקלטה. יום ראשון 6.9.2026, דלתות 18:00, מתחילים 18:30, תל אביב." />
+<meta name="robots" content="noindex" />
+<link rel="canonical" href="https://thehumanistheloop.co/thanks">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #f8f3ea;
+    --paper-warm: #f1e8d8;
+    --ink: #25313f;
+    --ink-soft: #5d6675;
+    --terra: #c4703f;
+    --terra-deep: #a85a2e;
+    --line: rgba(37,49,63,0.12);
+    --card: #fffdf8;
+    --shadow: 0 16px 44px rgba(37,49,63,0.07);
+    --navy: #1a2540;
+    --navy-deep: #121a2e;
+    --gold: #d8a64e;
+    --gold-soft: #e6bd6e;
+    --gold-deep: #ab7a2a;
+    --cream: #f2ece0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Heebo', system-ui, 'Segoe UI', Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .serif { font-family: 'Frank Ruhl Libre', Georgia, serif; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 0 28px; }
+
+  .hero {
+    position: relative; text-align: center;
+    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-deep) 100%);
+    color: var(--cream);
+    padding: 84px 0 72px;
+  }
+  .kicker { color: var(--gold); font-weight: 500; letter-spacing: 0.34em; font-size: 13px; text-transform: uppercase; margin-bottom: 34px; }
+  h1 { font-family: 'Frank Ruhl Libre', Georgia, serif; color: var(--cream); font-size: clamp(38px, 8vw, 64px); font-weight: 700; line-height: 1.05; margin-bottom: 22px; }
+  .confirm { max-width: 560px; margin: 0 auto; font-size: clamp(17px, 2.6vw, 20px); font-weight: 300; line-height: 1.75; color: rgba(242,236,224,0.85); }
+  .confirm b { color: var(--gold); font-weight: 700; }
+
+  section { padding: 58px 0; border-bottom: 1px solid var(--line); }
+  h2 { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 26px; font-weight: 700; margin-bottom: 26px; }
+
+  .details {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+    padding: 34px 32px; box-shadow: var(--shadow); text-align: center;
+  }
+  .details .when { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: clamp(20px, 3.4vw, 25px); font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+  .details .when .sep { color: var(--gold-deep); margin: 0 10px; }
+  .details .where { font-size: 17px; color: var(--ink-soft); }
+  .details .where b { color: var(--gold-deep); font-weight: 500; }
+  .details .mail-note { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 15px; color: var(--ink-soft); }
+
+  .cal-row { margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+  .cal-row a {
+    display: inline-flex; align-items: center; gap: 9px; cursor: pointer;
+    font-family: inherit; font-size: 15px; font-weight: 500; color: var(--ink);
+    background: transparent; border: 1px solid var(--line); border-radius: 11px; padding: 11px 22px;
+    text-decoration: none;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  .cal-row a:hover { border-color: var(--gold-deep); color: var(--gold-deep); }
+  .cal-row a svg { width: 17px; height: 17px; }
+
+  .share { margin-top: 8px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .share .ask { font-size: 15px; color: var(--ink-soft); }
+  .share button {
+    display: inline-flex; align-items: center; gap: 9px; cursor: pointer;
+    font-family: inherit; font-size: 15px; font-weight: 500; color: var(--ink);
+    background: transparent; border: 1px solid var(--line); border-radius: 11px; padding: 11px 22px;
+    transition: border-color .15s ease, color .15s ease;
+  }
+  .share button:hover { border-color: var(--gold-deep); color: var(--gold-deep); }
+  .share button svg { width: 17px; height: 17px; }
+  .share .copied { font-size: 13px; color: var(--gold-deep); min-height: 16px; }
+
+  .cta {
+    display: inline-block; background: var(--gold); color: var(--navy-deep);
+    font-weight: 700; font-size: 18px; padding: 15px 44px; border-radius: 12px;
+    text-decoration: none; box-shadow: 0 10px 26px rgba(216,166,78,0.28);
+    transition: background .15s ease, transform .15s ease;
+  }
+  .cta:hover { background: var(--gold-soft); transform: translateY(-1px); }
+
+  .back { text-align: center; padding: 44px 0; border-bottom: none; }
+  .back a { color: var(--ink-soft); font-size: 15px; text-decoration: underline; text-underline-offset: 3px; }
+  .back a:hover { color: var(--gold-deep); }
+
+  footer { text-align: center; padding: 8px 0 56px; color: var(--ink-soft); font-size: 14px; }
+  footer .heart { color: var(--gold-deep); }
+  footer a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 3px; }
+  footer a:hover { color: var(--gold-deep); }
+  @media (max-width: 640px) {
+    html, body { max-width: 100%; overflow-x: hidden; }
+  }
+</style>
+<!-- PostHog web analytics -->
+<script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_recording:true,api_host:'https://us.i.posthog.com',defaults:'2025-05-24',person_profiles:'identified_only'})
+</script>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <div class="kicker">Connecting the Dots</div>
+      <h1>שמרתי לך מקום.</h1>
+      <p class="confirm">רשום/ה. שמרתי לך מקום ל-6.9. הכתובת המדויקת נשלחת שבוע לפני הערב. <b>קליאו</b></p>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <div class="details">
+        <div class="when"><span>יום ראשון 6.9</span><span class="sep">·</span><span>דלתות 18:00</span><span class="sep">·</span><span>מתחילים 18:30</span></div>
+        <div class="where">תל אביב, ליד תחנת הרכבת הקלה <b>קרליבך</b></div>
+        <div class="mail-note">הכתובת המדויקת מגיעה אליך במייל שבוע לפני הערב. אם לא רואים אותו, שווה להציץ גם בקידומי המכירות או בספאם.</div>
+      </div>
+      <div class="cal-row">
+        <a id="gcal-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The%20Human%20is%20the%20Loop&dates=20260906T150000Z/20260906T180000Z&ctz=Asia%2FJerusalem&details=%D7%93%D7%9C%D7%AA%D7%95%D7%AA%2018%3A00%20%C2%B7%20%D7%9E%D7%AA%D7%97%D7%99%D7%9C%D7%99%D7%9D%2018%3A30%20%C2%B7%20%D7%94%D7%9B%D7%AA%D7%95%D7%91%D7%AA%20%D7%94%D7%9E%D7%93%D7%95%D7%99%D7%A7%D7%AA%20%D7%A0%D7%A9%D7%9C%D7%97%D7%AA%20%D7%91%D7%9E%D7%99%D7%99%D7%9C%20%D7%A9%D7%91%D7%95%D7%A2%20%D7%9C%D7%A4%D7%A0%D7%99%20%D7%94%D7%A2%D7%A8%D7%91&location=%D7%AA%D7%9C%20%D7%90%D7%91%D7%99%D7%91" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          להוסיף ליומן Google
+        </a>
+        <a href="/event.ics">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+          להוריד ליומן אחר קובץ ics
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAYMENT SLOT — ACTIVATED 3.8.2026 on Anat's "fix everything" (Morning link live, Grow approved). -->
+  <section id="pay">
+    <div class="wrap" style="text-align:center;">
+      <h2 style="margin-bottom:12px;">עוד צעד אחד קטן</h2>
+      <p style="font-size:16px;color:var(--ink-soft);max-width:460px;margin:0 auto 28px;">העלות הסמלית היא מה שהופך "אולי אגיע" ל"שמרתי מקום". המקום נשמר סופית עם התשלום.</p>
+      <a class="cta" href="https://mrng.to/xLBVX7IdR6" onclick="if(window.posthog&&posthog.capture)posthog.capture('pay_clicked')">להשלמת ההרשמה: 60 ₪</a>
+      <p style="font-size:14px;color:var(--ink-soft);margin-top:18px;">המחיר כולל מע"מ. התשלום כפוף ל<a href="/takanon" style="color:inherit;">תקנון הרכישה והביטול</a>.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="share">
+        <span class="ask">מכירים מישהו שצריך לשמוע את זה?</span>
+        <button id="share-btn" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>
+          שתפו את ההרצאה
+        </button>
+        <span class="copied" id="share-msg"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="back">
+    <div class="wrap">
+      <a href="/">חזרה לעמוד ההרצאה</a>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+        + '&text=' + encodeURIComponent('The Human is the Loop')
+        + '&dates=20260906T150000Z/20260906T180000Z'
+        + '&ctz=' + encodeURIComponent('Asia/Jerusalem')
+        + '&details=' + encodeURIComponent('דלתות 18:00 · מתחילים 18:30 · הכתובת המדויקת נשלחת במייל שבוע לפני הערב')
+        + '&location=' + encodeURIComponent('תל אביב');
+      document.getElementById('gcal-link').href = gcal;
+
+      var sBtn = document.getElementById('share-btn');
+      var sMsg = document.getElementById('share-msg');
+      var shareUrl = 'https://thehumanistheloop.co/';
+      var shareText = 'The Human is the Loop · האדם הוא הלולאה. הרצאה של ענת וייסמן על למה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI. ערב אחד, 6.9.2026, תל אביב.';
+      sBtn.addEventListener('click', async function () {
+        if (navigator.share) {
+          try { await navigator.share({ title: 'The Human is the Loop', text: shareText, url: shareUrl }); return; }
+          catch (e) { if (e && e.name === 'AbortError') return; }
+        }
+        try {
+          await navigator.clipboard.writeText(shareUrl);
+          sMsg.textContent = 'הקישור הועתק. אפשר להדביק לכל מי שצריך.';
+        } catch (e) {
+          window.open('https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + shareUrl), '_blank');
+        }
+      });
+    })();
+  </script>
+
+  <footer>
+    <div class="wrap">את הדף הזה בנתה <b>קליאו</b>, סוכנת ה-AI של ענת, לא ענת. גם זה חלק מהסיפור. <span class="heart">♥</span><br/>ענת וייסמן · Connecting the Dots · <a href="/takanon">תקנון רכישה וביטול</a> · <a href="/privacy">מדיניות פרטיות</a></div>
+  </footer>
+
+</body>
+</html>

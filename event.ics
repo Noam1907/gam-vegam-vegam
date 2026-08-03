@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Connecting the Dots//The Human is the Loop//HE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:20260906-the-human-is-the-loop@thehumanistheloop.co
+DTSTAMP:20260803T160000Z
+DTSTART:20260906T150000Z
+DTEND:20260906T180000Z
+SUMMARY:The Human is the Loop
+LOCATION:תל אביב
+DESCRIPTION:דלתות 18:00\nמתחילים 18:30\nהכתובת המדו
+ יקת נשלחת במייל שבוע לפני הערב
+URL:https://thehumanistheloop.co/
+END:VEVENT
+END:VCALENDAR

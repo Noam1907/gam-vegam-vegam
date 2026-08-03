@@ -66,6 +66,10 @@
   .sub { font-size: clamp(19px, 3vw, 25px); font-weight: 300; color: rgba(242,236,224,0.72); margin-bottom: 34px; }
   .meta { font-size: 16px; color: var(--cream); margin-bottom: 20px; }
   .meta span { white-space: nowrap; }
+  @media (max-width: 640px) {
+    .meta span { white-space: normal; }
+    html, body { max-width: 100%; overflow-x: hidden; }
+  }
   .meta .sep { color: var(--gold); margin: 0 12px; }
   .notice { max-width: 640px; margin: 0 auto 30px; font-size: 16px; line-height: 1.7; font-weight: 300; color: rgba(242,236,224,0.82); border-top: 1px solid rgba(212,175,110,0.35); border-bottom: 1px solid rgba(212,175,110,0.35); padding: 16px 0; }
 
@@ -77,6 +81,15 @@
   }
   .cta:hover { background: var(--gold-soft); transform: translateY(-1px); }
   .seats { display: block; margin-top: 16px; font-size: 14px; color: rgba(242,236,224,0.6); }
+  .ignore-row { margin-top: 22px; }
+  .ignore-link {
+    background: none; border: none; cursor: pointer; font-family: inherit;
+    font-size: 14px; font-weight: 300; color: rgba(242,236,224,0.5);
+    text-decoration: underline; text-underline-offset: 4px; padding: 4px 6px;
+    transition: color .15s ease;
+  }
+  .ignore-link:hover { color: rgba(242,236,224,0.78); }
+  .ignore-reply { margin-top: 10px; font-size: 15px; font-weight: 300; line-height: 1.7; color: rgba(242,236,224,0.72); }
 
   section { padding: 58px 0; border-bottom: 1px solid var(--line); }
   .lead { font-size: clamp(20px, 3vw, 24px); font-weight: 300; line-height: 1.7; }
@@ -161,12 +174,16 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
       <h1 dir="ltr">The Human is the Loop</h1>
       <div class="sub">למה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI</div>
       <div class="meta">
-        <span>יום ראשון, 6.9.2026</span><span class="sep">·</span><span>תל אביב, ליד תחנת הרכבת הקלה קרליבך</span><span class="sep">·</span><span>הכתובת המדויקת נשלחת לנרשמים עם אישור ההרשמה</span>
+        <span>יום ראשון, 6.9.2026</span><span class="sep">·</span><span>דלתות 18:00</span><span class="sep">·</span><span>מתחילים 18:30</span><span class="sep">·</span><span>תל אביב, ליד תחנת הרכבת הקלה קרליבך</span><span class="sep">·</span><span>הכתובת המדויקת נשלחת לנרשמים שבוע לפני הערב</span>
       </div>
       <p class="notice">לא באתי להסביר לכם איך למצוא ערך בעצמכם. בניתי חברת AI, צוות של סוכנים, ואת קליאו, שמנהלת את הרישום להרצאה הזאת בעצמה. האדם הוא לא בתוך הלולאה. האדם הוא הלולאה.</p>
       <a class="cta" href="#register">שמרו לי מקום ל-6.9</a>
       <span class="seats">מקומות מוגבלים</span>
       <span class="seats" style="margin-top:10px;">לכניסה עלות סמלית של 60 ₪, רק כדי לשמור שהכיסא שלך לא יישאר ריק.</span>
+      <div class="ignore-row">
+        <button id="ignore-btn" type="button" class="ignore-link" aria-expanded="false" aria-controls="ignore-reply">אני מעדיף להמשיך להתעלם</button>
+        <p id="ignore-reply" class="ignore-reply" hidden>בסדר גמור. השאלה תחכה. היא טובה בזה.</p>
+      </div>
     </div>
   </header>
 
@@ -246,12 +263,12 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
         <input type="email" name="אימייל" placeholder="אימייל" required autocomplete="email" />
         <input type="tel" name="טלפון" placeholder="טלפון (לא חובה)" autocomplete="tel" />
         <textarea name="אם מחר לוקחים ממך את הטייטל, מי את/ה" placeholder="אם מחר לוקחים ממך את הטייטל, מי את/ה? במשפט אחד. (אולי נשלב תשובות בערב עצמו)" rows="3"></textarea>
-        <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
         <label class="consent"><input type="checkbox" name="אישור תקנון" value="כן" required /><span>קראתי ואישרתי את <a href="/takanon">התקנון</a> ואת <a href="/privacy">מדיניות הפרטיות</a></span></label>
         <button type="submit" class="cta">לשמור לי מקום</button>
       </form>
       <div id="reg-ok" class="reg-ok" hidden>
-        רשום/ה. שמרתי לך מקום ל-6.9. הכתובת המדויקת נשלחת עם אישור ההרשמה. קליאו
+        רשום/ה. שמרתי לך מקום ל-6.9. הכתובת המדויקת נשלחת שבוע לפני הערב. קליאו
       </div>
 
       <div class="share">
@@ -276,23 +293,35 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
         var label = btn.textContent;
         btn.textContent = 'שומרת מקום...';
         var data = Object.fromEntries(new FormData(f).entries());
-        data._subject = 'רישום חדש להרצאה: The Human is the Loop';
-        data._template = 'table';
-        if (data['אימייל']) data._replyto = data['אימייל'];
+        data.access_key = '690d6955-066d-4f3c-b193-43aa737740ea';
+        data.subject = 'רישום חדש להרצאה: The Human is the Loop';
+        if (data['אימייל']) data.email = data['אימייל'];
         try {
+          /* Rollback (FormSubmit, release 1):
           var r = await fetch('https://formsubmit.co/ajax/270a46323ff014e5308e2a7db82902fd', {
+            with data._subject / data._template='table' / data._replyto and honeypot input name="_honey" });
+          */
+          var r = await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify(data)
           });
           if (!r.ok) throw new Error('bad');
-          f.hidden = true;
+          f.style.display = 'none';
           document.getElementById('reg-ok').hidden = false;
+          window.location.href = '/thanks';
         } catch (err) {
           btn.disabled = false;
           btn.textContent = label;
           alert('משהו השתבש לרגע. אפשר גם לכתוב לי ישירות: cleo@connecthedots.co');
         }
+      });
+
+      var igBtn = document.getElementById('ignore-btn');
+      igBtn.addEventListener('click', function () {
+        document.getElementById('ignore-reply').hidden = false;
+        igBtn.setAttribute('aria-expanded', 'true');
+        if (window.posthog && posthog.capture) posthog.capture('ignore_clicked');
       });
 
       var sBtn = document.getElementById('share-btn');
