@@ -268,7 +268,7 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
         <button type="submit" class="cta">לשמור לי מקום</button>
       </form>
       <div id="reg-ok" class="reg-ok" hidden>
-        רשום/ה. שמרתי לך מקום ל-6.9. הכתובת המדויקת נשלחת שבוע לפני הערב. קליאו
+        רשום/ה! ממשיכים להשלמת התשלום. אם לא עברת אוטומטית — <a href="https://mrng.to/xLBVX7IdR6" style="color:inherit;">לחצו כאן</a>. קליאו
       </div>
 
       <div class="share">
@@ -309,7 +309,7 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
           if (!r.ok) throw new Error('bad');
           f.style.display = 'none';
           document.getElementById('reg-ok').hidden = false;
-          window.location.href = '/thanks';
+          window.location.href = 'https://mrng.to/xLBVX7IdR6';
         } catch (err) {
           btn.disabled = false;
           btn.textContent = label;
