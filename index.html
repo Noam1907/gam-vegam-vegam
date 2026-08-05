@@ -81,15 +81,16 @@
   }
   .cta:hover { background: var(--gold-soft); transform: translateY(-1px); }
   .seats { display: block; margin-top: 16px; font-size: 14px; color: rgba(242,236,224,0.6); }
-  .ignore-row { margin-top: 22px; }
+  .ignore-row { margin-top: 26px; }
   .ignore-link {
-    background: none; border: none; cursor: pointer; font-family: inherit;
-    font-size: 14px; font-weight: 300; color: rgba(242,236,224,0.5);
-    text-decoration: underline; text-underline-offset: 4px; padding: 4px 6px;
-    transition: color .15s ease;
+    display: inline-block; background: none; cursor: pointer; font-family: inherit;
+    font-size: 16px; font-weight: 400; color: rgba(242,236,224,0.78);
+    border: 1px solid rgba(242,236,224,0.3); border-radius: 999px;
+    padding: 11px 26px; text-decoration: none;
+    transition: color .15s ease, border-color .15s ease, background .15s ease;
   }
-  .ignore-link:hover { color: rgba(242,236,224,0.78); }
-  .ignore-reply { margin-top: 10px; font-size: 15px; font-weight: 300; line-height: 1.7; color: rgba(242,236,224,0.72); }
+  .ignore-link:hover { color: rgba(242,236,224,0.95); border-color: rgba(242,236,224,0.55); background: rgba(242,236,224,0.06); }
+  .ignore-reply { margin-top: 14px; font-size: 16.5px; font-weight: 300; line-height: 1.7; color: rgba(242,236,224,0.85); }
 
   section { padding: 58px 0; border-bottom: 1px solid var(--line); }
   .lead { font-size: clamp(20px, 3vw, 24px); font-weight: 300; line-height: 1.7; }
