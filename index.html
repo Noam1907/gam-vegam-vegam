@@ -57,6 +57,10 @@
     padding: 92px 0 84px;
     border-bottom: none;
   }
+  /* The waitlist copy ships inside this page and starts hidden; the rail only decides
+     which half is shown. Needed because .consent and .seats set their own display and
+     would otherwise win against the plain [hidden] attribute. */
+  [hidden] { display: none !important; }
   .consent { display:flex; gap:8px; align-items:flex-start; font-size:14px; color:var(--ink-soft); margin:2px 0 6px; }
   .consent input { margin-top:3px; accent-color: var(--gold); }
   .consent a { color: inherit; text-decoration: underline; }
@@ -178,9 +182,11 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
         <span>יום ראשון, 6.9.2026</span><span class="sep">·</span><span>דלתות 18:00</span><span class="sep">·</span><span>מתחילים 18:30</span><span class="sep">·</span><span>תל אביב, ליד תחנת הרכבת הקלה קרליבך</span>
       </div>
       <p class="notice">לא באתי להסביר לכם איך למצוא ערך בעצמכם. בניתי חברת AI, צוות של סוכנים, ואת קליאו, שמנהלת את הרישום להרצאה הזאת בעצמה. האדם הוא לא בתוך הלולאה. האדם הוא הלולאה.</p>
-      <a class="cta" href="#register">שמרו לי מקום ל-6.9</a>
-      <span class="seats">מקומות מוגבלים</span>
-      <span class="seats" style="margin-top:10px;">לכניסה עלות סמלית של 60 ₪, רק כדי לשמור שהכיסא שלך לא יישאר ריק.</span>
+      <a class="cta" href="#register"><span class="when-open">שמרו לי מקום ל-6.9</span><span class="when-wait" hidden>לרשימת ההמתנה ל-6.9</span></a>
+      <span class="seats when-open">מקומות מוגבלים</span>
+      <span class="seats when-wait" hidden>החדר מלא</span>
+      <span class="seats when-open" style="margin-top:10px;">לכניסה עלות סמלית של 60 ₪, רק כדי לשמור שהכיסא שלך לא יישאר ריק.</span>
+      <span class="seats when-wait" hidden style="margin-top:10px;">כל הכיסאות נתפסו. אם מתפנה מקום, הראשונים ברשימה יודעים ראשונים.</span>
       <div class="ignore-row">
         <button id="ignore-btn" type="button" class="ignore-link" aria-expanded="false" aria-controls="ignore-reply">אני מעדיף להמשיך להתעלם?</button>
         <p id="ignore-reply" class="ignore-reply" hidden>בסדר גמור. השאלה תחכה. היא טובה בזה.</p>
@@ -256,9 +262,12 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
 
   <section class="final" id="register">
     <div class="wrap">
-      <h3>לשמור לך מקום בחדר?</h3>
-      <p>מקומות מוגבלים. כשמתמלא, רשימת המתנה, וראשונים בה יודעים ראשונים.</p>
-      <p style="font-size:15px;color:var(--ink-soft);margin-top:-14px;margin-bottom:30px;">העלות הסמלית, 60 ₪, היא לא על הכסף. היא ההתחייבות הקטנה שהופכת "אולי אגיע" ל"שמרתי מקום", וזה מה ששומר שהחדר יתמלא באנשים שבאמת רוצים להיות בו.</p>
+      <h3 class="when-open">לשמור לך מקום בחדר?</h3>
+      <h3 class="when-wait" hidden>החדר מלא. להיכנס לרשימה?</h3>
+      <p class="when-open">מקומות מוגבלים. כשמתמלא, רשימת המתנה, וראשונים בה יודעים ראשונים.</p>
+      <p class="when-wait" hidden>כל הכיסאות בחדר נתפסו. הרשימה פתוחה, ואם מתפנה מקום, הראשונים בה יודעים ראשונים.</p>
+      <p class="when-open" style="font-size:15px;color:var(--ink-soft);margin-top:-14px;margin-bottom:30px;">העלות הסמלית, 60 ₪, היא לא על הכסף. היא ההתחייבות הקטנה שהופכת "אולי אגיע" ל"שמרתי מקום", וזה מה ששומר שהחדר יתמלא באנשים שבאמת רוצים להיות בו.</p>
+      <p class="when-wait" hidden style="font-size:15px;color:var(--ink-soft);margin-top:-14px;margin-bottom:30px;">אין כאן תשלום ואין התחייבות. רק השארת פרטים, וכשמתפנה מקום או כשנקבע ערב נוסף, אני מעדכנת.</p>
       <form id="reg-form" class="reg" novalidate>
         <input type="text" name="שם" placeholder="שם מלא" required autocomplete="name" />
         <input type="email" name="אימייל" placeholder="אימייל" required autocomplete="email" />
@@ -266,11 +275,13 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
         <textarea name="אם מחר לוקחים ממך את הטייטל, מי את/ה" placeholder="אם מחר לוקחים ממך את הטייטל, מי את/ה? במשפט אחד. (אולי נשלב תשובות בערב עצמו)" rows="3"></textarea>
         <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
         <label class="consent"><input type="checkbox" name="אישור תקנון" value="כן" required /><span>קראתי ואישרתי את <a href="/takanon">התקנון</a> ואת <a href="/privacy">מדיניות הפרטיות</a></span></label>
-        <button type="submit" class="cta">לשמור לי מקום</button>
+        <label class="consent when-wait" hidden><input type="checkbox" id="consent-next" name="עדכון על הערב הבא" value="כן" /><span>אפשר לעדכן אותי גם על הערב הבא ועל תכנים קרובים. אפשר להסיר בכל רגע, בתשובה למייל.</span></label>
+        <button type="submit" class="cta"><span class="when-open">לשמור לי מקום</span><span class="when-wait" hidden>להוסיף אותי לרשימה</span></button>
       </form>
       <div id="reg-ok" class="reg-ok" hidden>
-        עוד שלב אחד ואת/ה רשום/ה...<br>
-        לא נפתח? <a href="https://mrng.to/xLBVX7IdR6" style="color:inherit;">אפשר ללחוץ כאן</a>. קליאו
+        <span class="when-open">עוד שלב אחד ואת/ה רשום/ה...<br>
+        לא נפתח? <a href="https://mrng.to/xLBVX7IdR6" style="color:inherit;">אפשר ללחוץ כאן</a>. קליאו</span>
+        <span class="when-wait" hidden>את/ה ברשימה. אם מתפנה מקום, או כשנקבע ערב נוסף, אני מעדכנת. קליאו</span>
       </div>
 
       <div class="share">
@@ -287,16 +298,77 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
   <script>
     (function () {
       var f = document.getElementById('reg-form');
+
+      /* ── which of the two forms is this? ──────────────────────────────────────
+         The answer comes from the seat rail, and it is a decision Anat makes by hand:
+         filling the room changes nothing on its own (her ruling, 13.8). If the rail is
+         slow, unreachable, or simply gone, the page stays exactly as it is today and
+         keeps taking payments. A registration rail must never be able to fail CLOSED. */
+      var MODE = 'open';
+      var RAIL = 'https://seats.connecthedots.co';
+
+      function applyMode(mode) {
+        MODE = (mode === 'waitlist') ? 'waitlist' : 'open';
+        var wait = MODE === 'waitlist';
+        document.querySelectorAll('.when-wait').forEach(function (el) { el.hidden = !wait; });
+        document.querySelectorAll('.when-open').forEach(function (el) { el.hidden = wait; });
+      }
+
+      function askMode() {
+        return fetch(RAIL + '/api/mode', { mode: 'cors', cache: 'no-store' })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (d) { if (d && d.mode) applyMode(d.mode); })
+          .catch(function () { /* stay with what we have */ });
+      }
+      askMode();
+
+      /* The row is stored on our side too, not only mailed. Fire-and-forget on purpose:
+         a store that is down must not cost a registration.
+
+         keepalive, because on the open path the very next line navigates to the payment
+         page and the browser cancels an ordinary fetch on the way out. text/plain for the
+         same reason: application/json forces a CORS preflight, and the navigation kills
+         that too, so the row would simply never arrive. The rail reads the body as JSON
+         regardless of the header. */
+      function storeLead(data) {
+        var consent = document.getElementById('consent-next');
+        return fetch(RAIL + '/api/lead', {
+          method: 'POST',
+          mode: 'cors',
+          keepalive: true,
+          headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+          body: JSON.stringify({
+            type: MODE === 'waitlist' ? 'waitlist' : 'registration',
+            name: data['שם'] || '',
+            email: data['אימייל'] || '',
+            phone: data['טלפון'] || '',
+            answer: data['אם מחר לוקחים ממך את הטייטל, מי את/ה'] || '',
+            consent: !!(consent && consent.checked && MODE === 'waitlist'),
+            source: document.referrer || location.search || 'direct'
+          })
+        }).catch(function () {});
+      }
+
       f.addEventListener('submit', async function (e) {
         e.preventDefault();
         if (!f.reportValidity()) return;
         var btn = f.querySelector('button');
         btn.disabled = true;
-        var label = btn.textContent;
-        btn.textContent = 'מעבירה לתשלום...';
+        var label = btn.innerHTML;
+        btn.textContent = 'רגע...';
+
+        /* Ask again, here, at the moment it matters. A tab left open since this morning
+           was told the room was open; if it has filled since, the worst thing this page
+           can do is take another 60 ₪ for a chair that no longer exists. Capped at two
+           seconds so a slow rail delays nobody. */
+        await Promise.race([askMode(), new Promise(function (r) { setTimeout(r, 2000); })]);
+        btn.textContent = MODE === 'waitlist' ? 'רושמת אותך...' : 'מעבירה לתשלום...';
+
         var data = Object.fromEntries(new FormData(f).entries());
         data.access_key = '690d6955-066d-4f3c-b193-43aa737740ea';
-        data.subject = 'רישום חדש להרצאה: The Human is the Loop';
+        data.subject = MODE === 'waitlist'
+          ? 'רשימת המתנה: The Human is the Loop'
+          : 'רישום חדש להרצאה: The Human is the Loop';
         if (data['אימייל']) data.email = data['אימייל'];
         try {
           /* Rollback (FormSubmit, release 1):
@@ -309,14 +381,20 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
             body: JSON.stringify(data)
           });
           if (!r.ok) throw new Error('bad');
+          storeLead(data);
           f.style.display = 'none';
           document.getElementById('reg-ok').hidden = false;
+          if (MODE === 'waitlist') {
+            /* No payment, so no navigation, so a normal capture is fine here. */
+            if (window.posthog && posthog.capture) posthog.capture('waitlist_joined');
+            return;
+          }
           /* sendBeacon, because the next line navigates away and a normal XHR would be cancelled */
           if (window.posthog && posthog.capture) posthog.capture('registration_submitted', {}, { transport: 'sendBeacon' });
           window.location.href = 'https://mrng.to/xLBVX7IdR6';
         } catch (err) {
           btn.disabled = false;
-          btn.textContent = label;
+          btn.innerHTML = label;
           if (window.posthog && posthog.capture) posthog.capture('registration_failed');
           alert('משהו השתבש לרגע. אפשר גם לכתוב לי ישירות: cleo@connecthedots.co');
         }
