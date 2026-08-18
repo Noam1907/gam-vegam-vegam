@@ -63,6 +63,11 @@
   [hidden] { display: none !important; }
   .consent { display:flex; gap:8px; align-items:flex-start; font-size:14px; color:var(--ink-soft); margin:2px 0 6px; }
   .consent input { margin-top:3px; accent-color: var(--gold); }
+  /* .reg input sets width:100% for the text fields; without this the consent checkbox
+     inherits it, eats half the flex row (166px on a 375px phone) and crushes the
+     disclaimer into an unreadable column that runs off the edge. Anat, 18.8. */
+  .consent input[type="checkbox"] { width:18px; height:18px; flex:0 0 18px; padding:0; border-radius:4px; }
+  .consent span { flex:1 1 auto; min-width:0; }
   .consent a { color: inherit; text-decoration: underline; }
   .kicker { color: var(--gold); font-weight: 500; letter-spacing: 0.34em; font-size: 13px; text-transform: uppercase; margin-bottom: 34px; }
   h1 { font-family: 'Frank Ruhl Libre', Georgia, serif; color: var(--cream); font-size: clamp(54px, 11vw, 96px); font-weight: 700; line-height: 1.0; letter-spacing: 0; margin-bottom: 26px; }
