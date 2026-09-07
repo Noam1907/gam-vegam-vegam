@@ -1,449 +1,325 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
+<!doctype html>
+<html dir="rtl" lang="he">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>The Human is the Loop · ענת וייסמן</title>
-<meta name="description" content="הרצאה של ענת וייסמן. ערב אחד, 6.9.2026, תל אביב, מקומות מוגבלים. האדם הוא לא בתוך הלולאה, האדם הוא הלולאה. על למה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI." />
+<meta name="color-scheme" content="light">
+<meta name="description" content="ההרצאה של ענת וייסמן, 6.9.2026, תל אביב. האדם הוא לא בתוך הלולאה, האדם הוא הלולאה. מה נשאר איתכם, ומה עושים עם זה מחר בבוקר.">
 <link rel="canonical" href="https://thehumanistheloop.co/">
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://thehumanistheloop.co/" />
-<meta property="og:title" content="The Human is the Loop · האדם הוא הלולאה · הרצאה של ענת וייסמן" />
-<meta property="og:description" content="הרצאה של ענת וייסמן. ערב אחד, 6.9.2026, תל אביב. האדם הוא הלולאה, ולמה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI." />
-<meta property="og:image" content="https://thehumanistheloop.co/og.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:locale" content="he_IL" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="The Human is the Loop · האדם הוא הלולאה · הרצאה של ענת וייסמן" />
-<meta name="twitter:image" content="https://thehumanistheloop.co/og.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" />
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thehumanistheloop.co/">
+<meta property="og:title" content="The Human is the Loop · האדם הוא הלולאה · ההרצאה של ענת וייסמן">
+<meta property="og:description" content="ערב אחד, 6.9.2026, תל אביב. האדם הוא הלולאה, ולמה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI.">
+<meta property="og:image" content="https://thehumanistheloop.co/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="he_IL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Human is the Loop · האדם הוא הלולאה · ההרצאה של ענת וייסמן">
+<meta name="twitter:image" content="https://thehumanistheloop.co/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --paper: #f8f3ea;
-    --paper-warm: #f1e8d8;
-    --ink: #25313f;
-    --ink-soft: #5d6675;
-    --terra: #c4703f;
-    --terra-deep: #a85a2e;
-    --line: rgba(37,49,63,0.12);
-    --card: #fffdf8;
-    --shadow: 0 16px 44px rgba(37,49,63,0.07);
-    --navy: #1a2540;
-    --navy-deep: #121a2e;
-    --gold: #d8a64e;
-    --gold-soft: #e6bd6e;
-    --gold-deep: #ab7a2a;
-    --cream: #f2ece0;
+  /* THE HOUSE skin, the same one as /feedback/, connecthedots.co/links/ and /whoami/:
+     cream ground, navy ink, sky the one accent. The page after the talk, opened on a phone.
+     Sections sit on a dotted line, connecting the dots. */
+  :root{
+    color-scheme:light;
+    --cream:#F0EBE0; --navy:#1B2838; --sky:#38BDEF; --paper:#FFFDF8;
+    --ink-12:rgba(27,40,56,.12); --ink-25:rgba(27,40,56,.25); --ink-28:rgba(27,40,56,.28); --ink-55:rgba(27,40,56,.55);
+    --ink-72:rgba(27,40,56,.72); --cream-72:rgba(240,235,224,.72); --cream-55:rgba(240,235,224,.55);
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Heebo', system-ui, 'Segoe UI', Arial, sans-serif;
-    background: var(--paper);
-    color: var(--ink);
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
-  .serif { font-family: 'Frank Ruhl Libre', Georgia, serif; }
-  .wrap { max-width: 680px; margin: 0 auto; padding: 0 28px; }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--cream);color:var(--navy);
+    font-family:Rubik,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-text-size-adjust:100%;line-height:1.55}
+  html{scroll-behavior:smooth}
+  body{min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden}
+  .wrap{width:100%;max-width:620px;margin:0 auto;padding:0 20px}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+  .marker{font-family:Caveat,"Bradley Hand","Marker Felt",cursive;font-weight:600;direction:ltr}
+  ::selection{background:var(--sky);color:var(--navy)}
+  [hidden]{display:none!important}
 
-  .hero {
-    position: relative; text-align: center;
-    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-deep) 100%);
-    color: var(--cream);
-    padding: 92px 0 84px;
-    border-bottom: none;
-  }
-  /* The waitlist copy ships inside this page and starts hidden; the rail only decides
-     which half is shown. Needed because .consent and .seats set their own display and
-     would otherwise win against the plain [hidden] attribute. */
-  [hidden] { display: none !important; }
-  .consent { display:flex; gap:8px; align-items:flex-start; font-size:14px; color:var(--ink-soft); margin:2px 0 6px; }
-  .consent input { margin-top:3px; accent-color: var(--gold); }
-  /* .reg input sets width:100% for the text fields; without this the consent checkbox
-     inherits it, eats half the flex row (166px on a 375px phone) and crushes the
-     disclaimer into an unreadable column that runs off the edge. Anat, 18.8. */
-  .consent input[type="checkbox"] { width:18px; height:18px; flex:0 0 18px; padding:0; border-radius:4px; }
-  .consent span { flex:1 1 auto; min-width:0; }
-  .consent a { color: inherit; text-decoration: underline; }
-  .kicker { color: var(--gold); font-weight: 500; letter-spacing: 0.34em; font-size: 13px; text-transform: uppercase; margin-bottom: 34px; }
-  h1 { font-family: 'Frank Ruhl Libre', Georgia, serif; color: var(--cream); font-size: clamp(54px, 11vw, 96px); font-weight: 700; line-height: 1.0; letter-spacing: 0; margin-bottom: 26px; }
-  h1 .dot { color: var(--gold); font-size: 0.34em; vertical-align: middle; margin: 0 0.36em; }
-  .sub { font-size: clamp(19px, 3vw, 25px); font-weight: 300; color: rgba(242,236,224,0.72); margin-bottom: 34px; }
-  .meta { font-size: 16px; color: var(--cream); margin-bottom: 20px; display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; row-gap: 6px; }
-  .meta span { white-space: nowrap; }
-  @media (max-width: 640px) {
-    .meta span { white-space: normal; }
-    html, body { max-width: 100%; overflow-x: hidden; }
-  }
-  .meta .sep { color: var(--gold); margin: 0 12px; }
-  .notice { max-width: 640px; margin: 0 auto 30px; font-size: 16px; line-height: 1.7; font-weight: 300; color: rgba(242,236,224,0.82); border-top: 1px solid rgba(212,175,110,0.35); border-bottom: 1px solid rgba(212,175,110,0.35); padding: 16px 0; }
+  /* hero */
+  .hero{background:var(--navy);color:var(--cream);padding:28px 0 38px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:-40px;background:url(anat.png) center 30%/cover no-repeat;filter:blur(42px) saturate(.7);opacity:.35;z-index:0}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,40,56,.25),rgba(27,40,56,.9));z-index:0}
+  .hero .wrap{position:relative;z-index:1}
+  .hero .top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:26px}
+  .hero .logo{display:block;width:132px;height:auto}
+  .photo{width:78px;height:78px;border-radius:50%;overflow:hidden;border:3px solid var(--cream);background:var(--cream);
+    box-shadow:0 10px 30px rgba(0,0,0,.35);flex:0 0 78px}
+  .photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .kicker{margin:0 0 12px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--sky);direction:ltr;text-align:right}
+  h1{font-size:46px;line-height:1.02;font-weight:800;letter-spacing:-1.5px;margin:0;direction:ltr;text-align:right}
+  h1 .lit{color:var(--sky)}
+  .hero .when{margin:18px 0 0;font-size:19px;line-height:1.5;font-weight:500}
+  .hero .lede{margin:10px 0 0;font-size:18px;line-height:1.55;color:var(--cream-72)}
+  .hero .lede b{color:var(--cream);font-weight:700}
+  .hero .aside{margin:22px 0 0;font-size:26px;line-height:1;color:var(--sky);opacity:.9;transform:rotate(-2deg);transform-origin:right;text-align:right}
+  .ctas{display:flex;flex-direction:column;gap:12px;margin:26px 0 0}
+  .btn{display:flex;align-items:center;justify-content:center;min-height:58px;padding:13px 22px;text-align:center;
+    font:inherit;font-size:18px;font-weight:700;line-height:1.25;border-radius:999px;border:1.5px solid var(--sky);
+    background:var(--sky);color:var(--navy);text-decoration:none;cursor:pointer;
+    box-shadow:0 12px 30px rgba(0,0,0,.25);transition:opacity .15s ease,transform .1s ease;-webkit-tap-highlight-color:transparent}
+  .btn.ghost{background:transparent;color:var(--cream);border-color:var(--cream-55);box-shadow:none}
+  .btn:active{transform:scale(.99)}
+  .btn:focus-visible{outline:3px solid var(--cream);outline-offset:3px}
 
-  .cta {
-    display: inline-block; background: var(--gold); color: var(--navy-deep);
-    font-weight: 700; font-size: 18px; padding: 15px 44px; border-radius: 12px;
-    text-decoration: none; box-shadow: 0 10px 26px rgba(216,166,78,0.28);
-    transition: background .15s ease, transform .15s ease;
+  /* body */
+  main{flex:1;padding:8px 0 10px;counter-reset:sec}
+  section:not([hidden]){counter-increment:sec}
+  section h2 .n::before{content:counter(sec,decimal-leading-zero)}
+  .line{position:relative}
+  .line::before{content:"";position:absolute;top:0;bottom:0;right:38px;width:0;border-right:2px dashed var(--ink-25);z-index:0}
+  section{position:relative;z-index:1;padding:30px 0 6px}
+  section h2{display:flex;align-items:center;gap:14px;font-size:24px;line-height:1.2;font-weight:700;letter-spacing:-.3px;margin:0 0 14px}
+  section h2 .n{flex:0 0 38px;width:38px;height:38px;border-radius:50%;background:var(--navy);color:var(--cream);
+    font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:14px;font-weight:400;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 4px var(--cream),0 0 0 6px var(--sky)}
+  .card{background:var(--paper);border:1px solid var(--ink-12);border-radius:22px;padding:22px 20px;box-shadow:0 10px 30px rgba(27,40,56,.07)}
+  .card p{margin:0}
+  .lead{font-size:18px;line-height:1.6}
+  .lead b{font-weight:700}
+  .points{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:12px}
+  .points li{display:flex;gap:12px;align-items:flex-start;font-size:16.5px;line-height:1.5}
+  .points li::before{content:"";flex:0 0 10px;width:10px;height:10px;border-radius:50%;background:var(--sky);margin-top:9px}
+  .why{font-size:15px;line-height:1.5;color:var(--ink-72);margin:0 0 14px}
+
+  /* photos: a two column grid, the first one wide. Fill from photos/ and unhide the section. */
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0}
+  .gallery figure{margin:0;border-radius:18px;overflow:hidden;background:var(--paper);border:1px solid var(--ink-12);aspect-ratio:4/3}
+  .gallery figure.wide{grid-column:1/-1;aspect-ratio:16/10}
+  .gallery img{width:100%;height:100%;object-fit:cover;display:block}
+  .gallery figcaption{display:none}
+
+  /* quotes */
+  .quotes{display:grid;gap:12px;margin:0}
+  .quote{background:var(--paper);border:1px solid var(--ink-12);border-radius:22px;padding:20px 20px 16px;box-shadow:0 10px 30px rgba(27,40,56,.07)}
+  .quote p{margin:0;font-size:18px;line-height:1.55}
+  .quote .by{margin:10px 0 0;font-size:14px;color:var(--ink-72)}
+  .quote .by::before{content:"";display:inline-block;width:18px;height:2px;background:var(--sky);vertical-align:middle;margin-left:8px}
+
+  /* video */
+  .video-frame{position:relative;width:100%;padding-top:56.25%;border-radius:18px;overflow:hidden;background:#000;border:1px solid var(--ink-12);box-shadow:0 10px 30px rgba(27,40,56,.1)}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .cap{margin:10px 0 0;font-size:14px;color:var(--ink-72);text-align:center}
+
+  /* podcast card */
+  .chair{background:var(--navy);color:var(--cream);border-radius:22px;padding:26px 22px;box-shadow:0 12px 30px rgba(27,40,56,.22)}
+  .chair .eyebrow{margin:0 0 8px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--sky);direction:ltr;text-align:right}
+  .chair h3{margin:0 0 8px;font-size:24px;line-height:1.15;font-weight:800}
+  .chair p{margin:0 0 18px;font-size:16px;line-height:1.5;color:var(--cream-72)}
+  .chair .btn{display:inline-flex;min-height:50px;font-size:16px;box-shadow:none}
+
+  /* doors */
+  .doors{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+  .door{display:flex;align-items:center;gap:14px;min-height:64px;padding:12px 18px;
+    border:1.5px solid var(--ink-28);border-radius:999px;color:var(--navy);text-decoration:none;background:var(--paper);
+    transition:background .15s ease,border-color .15s ease;-webkit-tap-highlight-color:transparent}
+  .door:hover,.door:focus-visible{border-color:var(--sky);outline:none}
+  .door.primary{background:var(--navy);color:var(--cream);border-color:var(--navy)}
+  .door .txt{display:flex;flex-direction:column;gap:2px}
+  .door .name{font-size:18px;font-weight:700;line-height:1.25}
+  .door .sub{font-size:14px;line-height:1.35;opacity:.75}
+
+  /* next evening */
+  .reg{display:grid;gap:12px;margin:0}
+  .reg input[type=text],.reg input[type=email]{
+    width:100%;font:inherit;font-size:17px;line-height:1.5;color:var(--navy);background:var(--cream);
+    border:1.5px solid transparent;border-radius:16px;padding:14px 16px;outline:none;transition:border-color .15s ease,background .15s ease}
+  .reg input:focus{border-color:var(--sky);background:#fff}
+  ::placeholder{color:var(--ink-55)}
+  .check{display:flex;align-items:flex-start;gap:12px;font-size:15px;line-height:1.4;padding:4px 0;cursor:pointer;color:var(--ink-72)}
+  .check input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--navy);flex:0 0 22px}
+  .check a{color:inherit}
+  .reg .btn{width:100%;background:var(--navy);color:var(--cream);border-color:var(--navy);box-shadow:0 12px 30px rgba(27,40,56,.22)}
+  .reg .btn:disabled{opacity:.6;cursor:default}
+  .reg .btn:focus-visible{outline:3px solid var(--sky)}
+  .err{display:none;margin:0;padding:12px 16px;border-radius:14px;background:rgba(56,189,239,.16);font-size:15px;line-height:1.5}
+  .err.on{display:block}
+  .ok{font-size:17px;line-height:1.55;margin:0}
+  .hp{position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden}
+
+  footer{padding:30px 0 36px;margin-top:22px;text-align:center}
+  footer .cleo{font-size:14px;line-height:1.55;color:var(--ink-72);margin:0 0 14px}
+  footer .cleo b{color:var(--navy)}
+  footer .legal{font-size:13px;margin:0 0 16px;color:var(--ink-72)}
+  footer .legal a{color:inherit}
+  footer .site{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:15px;margin:0;direction:ltr}
+  footer .site a{color:var(--navy);text-decoration:none;border-bottom:1.5px solid var(--sky)}
+  footer .markline{margin:16px 0 0;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--sky);opacity:.9;direction:ltr}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+  @media (min-width:700px){
+    h1{font-size:60px}.hero{padding:40px 0 48px}.photo{width:96px;height:96px;flex-basis:96px}
+    .ctas{flex-direction:row}.ctas .btn{flex:1}
+    .gallery{grid-template-columns:1fr 1fr 1fr}.gallery figure.wide{grid-column:1/3}
   }
-  .cta:hover { background: var(--gold-soft); transform: translateY(-1px); }
-  .seats { display: block; margin-top: 16px; font-size: 14px; color: rgba(242,236,224,0.6); }
-  .ignore-row { margin-top: 26px; }
-  .ignore-link {
-    display: inline-block; background: none; cursor: pointer; font-family: inherit;
-    font-size: 16px; font-weight: 400; color: rgba(242,236,224,0.78);
-    border: 1px solid rgba(242,236,224,0.3); border-radius: 999px;
-    padding: 11px 26px; text-decoration: none;
-    transition: color .15s ease, border-color .15s ease, background .15s ease;
-  }
-  .ignore-link:hover { color: rgba(242,236,224,0.95); border-color: rgba(242,236,224,0.55); background: rgba(242,236,224,0.06); }
-  .ignore-reply { margin-top: 14px; font-size: 16.5px; font-weight: 300; line-height: 1.7; color: rgba(242,236,224,0.85); }
-
-  section { padding: 58px 0; border-bottom: 1px solid var(--line); }
-  .lead { font-size: clamp(20px, 3vw, 24px); font-weight: 300; line-height: 1.7; }
-  .lead strong { font-weight: 700; color: var(--gold-deep); }
-  h2 { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 26px; font-weight: 700; margin-bottom: 26px; }
-  .points { list-style: none; display: grid; gap: 24px; }
-  .points li { display: flex; gap: 16px; align-items: flex-start; font-size: 18px; }
-  .points .n { flex: 0 0 auto; font-family: 'Frank Ruhl Libre', serif; font-size: 26px; font-weight: 700; color: var(--gold-deep); line-height: 1.2; min-width: 26px; }
-  .who { font-size: 18px; color: var(--ink-soft); }
-  .who strong { color: var(--ink); font-weight: 500; }
-
-  .host { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 34px 32px; box-shadow: var(--shadow); }
-  .host .name { font-family: 'Frank Ruhl Libre', serif; font-size: 22px; font-weight: 700; margin-bottom: 4px; }
-  .host .role { color: var(--ink-soft); margin-bottom: 10px; }
-  .host .li { display: inline-block; margin-bottom: 22px; color: var(--gold-deep); font-weight: 500; font-size: 15px; text-decoration: none; }
-  .host .li:hover { text-decoration: underline; }
-  .host .cleo { font-size: 16px; color: var(--ink); border-top: 1px solid var(--line); padding-top: 20px; line-height: 1.7; }
-  .host .cleo b { color: var(--gold-deep); font-weight: 700; }
-
-  .final { text-align: center; padding: 76px 0 44px; border-bottom: none; }
-  .final h3 { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(28px, 5vw, 38px); font-weight: 900; margin-bottom: 12px; }
-  .final p { color: var(--ink-soft); margin-bottom: 32px; font-size: 17px; }
-
-  footer { text-align: center; padding: 8px 0 56px; color: var(--ink-soft); font-size: 14px; }
-  footer .heart { color: var(--gold-deep); }
-  footer a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 3px; }
-  footer a:hover { color: var(--gold-deep); }
-
-  .reg { max-width: 420px; margin: 0 auto; display: grid; gap: 14px; text-align: right; }
-  .reg input, .reg textarea {
-    font-family: inherit; font-size: 16px; color: var(--ink);
-    background: var(--card); border: 1px solid var(--line); border-radius: 11px;
-    padding: 14px 16px; width: 100%; resize: vertical;
-    transition: border-color .15s ease, box-shadow .15s ease;
-  }
-  .reg input::placeholder, .reg textarea::placeholder { color: var(--ink-soft); opacity: 0.85; }
-  .reg input:focus, .reg textarea:focus { outline: none; border-color: var(--gold-deep); box-shadow: 0 0 0 3px rgba(216,166,78,0.16); }
-  .reg button { border: none; cursor: pointer; margin-top: 4px; font-family: inherit; }
-  .reg button:disabled { opacity: 0.65; cursor: default; }
-  .reg-ok {
-    max-width: 460px; margin: 0 auto; background: var(--card); border: 1px solid var(--line);
-    border-radius: 14px; padding: 26px 28px; font-size: 17px; line-height: 1.7; color: var(--ink);
-    box-shadow: var(--shadow);
-  }
-  .share { margin-top: 34px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-  .share .ask { font-size: 15px; color: var(--ink-soft); }
-  .share button {
-    display: inline-flex; align-items: center; gap: 9px; cursor: pointer;
-    font-family: inherit; font-size: 15px; font-weight: 500; color: var(--ink);
-    background: transparent; border: 1px solid var(--line); border-radius: 11px; padding: 11px 22px;
-    transition: border-color .15s ease, color .15s ease;
-  }
-  .share button:hover { border-color: var(--gold-deep); color: var(--gold-deep); }
-  .share button svg { width: 17px; height: 17px; }
-  .share .copied { font-size: 13px; color: var(--gold-deep); min-height: 16px; }
-
-  .video-frame { position: relative; width: 100%; padding-top: 56.25%; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); background: #000; }
-  .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-  .video-cap { text-align: center; color: var(--ink-soft); font-size: 15px; margin-top: 18px; }
-  .quotes { display: grid; gap: 20px; }
-  .quote { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 26px 28px; box-shadow: var(--shadow); }
-  .quote p { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 19px; line-height: 1.65; color: var(--ink); }
-  .quote .by { margin-top: 14px; font-size: 15px; color: var(--gold-deep); font-weight: 500; }
-  .chair-card { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%); color: var(--cream); border-radius: 18px; padding: 40px 34px; text-align: center; box-shadow: var(--shadow); }
-  .chair-eyebrow { color: var(--gold); font-weight: 500; letter-spacing: 0.28em; font-size: 12px; text-transform: uppercase; margin-bottom: 16px; }
-  .chair-card h3 { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: clamp(24px,4.5vw,32px); font-weight: 700; color: var(--cream); margin-bottom: 14px; line-height: 1.15; }
-  .chair-card p { color: rgba(242,236,224,0.8); font-size: 17px; margin-bottom: 26px; font-weight: 300; line-height: 1.65; }
-  .chair-cta { display: inline-block; background: var(--gold); color: var(--navy-deep); font-weight: 700; font-size: 16px; padding: 13px 34px; border-radius: 11px; text-decoration: none; transition: background .15s ease; }
-  .chair-cta:hover { background: var(--gold-soft); }
 </style>
-<!-- PostHog web analytics -->
-<script>
-!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_recording:true,api_host:'https://us.i.posthog.com',defaults:'2025-05-24',person_profiles:'identified_only'})
-</script>
 </head>
 <body>
-
   <header class="hero">
     <div class="wrap">
-      <div class="kicker">Connecting the Dots</div>
-      <h1 dir="ltr">The Human is the Loop</h1>
-      <div class="sub">למה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI</div>
-      <div class="meta">
-        <span>יום ראשון, 6.9.2026</span><span class="sep">·</span><span>דלתות 18:00</span><span class="sep">·</span><span>מתחילים 18:30</span><span class="sep">·</span><span>תל אביב, ליד תחנת הרכבת הקלה קרליבך</span>
+      <div class="top">
+        <img class="logo" src="ctd-logo-cream.png" alt="Connecting the Dots">
+        <div class="photo"><img src="anat.png" alt="ענת וייסמן"></div>
       </div>
-      <p class="notice">לא באתי להסביר לכם איך למצוא ערך בעצמכם. בניתי חברת AI, צוות של סוכנים, ואת קליאו, שמנהלת את הרישום להרצאה הזאת בעצמה. האדם הוא לא בתוך הלולאה. האדם הוא הלולאה.</p>
-      <a class="cta" href="#register"><span class="when-open">שמרו לי מקום ל-6.9</span><span class="when-wait" hidden>לרשימת ההמתנה ל-6.9</span></a>
-      <span class="seats when-open">מקומות מוגבלים</span>
-      <span class="seats when-wait" hidden>החדר מלא</span>
-      <span class="seats when-open" style="margin-top:10px;">לכניסה עלות סמלית של 60 ₪, רק כדי לשמור שהכיסא שלך לא יישאר ריק.</span>
-      <span class="seats when-wait" hidden style="margin-top:10px;">כל הכיסאות נתפסו. אם מתפנה מקום, הראשונים ברשימה יודעים ראשונים.</span>
-      <div class="ignore-row">
-        <button id="ignore-btn" type="button" class="ignore-link" aria-expanded="false" aria-controls="ignore-reply">אני מעדיף להמשיך להתעלם?</button>
-        <p id="ignore-reply" class="ignore-reply" hidden>בסדר גמור. השאלה תחכה. היא טובה בזה.</p>
+      <p class="kicker mono">Connecting the Dots · 6.9.2026</p>
+      <h1>The Human<br><span class="lit">is the Loop.</span></h1>
+      <p class="when">ערב אחד. יום ראשון, 6.9.2026, תל אביב.</p>
+      <p class="lede">שאלה אחת: <b>אם מחר לוקחים ממך את הטייטל, מי את/ה?</b><br>תודה שבאתם. באמת.</p>
+      <p class="aside marker">the loop. not inside it.</p>
+      <div class="ctas">
+        <a class="btn" data-door="feedback" href="/feedback/?utm_source=talkpage&amp;utm_medium=content&amp;utm_campaign=talk-6-9-feedback">הייתם? ספרו לי איך היה</a>
+        <a class="btn ghost" data-door="keynote" href="https://connecthedots.co/keynote/?utm_source=talkpage&amp;utm_medium=content&amp;utm_campaign=talk-6-9-after">להביא את ההרצאה לארגון שלכם</a>
       </div>
     </div>
   </header>
 
-  <section class="video">
-    <div class="wrap">
-      <h2>טעימה שיצרה גל של עניין</h2>
-      <div class="video-frame">
-        <iframe src="https://www.youtube-nocookie.com/embed/8yGkim5RPqA?start=183" title="The Human is the Loop · ענת וייסמן" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <p class="video-cap">זו הייתה טעימה קצרה, והיא יצרה גל של עניין. הגרסה החיה והמורחבת עולה ב-6.9 בתל אביב.</p>
-    </div>
-  </section>
+  <main class="wrap">
+    <div class="line">
 
-  <section class="chair">
-    <div class="wrap">
-      <div class="chair-card">
-        <div class="chair-eyebrow">הכיסא האנושי</div>
-        <h3>ארבעה סוכני AI ישבו לראיין אותי</h3>
-        <!-- A COUNT IS REMOVED, NOT UPDATED. Anat's ruling, 20.8, when the hub was caught
-             advertising a stale episode. "האזינו לפרק הראשון" was written when there was one.
-             As of 3.9 there are four, and this line has been false since episode 2 landed on
-             5.8, which is twenty-nine days of telling every visitor to listen to the first one,
-             not the fourteen since Cleo flagged it. A number on a page nobody owns is a future lie with
-             a date on it, so the replacement carries none and cannot go stale.
-             The imperative is kept on purpose: the ruling says remove the NUMBER, and this is a
-             registration page, so "אפשר להאזין" would have traded a call to action for a
-             statement of permission. The link is tagged, because it was bare and nobody could
-             tell whether this page has ever sent a single listener to the show. -->
-        <p>וזה בדיוק הרעיון של ההרצאה: הסוכנים שואלים, האדם עונה. האזינו.</p>
-        <a class="chair-cta" href="https://connecthedots.co/the-human-chair/?utm_source=talkpage&amp;utm_medium=content&amp;utm_campaign=podcast-from-talkpage" target="_blank" rel="noopener">להאזנה: הכיסא האנושי →</a>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <p class="lead">
-        כל שבוע עוד חברה מודיעה שהיא מייתרת תפקידים בגלל AI, ומצרפת לזה פוסט מתנצל. המדד המקובל להצלחה עם AI הוא כמה הצלחת למחוק את האדם מהתמונה. אני בניתי את הכל הפוך. כשהמכונה עושה כל משימה בודדת טוב ממני, נשארת שאלה אחת שאף מודל לא עונה עליה במקומי: <strong>מה המקום שלנו עכשיו, ומי אני כשהטייטל כבר לא מובטח.</strong> ההרצאה הזו בדיוק על המקום הזה, ועל מה עושים איתו כבר מחר בבוקר.
-      </p>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <h2>מה תיקחו מפה</h2>
-      <ul class="points">
-        <li><span class="n"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></svg></span><span>למה האדם הוא לא עוד חוליה בתוך הלולאה אלא הלולאה עצמה, והמקום המדויק שבו אתם לא ניתנים להחלפה.</span></li>
-        <li><span class="n"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5.5 21v-1a6.5 6.5 0 0 1 13 0v1"/></svg></span><span>מה נשאר ממך כשמכונה עושה כל משימה בודדת טוב ממך, ואיך בונים "אני" שלא תלוי בטייטל שנתנו לך או במי שמעסיק אותך.</span></li>
-        <li><span class="n"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6" r="2.2"/><circle cx="19" cy="6" r="2.2"/><circle cx="12" cy="18.5" r="2.2"/><path d="M6.7 7.4 11 16.6M17.3 7.4 13 16.6M7 6h10"/></svg></span><span>ומה עושים עם זה כבר מחר בבוקר: המהלך הקונקרטי שמכניס את זה לאיך שאתם חושבים ועובדים, לא עוד השראה שמתאדה עד הצהריים.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <h2>למי זה</h2>
-      <p class="who">
-        למי שרואה את הפיטורים והפוסטים המתנצלים מסביב, ושואל את עצמו בלי לייפות: אם מחר אין את הטייטל הזה, מי אני, ומה אני עושה עם זה כבר מחר בבוקר. <strong>אם שתי השאלות האלה יושבות אצלכם באותו מקום, זו הרצאה שלא בוחרת ביניהן. גם המשמעות, גם המהלך.</strong>
-      </p>
-      <p class="who">
-        וזה גם למי שעוד לא שואל את זה על עצמו, רק מבין שצריך להסתכל למציאות הזאת בעיניים. עדיף מוקדם, עדיף בצחוק, עדיף לא לבד.
-      </p>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="host">
-        <div class="name">ענת וייסמן</div>
-        <div class="role">מייסדת, מאמנת, בונה מוצרים. מחברת נקודות הרבה מעל עשור. האדם היחיד בחדר.</div>
-        <a class="li" href="https://www.linkedin.com/in/anatdotconnector/" target="_blank" rel="noopener">ענת בלינקדאין →</a>
-        <div class="cleo">
-          ההרשמה מנוהלת על ידי <b>קליאו</b>, סוכנת ה-AI שענת בנתה. כן, באמת.
-          שסוכנת שומרת לך מקום בהרצאה על למה האדם הוא מה שלא מתחלף, זה לא באג. זה כל הסיפור.
+      <!-- PHOTOS. Hidden until the first photo lands. Drop files into photos/ (sips -Z 1600 for the
+           web), add a <figure> per photo, remove the hidden attribute. The first figure is the wide one. -->
+      <section id="photos" hidden>
+        <h2><span class="n"></span>מהערב</h2>
+        <div class="gallery">
+          <!-- <figure class="wide"><img src="photos/01.jpg" alt="ההרצאה, 6.9.2026" loading="lazy"></figure>
+          <figure><img src="photos/02.jpg" alt="" loading="lazy"></figure>
+          <figure><img src="photos/03.jpg" alt="" loading="lazy"></figure> -->
         </div>
-      </div>
+      </section>
+
+      <!-- QUOTES. Hidden until the first answer with "כן, עם השם" consent arrives from /feedback/.
+           One .quote per person, the name in .by, only with consent on the same email as the words. -->
+      <section id="quotes" hidden>
+        <h2><span class="n"></span>מה נשאר איתכם</h2>
+        <div class="quotes">
+          <div class="quote"><p></p><p class="by"></p></div>
+        </div>
+      </section>
+
+      <section id="about">
+        <h2><span class="n"></span>על מה זה היה</h2>
+        <div class="card">
+          <p class="lead">כל שבוע עוד חברה מודיעה שהיא מייתרת תפקידים בגלל AI, ומצרפת לזה פוסט מתנצל. המדד המקובל להצלחה עם AI הוא כמה הצלחת למחוק את האדם מהתמונה. אני בניתי את הכל הפוך. כשהמכונה עושה כל משימה בודדת טוב ממני, נשארת שאלה אחת שאף מודל לא עונה עליה במקומי: <b>מה המקום שלנו עכשיו, ומי אני כשהטייטל כבר לא מובטח.</b></p>
+          <ul class="points">
+            <li>למה האדם הוא לא עוד חוליה בתוך הלולאה אלא הלולאה עצמה, והמקום המדויק שבו אתם לא ניתנים להחלפה.</li>
+            <li>מה נשאר ממך כשמכונה עושה כל משימה בודדת טוב ממך, ואיך בונים "אני" שלא תלוי בטייטל שנתנו לך או במי שמעסיק אותך.</li>
+            <li>ומה עושים עם זה כבר מחר בבוקר: המהלך הקונקרטי שמכניס את זה לאיך שאתם חושבים ועובדים, לא עוד השראה שמתאדה עד הצהריים.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="taste">
+        <h2><span class="n"></span>הטעימה שקדמה לערב</h2>
+        <div class="video-frame">
+          <iframe src="https://www.youtube-nocookie.com/embed/8yGkim5RPqA?start=183" title="The Human is the Loop · ענת וייסמן" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="cap">הגרסה הקצרה, מלפני הערב. הגרסה החיה והמלאה עלתה ב-6.9.</p>
+      </section>
+
+      <section id="now">
+        <h2><span class="n"></span>מה עכשיו</h2>
+        <p class="why">שיעורי הבית מהערב עדיין בתוקף. ואם משהו נשאר פתוח, זה מה שאני עושה:</p>
+        <ul class="doors">
+          <li><a class="door primary" data-door="whoami" href="https://connecthedots.co/whoami/?utm_source=talkpage&amp;utm_medium=content&amp;utm_campaign=talk-6-9-after">
+            <span class="txt"><span class="name">עוד לא כתבתם את המשפט שלכם?</span><span class="sub">הדף מהטלפון עדיין פתוח.</span></span></a></li>
+          <li><a class="door" data-door="coaching" href="https://connecthedots.co/book/?utm_source=talkpage&amp;utm_medium=content&amp;utm_campaign=talk-6-9-after">
+            <span class="txt"><span class="name">אימון, אחד על אחד</span><span class="sub">השאלה מהערב, בקול, מול מישהי ששואלת בחזרה.</span></span></a></li>
+          <li><a class="door" data-door="keynote" href="https://connecthedots.co/keynote/?utm_source=talkpage&amp;utm_medium=content&amp;utm_campaign=talk-6-9-after">
+            <span class="txt"><span class="name">ההרצאה, אצלכם בארגון</span><span class="sub">אותה שעה, לצוות שלכם.</span></span></a></li>
+          <li><a class="door" data-door="storyos" href="https://storyos.connecthedots.co/?utm_source=talkpage&amp;utm_medium=content&amp;utm_campaign=talk-6-9-after">
+            <span class="txt"><span class="name">StoryOS</span><span class="sub">הסיפור של הארגון, בתוך הסוכנים.</span></span></a></li>
+          <li><a class="door" data-door="cxmate" href="https://cxmate.io/?utm_source=talkpage&amp;utm_medium=content&amp;utm_campaign=talk-6-9-after">
+            <span class="txt"><span class="name">CX Mate</span><span class="sub">למפות את מסע הלקוח.</span></span></a></li>
+        </ul>
+      </section>
+
+      <section id="chair-s">
+        <h2><span class="n"></span>הכיסא האנושי</h2>
+        <div class="chair">
+          <p class="eyebrow mono">The Human Chair · podcast</p>
+          <h3>ארבעה סוכני AI ישבו לראיין אותי</h3>
+          <p>וזה בדיוק הרעיון של ההרצאה: הסוכנים שואלים, האדם עונה. האזינו.</p>
+          <a class="btn" data-door="chair" href="https://connecthedots.co/the-human-chair/?utm_source=talkpage&amp;utm_medium=content&amp;utm_campaign=podcast-from-talkpage" target="_blank" rel="noopener">להאזנה: הכיסא האנושי</a>
+        </div>
+      </section>
+
+      <section id="next">
+        <h2><span class="n"></span>הערב הבא</h2>
+        <p class="why">היה ערב אחד. כשייקבע ערב נוסף, הראשונים ברשימה יודעים ראשונים.</p>
+        <form id="reg-form" class="reg card" novalidate>
+          <input type="text" name="שם" placeholder="שם מלא" required autocomplete="name">
+          <input type="email" name="אימייל" placeholder="אימייל" required autocomplete="email" inputmode="email">
+          <div class="hp" aria-hidden="true"><input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></div>
+          <label class="check"><input type="checkbox" name="עדכון על הערב הבא" value="כן" required> <span>אפשר לעדכן אותי על הערב הבא. קראתי את <a href="/privacy">מדיניות הפרטיות</a>.</span></label>
+          <button type="submit" class="btn">להוסיף אותי לרשימה</button>
+          <div class="err" id="err" role="alert"></div>
+        </form>
+        <div id="reg-ok" class="card" hidden>
+          <p class="ok">את/ה ברשימה. כשנקבע ערב נוסף, אני מעדכנת. קליאו</p>
+        </div>
+      </section>
+
     </div>
-  </section>
-
-  <section class="final" id="register">
-    <div class="wrap">
-      <h3 class="when-open">לשמור לך מקום בחדר?</h3>
-      <h3 class="when-wait" hidden>החדר מלא. להיכנס לרשימה?</h3>
-      <p class="when-open">מקומות מוגבלים. כשמתמלא, רשימת המתנה, וראשונים בה יודעים ראשונים.</p>
-      <p class="when-wait" hidden>כל הכיסאות בחדר נתפסו. הרשימה פתוחה, ואם מתפנה מקום, הראשונים בה יודעים ראשונים.</p>
-      <p class="when-open" style="font-size:15px;color:var(--ink-soft);margin-top:-14px;margin-bottom:30px;">העלות הסמלית, 60 ₪, היא לא על הכסף. היא ההתחייבות הקטנה שהופכת "אולי אגיע" ל"שמרתי מקום", וזה מה ששומר שהחדר יתמלא באנשים שבאמת רוצים להיות בו.</p>
-      <p class="when-wait" hidden style="font-size:15px;color:var(--ink-soft);margin-top:-14px;margin-bottom:30px;">אין כאן תשלום ואין התחייבות. רק השארת פרטים, וכשמתפנה מקום או כשנקבע ערב נוסף, אני מעדכנת.</p>
-      <form id="reg-form" class="reg" novalidate>
-        <input type="text" name="שם" placeholder="שם מלא" required autocomplete="name" />
-        <input type="email" name="אימייל" placeholder="אימייל" required autocomplete="email" />
-        <input type="tel" name="טלפון" placeholder="טלפון (לא חובה)" autocomplete="tel" />
-        <textarea name="אם מחר לוקחים ממך את הטייטל, מי את/ה" placeholder="אם מחר לוקחים ממך את הטייטל, מי את/ה? במשפט אחד. (אולי נשלב תשובות בערב עצמו)" rows="3"></textarea>
-        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
-        <label class="consent"><input type="checkbox" name="אישור תקנון" value="כן" required /><span>קראתי ואישרתי את <a href="/takanon">התקנון</a> ואת <a href="/privacy">מדיניות הפרטיות</a></span></label>
-        <label class="consent when-wait" hidden><input type="checkbox" id="consent-next" name="עדכון על הערב הבא" value="כן" /><span>אפשר לעדכן אותי גם על הערב הבא ועל תכנים קרובים. אפשר להסיר בכל רגע, בתשובה למייל.</span></label>
-        <button type="submit" class="cta"><span class="when-open">לשמור לי מקום</span><span class="when-wait" hidden>להוסיף אותי לרשימה</span></button>
-      </form>
-      <div id="reg-ok" class="reg-ok" hidden>
-        <span class="when-open">עוד שלב אחד ואת/ה רשום/ה...<br>
-        לא נפתח? <a href="https://mrng.to/xLBVX7IdR6" style="color:inherit;">אפשר ללחוץ כאן</a>. קליאו</span>
-        <span class="when-wait" hidden>את/ה ברשימה. אם מתפנה מקום, או כשנקבע ערב נוסף, אני מעדכנת. קליאו</span>
-      </div>
-
-      <div class="share">
-        <span class="ask">מכירים מישהו שצריך לשמוע את זה?</span>
-        <button id="share-btn" type="button">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>
-          שתפו את ההרצאה
-        </button>
-        <span class="copied" id="share-msg"></span>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    (function () {
-      var f = document.getElementById('reg-form');
-
-      /* ── which of the two forms is this? ──────────────────────────────────────
-         The answer comes from the seat rail, and it is a decision Anat makes by hand:
-         filling the room changes nothing on its own (her ruling, 13.8). If the rail is
-         slow, unreachable, or simply gone, the page stays exactly as it is today and
-         keeps taking payments. A registration rail must never be able to fail CLOSED. */
-      var MODE = 'open';
-      var RAIL = 'https://seats.connecthedots.co';
-
-      function applyMode(mode) {
-        MODE = (mode === 'waitlist') ? 'waitlist' : 'open';
-        var wait = MODE === 'waitlist';
-        document.querySelectorAll('.when-wait').forEach(function (el) { el.hidden = !wait; });
-        document.querySelectorAll('.when-open').forEach(function (el) { el.hidden = wait; });
-      }
-
-      function askMode() {
-        return fetch(RAIL + '/api/mode', { mode: 'cors', cache: 'no-store' })
-          .then(function (r) { return r.ok ? r.json() : null; })
-          .then(function (d) { if (d && d.mode) applyMode(d.mode); })
-          .catch(function () { /* stay with what we have */ });
-      }
-      askMode();
-
-      /* The row is stored on our side too, not only mailed. Fire-and-forget on purpose:
-         a store that is down must not cost a registration.
-
-         keepalive, because on the open path the very next line navigates to the payment
-         page and the browser cancels an ordinary fetch on the way out. text/plain for the
-         same reason: application/json forces a CORS preflight, and the navigation kills
-         that too, so the row would simply never arrive. The rail reads the body as JSON
-         regardless of the header. */
-      function storeLead(data) {
-        var consent = document.getElementById('consent-next');
-        return fetch(RAIL + '/api/lead', {
-          method: 'POST',
-          mode: 'cors',
-          keepalive: true,
-          headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-          body: JSON.stringify({
-            type: MODE === 'waitlist' ? 'waitlist' : 'registration',
-            name: data['שם'] || '',
-            email: data['אימייל'] || '',
-            phone: data['טלפון'] || '',
-            answer: data['אם מחר לוקחים ממך את הטייטל, מי את/ה'] || '',
-            consent: !!(consent && consent.checked && MODE === 'waitlist'),
-            source: document.referrer || location.search || 'direct'
-          })
-        }).catch(function () {});
-      }
-
-      f.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        if (!f.reportValidity()) return;
-        var btn = f.querySelector('button');
-        btn.disabled = true;
-        var label = btn.innerHTML;
-        btn.textContent = 'רגע...';
-
-        /* Ask again, here, at the moment it matters. A tab left open since this morning
-           was told the room was open; if it has filled since, the worst thing this page
-           can do is take another 60 ₪ for a chair that no longer exists. Capped at two
-           seconds so a slow rail delays nobody. */
-        await Promise.race([askMode(), new Promise(function (r) { setTimeout(r, 2000); })]);
-        btn.textContent = MODE === 'waitlist' ? 'רושמת אותך...' : 'מעבירה לתשלום...';
-
-        var data = Object.fromEntries(new FormData(f).entries());
-        data.access_key = '690d6955-066d-4f3c-b193-43aa737740ea';
-        data.subject = MODE === 'waitlist'
-          ? 'רשימת המתנה: The Human is the Loop'
-          : 'רישום חדש להרצאה: The Human is the Loop';
-        if (data['אימייל']) data.email = data['אימייל'];
-        try {
-          /* Rollback (FormSubmit, release 1):
-          var r = await fetch('https://formsubmit.co/ajax/270a46323ff014e5308e2a7db82902fd', {
-            with data._subject / data._template='table' / data._replyto and honeypot input name="_honey" });
-          */
-          var r = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(data)
-          });
-          if (!r.ok) throw new Error('bad');
-          storeLead(data);
-          f.style.display = 'none';
-          document.getElementById('reg-ok').hidden = false;
-          if (MODE === 'waitlist') {
-            /* No payment, so no navigation, so a normal capture is fine here. */
-            if (window.posthog && posthog.capture) posthog.capture('waitlist_joined');
-            return;
-          }
-          /* sendBeacon, because the next line navigates away and a normal XHR would be cancelled */
-          if (window.posthog && posthog.capture) posthog.capture('registration_submitted', {}, { transport: 'sendBeacon' });
-          window.location.href = 'https://mrng.to/xLBVX7IdR6';
-        } catch (err) {
-          btn.disabled = false;
-          btn.innerHTML = label;
-          if (window.posthog && posthog.capture) posthog.capture('registration_failed');
-          alert('משהו השתבש לרגע. אפשר גם לכתוב לי ישירות: cleo@connecthedots.co');
-        }
-      });
-
-      var igBtn = document.getElementById('ignore-btn');
-      igBtn.addEventListener('click', function () {
-        document.getElementById('ignore-reply').hidden = false;
-        igBtn.setAttribute('aria-expanded', 'true');
-        if (window.posthog && posthog.capture) posthog.capture('ignore_clicked');
-      });
-
-      var sBtn = document.getElementById('share-btn');
-      var sMsg = document.getElementById('share-msg');
-      var shareUrl = 'https://thehumanistheloop.co/';
-      var shareText = 'The Human is the Loop · האדם הוא הלולאה. הרצאה של ענת וייסמן על למה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI. ערב אחד, 6.9.2026, תל אביב.';
-      sBtn.addEventListener('click', async function () {
-        if (navigator.share) {
-          try { await navigator.share({ title: 'The Human is the Loop', text: shareText, url: shareUrl }); return; }
-          catch (e) { if (e && e.name === 'AbortError') return; }
-        }
-        try {
-          await navigator.clipboard.writeText(shareUrl);
-          sMsg.textContent = 'הקישור הועתק. אפשר להדביק לכל מי שצריך.';
-        } catch (e) {
-          window.open('https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + shareUrl), '_blank');
-        }
-      });
-    })();
-  </script>
+  </main>
 
   <footer>
-    <div class="wrap">את הדף הזה בנתה <b>קליאו</b>, סוכנת ה-AI של ענת, לא ענת. גם זה חלק מהסיפור. <span class="heart">♥</span><br/>ענת וייסמן · Connecting the Dots · <a href="/takanon">תקנון רכישה וביטול</a> · <a href="/privacy">מדיניות פרטיות</a></div>
+    <div class="wrap">
+      <p class="cleo">ההרשמה מנוהלת על ידי <b>קליאו</b>, סוכנת ה-AI שענת בנתה. כן, באמת.<br>שסוכנת שומרת לך מקום בהרצאה על למה האדם הוא מה שלא מתחלף, זה לא באג. זה כל הסיפור.</p>
+      <p class="legal">ענת וייסמן · <a href="/takanon">תקנון</a> · <a href="/privacy">מדיניות פרטיות</a></p>
+      <p class="site"><a href="https://connecthedots.co/?utm_source=talkpage&amp;utm_medium=content&amp;utm_campaign=talk-6-9-after">connecthedots.co</a></p>
+      <p class="markline">Connecting the dots · Creating motion</p>
+    </div>
   </footer>
 
+  <script>
+  /* The next-evening list goes where every registration for this talk went: web3forms, the same key,
+     Cleo's inbox. No payment, no seat rail. */
+  (function(){
+    var f = document.getElementById('reg-form'), err = document.getElementById('err');
+    f.addEventListener('submit', async function(e){
+      e.preventDefault();
+      err.className = 'err'; err.textContent = '';
+      if(!f.reportValidity()) return;
+      var fd = new FormData(f);
+      if(fd.get('botcheck')) return;
+      var data = Object.fromEntries(fd.entries());
+      delete data.botcheck;
+      data.access_key = '690d6955-066d-4f3c-b193-43aa737740ea';
+      data.subject = 'רשימה לערב הבא: The Human is the Loop';
+      data.from_name = 'Next evening list';
+      if(data['אימייל']) data.email = data['אימייל'];
+      data.source = document.referrer || location.search || 'direct';
+      var btn = f.querySelector('button');
+      btn.disabled = true; btn.textContent = 'רושמת אותך...';
+      try{
+        var r = await fetch('https://api.web3forms.com/submit', {
+          method:'POST', headers:{'Content-Type':'application/json',Accept:'application/json'}, body: JSON.stringify(data)
+        });
+        var j = await r.json();
+        if(!(j.success === true || j.success === 'true')) throw new Error('bad');
+        f.hidden = true;
+        document.getElementById('reg-ok').hidden = false;
+        try{ posthog.capture('next_evening_signup'); }catch(x){}
+      }catch(x){
+        btn.disabled = false; btn.textContent = 'להוסיף אותי לרשימה';
+        err.textContent = 'משהו נתקע בדרך. אפשר לנסות שוב, או לכתוב לקליאו: cleo@connecthedots.co';
+        err.className = 'err on';
+      }
+    });
+  })();
+
+  /* PostHog, the same project and init as the previous version of this page. Pageview + door clicks. */
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_recording:true,autocapture:false,api_host:'https://us.i.posthog.com',defaults:'2025-05-24',person_profiles:'identified_only'});
+  document.querySelectorAll('[data-door]').forEach(function(a){
+    a.addEventListener('click',function(){ try{ posthog.capture('talkpage_door',{door:a.getAttribute('data-door')}); }catch(e){} });
+  });
+  </script>
 </body>
 </html>

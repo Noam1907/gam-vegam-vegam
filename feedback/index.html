@@ -1,0 +1,299 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>אז איך היה? · ענת וייסמן</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light">
+<meta name="description" content="שתי דקות, בלי שם אם לא רוצים. מה שכותבים כאן מגיע לענת ולצוות שלה, ומשפר את ההרצאה הבאה.">
+<link rel="canonical" href="https://thehumanistheloop.co/feedback/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://thehumanistheloop.co/feedback/">
+<meta property="og:title" content="אז איך היה? · ההרצאה של ענת">
+<meta property="og:description" content="שתי דקות, בלי שם אם לא רוצים. מה שכותבים כאן מגיע לענת ולצוות שלה.">
+<meta property="og:image" content="https://thehumanistheloop.co/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* THE HOUSE skin, same as /links/ and /whoami/: cream ground, navy ink, sky the one accent.
+     Opened on a phone the morning after the talk. One column, thumb sized targets, nothing required.
+     The questions sit as cards on a dotted line: connecting the dots, literally. */
+  :root{
+    color-scheme:light;
+    --cream:#F0EBE0; --navy:#1B2838; --sky:#38BDEF; --paper:#FFFDF8;
+    --ink-12:rgba(27,40,56,.12); --ink-25:rgba(27,40,56,.25); --ink-28:rgba(27,40,56,.28); --ink-55:rgba(27,40,56,.55);
+    --ink-72:rgba(27,40,56,.72); --ink-field:rgba(27,40,56,.045);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--cream);color:var(--navy);
+    font-family:Rubik,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-text-size-adjust:100%}
+  body{min-height:100vh;display:flex;flex-direction:column}
+  .wrap{width:100%;max-width:560px;margin:0 auto;padding:0 20px}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+
+  .hero{background:var(--navy);color:var(--cream);padding:28px 0 34px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:-40px;background:url(anat.png) center 30%/cover no-repeat;filter:blur(42px) saturate(.7);opacity:.35;z-index:0}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(27,40,56,.25),rgba(27,40,56,.88));z-index:0}
+  .hero .wrap{position:relative;z-index:1}
+  .hero .top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px}
+  .hero .logo{display:block;width:132px;height:auto}
+  .photo{width:78px;height:78px;border-radius:50%;overflow:hidden;border:3px solid var(--cream);background:var(--cream);
+    box-shadow:0 10px 30px rgba(0,0,0,.35);flex:0 0 78px}
+  .photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .kicker{margin:0 0 10px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--sky);direction:ltr;text-align:right}
+  h1{font-size:44px;line-height:1.02;font-weight:800;letter-spacing:-1px;margin:0}
+  .lede{margin:16px 0 0;font-size:18px;line-height:1.55;opacity:.92}
+  .lede .accent{color:var(--sky)}
+
+  main{flex:1;padding:26px 0 10px}
+  .qs{position:relative}
+  .qs::before{content:"";position:absolute;top:28px;bottom:28px;right:38px;width:0;border-right:2px dashed var(--ink-25);z-index:0}
+  .q{position:relative;z-index:1;background:var(--paper);border:1px solid var(--ink-12);border-radius:22px;
+    padding:20px 18px 20px;margin:0 0 16px;box-shadow:0 10px 30px rgba(27,40,56,.07)}
+  .q .head{display:flex;align-items:flex-start;gap:14px}
+  .q .n{flex:0 0 38px;width:38px;height:38px;border-radius:50%;background:var(--navy);color:var(--cream);
+    font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:14px;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 0 0 4px var(--paper),0 0 0 6px var(--sky);margin:0}
+  .q h2{font-size:23px;line-height:1.2;font-weight:700;margin:6px 0 0;letter-spacing:-.3px;flex:1}
+  .q .why{margin:6px 52px 14px 0;font-size:15px;line-height:1.5;color:var(--ink-72)}
+  .q .body{margin-right:0}
+  textarea,input[type=text],input[type=email]{
+    width:100%;font:inherit;font-size:17px;line-height:1.5;color:var(--navy);background:var(--cream);
+    border:1.5px solid transparent;border-radius:16px;padding:14px 16px;outline:none;
+    transition:border-color .15s ease,background .15s ease}
+  textarea{min-height:110px;resize:vertical}
+  textarea:focus,input:focus{border-color:var(--sky);background:#fff}
+  ::placeholder{color:var(--ink-55)}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin:0}
+  .chip{font:inherit;font-size:16px;font-weight:500;line-height:1.2;min-height:46px;padding:11px 18px;
+    border:1.5px solid var(--ink-25);border-radius:999px;background:var(--cream);color:var(--navy);cursor:pointer;
+    transition:background .15s ease,border-color .15s ease,color .15s ease,transform .1s ease;-webkit-tap-highlight-color:transparent}
+  .chip:hover{border-color:var(--sky)}
+  .chip:active{transform:scale(.97)}
+  .chip[aria-pressed=true]{background:var(--navy);color:var(--cream);border-color:var(--navy)}
+  .chip[aria-pressed=true]::before{content:"✓ ";color:var(--sky)}
+  .chip:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+  .who{display:grid;gap:12px;margin-top:4px}
+  .who .why{margin:6px 0 2px}
+  .check{display:flex;align-items:flex-start;gap:12px;font-size:16px;line-height:1.4;padding:6px 0;cursor:pointer}
+  .check input{width:22px;height:22px;margin:1px 0 0;accent-color:var(--navy);flex:0 0 22px}
+
+  .send{margin:26px 0 0}
+  .btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:62px;padding:14px 20px;
+    font:inherit;font-size:20px;font-weight:700;border-radius:999px;border:1.5px solid var(--navy);
+    background:var(--navy);color:var(--cream);cursor:pointer;box-shadow:0 12px 30px rgba(27,40,56,.22);
+    transition:opacity .15s ease,transform .1s ease}
+  .btn:active{transform:scale(.99)}
+  .btn:disabled{opacity:.6;cursor:default}
+  .btn:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+  .note{margin:14px 0 0;font-size:14px;line-height:1.5;color:var(--ink-72);text-align:center}
+  .err{display:none;margin:12px 0 0;padding:12px 16px;border-radius:14px;background:rgba(56,189,239,.16);font-size:15px;line-height:1.5}
+  .err.on{display:block}
+
+  .done{display:none;padding:10px 0 10px}
+  .done.on{display:block}
+  .done .card{background:var(--paper);border:1px solid var(--ink-12);border-radius:22px;padding:26px 20px;box-shadow:0 10px 30px rgba(27,40,56,.07);margin:0 0 18px}
+  .done h2{font-size:40px;line-height:1.05;font-weight:800;margin:0 0 12px;letter-spacing:-.5px}
+  .done h2 .dot{color:var(--sky)}
+  .done p{font-size:18px;line-height:1.55;margin:0}
+  .done .why{font-size:15px;color:var(--ink-72);margin:0 0 12px}
+  .doors{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+  .door{display:flex;align-items:center;gap:14px;min-height:64px;padding:12px 18px;
+    border:1.5px solid var(--ink-28);border-radius:999px;color:var(--navy);text-decoration:none;background:var(--paper);
+    transition:background .15s ease,border-color .15s ease}
+  .door:hover,.door:focus-visible{border-color:var(--sky);outline:none}
+  .door.primary{background:var(--navy);color:var(--cream);border-color:var(--navy)}
+  .door .txt{display:flex;flex-direction:column;gap:2px}
+  .door .name{font-size:18px;font-weight:700;line-height:1.25}
+  .door .sub{font-size:14px;line-height:1.35;opacity:.75}
+
+  footer{padding:24px 0 34px;margin-top:20px;text-align:center}
+  footer .site{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-size:15px;margin:0;direction:ltr}
+  footer .site a{color:var(--navy);text-decoration:none;border-bottom:1.5px solid var(--sky)}
+  footer .markline{margin:16px 0 0;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--sky);opacity:.9;direction:ltr}
+  .hp{position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  @media (min-width:700px){h1{font-size:54px}.hero{padding:40px 0 44px}.photo{width:96px;height:96px;flex-basis:96px}}
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="top">
+        <img class="logo" src="ctd-logo-cream.png" alt="Connecting the Dots">
+        <div class="photo"><img src="anat.png" alt="ענת וייסמן"></div>
+      </div>
+      <p class="kicker mono">The Human IS the Loop · 6.9.2026</p>
+      <h1>אז איך היה?</h1>
+      <p class="lede">תודה שבאתם. באמת.<br>
+        שתי דקות, <span class="accent">בלי שם אם לא רוצים.</span><br>
+        מה שכותבים כאן מגיע אליי ולצוות שלי, ומשפר את ההרצאה הבאה.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <form id="f" novalidate>
+      <input type="hidden" name="talk" value="the-human-is-the-loop-6-9-2026">
+      <div class="hp" aria-hidden="true"><input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off"></div>
+
+      <div class="qs">
+      <section class="q">
+        <div class="head"><p class="n">01</p><h2>מה נשאר איתכם?</h2></div>
+        <p class="why">משפט אחד. מה שעולה ראשון. זה גם המשפט שאני הכי אוהבת לצטט.</p>
+        <textarea name="stayed" id="stayed" placeholder="..."></textarea>
+      </section>
+
+      <section class="q">
+        <div class="head"><p class="n">02</p><h2>מה היה ממש טוב על גבול המעולה?</h2></div>
+        <input type="text" id="great" name="great" placeholder="...">
+      </section>
+
+      <section class="q">
+        <div class="head"><p class="n">03</p><h2>מה היה חמוד אבל דורש דיוק?</h2></div>
+        <input type="text" id="cute" name="cute" placeholder="...">
+      </section>
+
+      <section class="q">
+        <div class="head"><p class="n">04</p><h2>האורך</h2></div>
+        <p class="why">מהרגע שנכנסתי ל zone שכחתי זמנים....</p>
+        <div class="chips" data-group="length" data-multi="false" role="group" aria-label="האורך">
+          <button type="button" class="chip" aria-pressed="false" data-v="היה מעניין, ממש לא נורא">היה מעניין, ממש לא נורא</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="היה קצת ארוך">היה קצת ארוך</button>
+        </div>
+      </section>
+
+      <section class="q">
+        <div class="head"><p class="n">05</p><h2>הייתם מביאים את ההרצאה הזאת לארגון שלכם?</h2></div>
+        <div class="chips" data-group="recommend" data-multi="false" role="group" aria-label="לארגון">
+          <button type="button" class="chip" aria-pressed="false" data-v="כן">כן</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="אולי">אולי</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="עוד לא">עוד לא</button>
+        </div>
+      </section>
+
+      <section class="q">
+        <div class="head"><p class="n">06</p><h2>ואם בא לכם, מי אתם?</h2></div>
+        <p class="why">נשבעת שאני לא שומרת טינה. ומי שמזדהה, אני יודעת למי להגיד תודה.</p>
+        <div class="who">
+          <input type="text" name="name" placeholder="שם" autocomplete="name">
+          <input type="email" name="email" placeholder="מייל, אם רוצים שאחזור אליכם" autocomplete="email" inputmode="email">
+          <p class="why" style="margin:8px 0 4px">אפשר לצטט את מה שכתבתם?</p>
+          <div class="chips" data-group="quote" data-multi="false" role="group" aria-label="ציטוט">
+            <button type="button" class="chip" aria-pressed="false" data-v="עם השם">כן, עם השם</button>
+            <button type="button" class="chip" aria-pressed="false" data-v="עדיף שלא">עדיף שלא</button>
+          </div>
+          <label class="check"><input type="checkbox" name="callback" value="כן"> <span>אשמח שתחזרי אליי</span></label>
+        </div>
+      </section>
+
+      </div>
+      <div class="send">
+        <button type="submit" class="btn" id="btn">לשלוח</button>
+        <p class="note">מגיע למייל של הצוות שלי, ואני קוראת כל מילה.</p>
+        <div class="err" id="err" role="alert"></div>
+      </div>
+    </form>
+
+    <section class="done" id="done" aria-live="polite">
+      <div class="card">
+        <h2>תודה<span class="dot">.</span></h2>
+        <p>זה הגיע אליי, ואני קוראת כל מילה.<br>ההרצאה הבאה כבר קצת יותר טובה בגללכם.</p>
+      </div>
+      <p class="why">ואם משהו מהערב נשאר פתוח, זה מה שאני עושה:</p>
+      <ul class="doors">
+        <li><a class="door primary" data-door="whoami" href="https://connecthedots.co/whoami/?utm_source=feedback&amp;utm_medium=content&amp;utm_campaign=talk-6-9-feedback">
+          <span class="txt"><span class="name">עוד לא כתבתם את המשפט שלכם?</span><span class="sub">הדף מהטלפון עדיין פתוח.</span></span></a></li>
+        <li><a class="door" data-door="coaching" href="https://connecthedots.co/book/?utm_source=feedback&amp;utm_medium=content&amp;utm_campaign=talk-6-9-feedback">
+          <span class="txt"><span class="name">אימון, אחד על אחד</span><span class="sub">השאלה מהערב, בקול, מול מישהי ששואלת בחזרה.</span></span></a></li>
+        <li><a class="door" data-door="keynote" href="https://connecthedots.co/keynote/?utm_source=feedback&amp;utm_medium=content&amp;utm_campaign=talk-6-9-feedback">
+          <span class="txt"><span class="name">ההרצאה, אצלכם בארגון</span><span class="sub">אותה שעה, לצוות שלכם.</span></span></a></li>
+        <li><a class="door" data-door="storyos" href="https://storyos.connecthedots.co/?utm_source=feedback&amp;utm_medium=content&amp;utm_campaign=talk-6-9-feedback">
+          <span class="txt"><span class="name">StoryOS</span><span class="sub">הסיפור של הארגון, בתוך הסוכנים.</span></span></a></li>
+        <li><a class="door" data-door="cxmate" href="https://cxmate.io/?utm_source=feedback&amp;utm_medium=content&amp;utm_campaign=talk-6-9-feedback">
+          <span class="txt"><span class="name">CX Mate</span><span class="sub">למפות את מסע הלקוח.</span></span></a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="site"><a href="https://connecthedots.co/?utm_source=feedback&amp;utm_medium=content&amp;utm_campaign=talk-6-9-feedback">connecthedots.co</a></p>
+      <p class="markline">Connecting the dots · Creating motion</p>
+    </div>
+  </footer>
+
+  <script>
+  /* Chips: one group per question. data-multi decides single or multiple. The value is read at submit time. */
+  document.querySelectorAll('.chips').forEach(function(g){
+    var multi = g.getAttribute('data-multi') === 'true';
+    g.querySelectorAll('.chip').forEach(function(c){
+      c.addEventListener('click', function(){
+        var on = c.getAttribute('aria-pressed') === 'true';
+        if(!multi){ g.querySelectorAll('.chip').forEach(function(o){ o.setAttribute('aria-pressed','false'); }); }
+        c.setAttribute('aria-pressed', on ? 'false' : 'true');
+      });
+    });
+  });
+  function chips(name){
+    var g = document.querySelector('.chips[data-group="'+name+'"]');
+    return Array.prototype.map.call(g.querySelectorAll('.chip[aria-pressed=true]'), function(c){ return c.getAttribute('data-v'); });
+  }
+
+  var form = document.getElementById('f'), btn = document.getElementById('btn'), err = document.getElementById('err');
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    err.className = 'err'; err.textContent = '';
+    var fd = new FormData(form);
+    var data = {
+      talk: fd.get('talk'),
+      stayed: (fd.get('stayed')||'').trim(),
+      great: (fd.get('great')||'').trim(),
+      cute: (fd.get('cute')||'').trim(),
+      length: chips('length').join(''),
+      recommend: chips('recommend').join(' · '),
+      name: (fd.get('name')||'').trim(),
+      email: (fd.get('email')||'').trim(),
+      quote: chips('quote').join(''),
+      callback: fd.get('callback') ? 'כן' : '',
+      botcheck: fd.get('botcheck') ? 'x' : ''
+    };
+    var answered = data.stayed || data.great || data.cute || data.length || data.recommend || data.email || data.callback;
+    if(!answered){ err.textContent = 'כתבו משהו אחד, אפילו מילה.'; err.className = 'err on'; document.getElementById('stayed').focus(); return; }
+    if(data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)){ err.textContent = 'המייל לא נראה תקין. אפשר גם בלי.'; err.className = 'err on'; return; }
+    if(data.botcheck){ return; }
+    delete data.botcheck;
+    data.access_key = '690d6955-066d-4f3c-b193-43aa737740ea';
+    data.subject = 'משוב מההרצאה 6.9: ' + (data.name || 'אנונימי');
+    data.from_name = 'Talk feedback';
+    btn.disabled = true; btn.textContent = 'שולחים...';
+    try{
+      var r = await fetch('https://api.web3forms.com/submit', {
+        method:'POST', headers:{'Content-Type':'application/json',Accept:'application/json'}, body: JSON.stringify(data)
+      });
+      var j = await r.json();
+      if(j.success === true || j.success === 'true'){
+        form.style.display = 'none';
+        document.getElementById('done').className = 'done on';
+        window.scrollTo({top:0, behavior:'smooth'});
+        try{ posthog.capture('feedback_submit', {length:data.length, recommend:data.recommend, identified: !!(data.name||data.email)}); }catch(x){}
+      } else { throw new Error('submit failed'); }
+    }catch(x){
+      btn.disabled = false; btn.textContent = 'לשלוח';
+      err.innerHTML = 'משהו נתקע בדרך. אפשר לנסות שוב, או פשוט לענות במייל חוזר.';
+      err.className = 'err on';
+    }
+  });
+
+  /* PostHog, the same project and the same init as the other hub pages. Pageview, one submit event, no free text. */
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_recording:true,autocapture:false,api_host:'https://us.i.posthog.com',defaults:'2025-05-24',person_profiles:'identified_only'});
+  document.querySelectorAll('[data-door]').forEach(function(a){
+    a.addEventListener('click',function(){ try{ posthog.capture('feedback_door',{door:a.getAttribute('data-door')}); }catch(e){} });
+  });
+  </script>
+</body>
+</html>
