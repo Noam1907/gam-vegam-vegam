@@ -104,6 +104,12 @@
   .done h2{font-size:40px;line-height:1.05;font-weight:800;margin:0 0 12px;letter-spacing:-.5px}
   .done h2 .dot{color:var(--sky)}
   .wa-more{display:grid;gap:12px;margin-top:4px}
+  .interests{gap:6px}
+  .interests .check{padding:10px 0;border-bottom:1px solid var(--ink-12)}
+  .interests .check:last-of-type{border-bottom:0}
+  .interests .check b{font-weight:700}
+  .peek{margin:2px 0 6px;font-size:14px;color:var(--ink-55)}
+  .peek a{color:var(--navy);font-weight:700;text-decoration:underline;text-decoration-color:var(--sky);text-underline-offset:3px}
   .remember{margin:28px 0 0;font-size:22px;font-weight:800;text-align:center}
   .remember .accent{color:var(--sky)}
   .done p{font-size:18px;line-height:1.55;margin:0}
@@ -187,9 +193,15 @@
       </section>
 
       <section class="q">
-        <div class="head"><p class="n">06</p><h2>עוד קבוצת וואטסאפ?!</h2></div>
-        <div class="who">
-          <label class="check"><input type="checkbox" name="whatsapp" id="wa-yes" value="כן"> <span>כן, אבל למרות העומס פה אשמח להיות. קבוצה שקטה (בלי "מזל טובים", רק את כותבת) עם מאמרים ועדכונים סביב The Human is the Loop.</span></label>
+        <div class="head"><p class="n">06</p><h2>ואיך נמשיך מפה?</h2></div>
+        <p class="why">אפשר לסמן כמה שרוצים. אני אחזור אליכם.</p>
+        <div class="who interests">
+          <label class="check"><input type="checkbox" name="interest" value="קפה ומחשבות"> <span><b>קפה ומחשבות.</b> נשארה לי שאלה פתוחה מההרצאה ואשמח לקפה, וירטואלי או אמיתי, כדי להמשיך לדבר עליה.</span></label>
+          <label class="check"><input type="checkbox" name="interest" value="אימון אישי"> <span><b>אימון אישי, אחד על אחד.</b> השאלה מהערב, בקול, מול מישהי ששואלת בחזרה.</span></label>
+          <label class="check"><input type="checkbox" name="interest" value="הרצאה בארגון"> <span><b>ההרצאה, אצלנו בארגון.</b> להתחיל את תנועת The Human is the Loop גם בצוות שלנו.</span></label>
+          <label class="check"><input type="checkbox" name="interest" value="כלים וייעוץ"> <span><b>כלים וייעוץ.</b> להבין איך StoryOS ו-CX Mate עובדים בפועל, ואיך משלבים אותם אצלנו יחד עם הליווי שלך.</span></label>
+          <p class="peek">להציץ בינתיים: <a href="https://storyos.connecthedots.co/?utm_source=feedback&amp;utm_medium=content&amp;utm_campaign=talk-6-9-feedback" target="_blank" rel="noopener" data-door="storyos">StoryOS</a> · <a href="https://cxmate.io/?utm_source=feedback&amp;utm_medium=content&amp;utm_campaign=talk-6-9-feedback" target="_blank" rel="noopener" data-door="cxmate">CX Mate</a></p>
+          <label class="check"><input type="checkbox" name="whatsapp" id="wa-yes" value="כן"> <span><b>עוד קבוצת וואטסאפ?!</b> כן, אבל למרות העומס פה אשמח להיות. קבוצה שקטה (בלי "מזל טובים", רק את כותבת) עם מאמרים ועדכונים סביב The Human is the Loop.</span></label>
           <div class="wa-more" id="wa-more" hidden>
             <input type="tel" name="phone" id="wa-phone" placeholder="מספר הטלפון, בשביל ההזמנה לקבוצה" autocomplete="tel" inputmode="tel">
           </div>
@@ -211,17 +223,6 @@
           <span class="txt"><span class="name">המלצת קריאה לקפה של הבוקר</span><span class="sub">המאמר המעולה של ביל גייטס על הבחירות הקריטיות שאנחנו חייבים לעשות עכשיו מול המכונה.<br><span dir="ltr">A Turbulent AI Era and Critical Choices to Make</span></span></span></a></li>
         <li><a class="door primary" data-door="whoami" href="https://connecthedots.co/whoami/?utm_source=feedback&amp;utm_medium=content&amp;utm_campaign=talk-6-9-feedback">
           <span class="txt"><span class="name">עוד לא כתבתם את המשפט שלכם?</span><span class="sub">הדף מהטלפון עדיין פתוח (שיעורי הבית מההרצאה).</span></span></a></li>
-      </ul>
-      <p class="why" style="margin-top:26px">וכדי שתכירו קצת יותר את כל מה שאני עושה ביומיום (או סתם אם בא לכם לדבר):</p>
-      <ul class="doors">
-        <li><a class="door" data-door="coaching" href="https://connecthedots.co/book/?utm_source=feedback&amp;utm_medium=content&amp;utm_campaign=talk-6-9-feedback">
-          <span class="txt"><span class="name">קפה ומחשבות, או אימון אחד על אחד</span><span class="sub">נשארה לכם שאלה פתוחה מההרצאה? אשמח לקפה, וירטואלי או אמיתי. או השאלה מהערב, בקול, מול מישהי ששואלת בחזרה.</span></span></a></li>
-        <li><a class="door" data-door="keynote" href="https://connecthedots.co/keynote/?utm_source=feedback&amp;utm_medium=content&amp;utm_campaign=talk-6-9-feedback">
-          <span class="txt"><span class="name">ההרצאה, אצלכם בארגון</span><span class="sub">להתחיל את תנועת The Human is the Loop גם בצוות שלכם.</span></span></a></li>
-        <li><a class="door" data-door="storyos" href="https://storyos.connecthedots.co/?utm_source=feedback&amp;utm_medium=content&amp;utm_campaign=talk-6-9-feedback">
-          <span class="txt"><span class="name">StoryOS</span><span class="sub">להבין איך הכלי עובד בפועל, ואיך משלבים אותו אצלכם יחד עם הליווי שלי.</span></span></a></li>
-        <li><a class="door" data-door="cxmate" href="https://cxmate.io/?utm_source=feedback&amp;utm_medium=content&amp;utm_campaign=talk-6-9-feedback">
-          <span class="txt"><span class="name">CX Mate</span><span class="sub">למפות את מסע הלקוח, ולראות את הכלי עובד בפועל.</span></span></a></li>
       </ul>
       <p class="remember">ותזכרו: <span dir="ltr" class="accent">The human IS the loop!</span></p>
     </section>
@@ -266,18 +267,19 @@
       email: (fd.get('email')||'').trim(),
       quote: chips('quote').join(''),
       callback: fd.get('callback') ? 'כן' : '',
+      interests: fd.getAll('interest').join(' · '),
       whatsapp: fd.get('whatsapp') ? 'כן' : '',
       phone: fd.get('whatsapp') ? (fd.get('phone')||'').trim() : '',
       botcheck: fd.get('botcheck') ? 'x' : ''
     };
-    var answered = data.stayed || data.great || data.cute || data.length || data.email || data.callback;
+    var answered = data.stayed || data.great || data.cute || data.length || data.email || data.interests || data.whatsapp || data.callback;
     if(!answered){ err.textContent = 'כתבו משהו אחד, אפילו מילה.'; err.className = 'err on'; document.getElementById('stayed').focus(); return; }
     if(data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)){ err.textContent = 'המייל לא נראה תקין. אפשר גם בלי.'; err.className = 'err on'; return; }
     if(data.whatsapp && data.phone.replace(/\D/g,'').length < 9){ err.textContent = 'בשביל ההזמנה לקבוצה צריך מספר טלפון.'; err.className = 'err on'; document.getElementById('wa-phone').focus(); return; }
     if(data.botcheck){ return; }
     delete data.botcheck;
     data.access_key = '690d6955-066d-4f3c-b193-43aa737740ea';
-    data.subject = 'משוב מההרצאה 6.9: ' + (data.name || 'אנונימי');
+    data.subject = 'משוב מההרצאה 6.9: ' + (data.name || 'אנונימי') + (data.interests ? ' · ' + data.interests : '') + (data.whatsapp ? ' · וואטסאפ' : '');
     data.from_name = 'Talk feedback';
     btn.disabled = true; btn.textContent = 'שולחים...';
     try{
@@ -291,7 +293,7 @@
         document.querySelector('.hero .lede').innerHTML = 'זה הגיע אליי, ואני קוראת כל מילה.<br>ההרצאה הבאה כבר קצת יותר טובה בגללכם.';
         document.getElementById('done').className = 'done on';
         window.scrollTo({top:0, behavior:'smooth'});
-        try{ posthog.capture('feedback_submit', {length:data.length, whatsapp:!!data.whatsapp, identified: !!(data.name||data.email)}); }catch(x){}
+        try{ posthog.capture('feedback_submit', {length:data.length, interests:data.interests, whatsapp:!!data.whatsapp, identified: !!(data.name||data.email)}); }catch(x){}
       } else { throw new Error('submit failed'); }
     }catch(x){
       btn.disabled = false; btn.textContent = 'לשלוח';
