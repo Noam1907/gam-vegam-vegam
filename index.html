@@ -4,12 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>The Human is the Loop · ענת וייסמן</title>
-<meta name="description" content="הרצאה של ענת וייסמן. ערב אחד, 6.9.2026, תל אביב, מקומות מוגבלים. האדם הוא לא בתוך הלולאה, האדם הוא הלולאה. על למה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI." />
+<meta name="description" content="ההרצאה של ענת וייסמן. האדם הוא לא בתוך הלולאה, האדם הוא הלולאה. למה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI, ומה עושים עם זה מחר בבוקר." />
 <link rel="canonical" href="https://thehumanistheloop.co/">
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://thehumanistheloop.co/" />
 <meta property="og:title" content="The Human is the Loop · האדם הוא הלולאה · הרצאה של ענת וייסמן" />
-<meta property="og:description" content="הרצאה של ענת וייסמן. ערב אחד, 6.9.2026, תל אביב. האדם הוא הלולאה, ולמה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI." />
+<meta property="og:description" content="ההרצאה של ענת וייסמן. האדם הוא הלולאה, ולמה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI." />
 <meta property="og:image" content="https://thehumanistheloop.co/og.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -57,9 +57,6 @@
     padding: 92px 0 84px;
     border-bottom: none;
   }
-  /* The waitlist copy ships inside this page and starts hidden; the rail only decides
-     which half is shown. Needed because .consent and .seats set their own display and
-     would otherwise win against the plain [hidden] attribute. */
   [hidden] { display: none !important; }
   .consent { display:flex; gap:8px; align-items:flex-start; font-size:14px; color:var(--ink-soft); margin:2px 0 6px; }
   .consent input { margin-top:3px; accent-color: var(--gold); }
@@ -73,13 +70,9 @@
   h1 { font-family: 'Frank Ruhl Libre', Georgia, serif; color: var(--cream); font-size: clamp(54px, 11vw, 96px); font-weight: 700; line-height: 1.0; letter-spacing: 0; margin-bottom: 26px; }
   h1 .dot { color: var(--gold); font-size: 0.34em; vertical-align: middle; margin: 0 0.36em; }
   .sub { font-size: clamp(19px, 3vw, 25px); font-weight: 300; color: rgba(242,236,224,0.72); margin-bottom: 34px; }
-  .meta { font-size: 16px; color: var(--cream); margin-bottom: 20px; display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; row-gap: 6px; }
-  .meta span { white-space: nowrap; }
   @media (max-width: 640px) {
-    .meta span { white-space: normal; }
     html, body { max-width: 100%; overflow-x: hidden; }
   }
-  .meta .sep { color: var(--gold); margin: 0 12px; }
   .notice { max-width: 640px; margin: 0 auto 30px; font-size: 16px; line-height: 1.7; font-weight: 300; color: rgba(242,236,224,0.82); border-top: 1px solid rgba(212,175,110,0.35); border-bottom: 1px solid rgba(212,175,110,0.35); padding: 16px 0; }
 
   .cta {
@@ -122,6 +115,8 @@
   .final { text-align: center; padding: 76px 0 44px; border-bottom: none; }
   .final h3 { font-family: 'Frank Ruhl Libre', serif; font-size: clamp(28px, 5vw, 38px); font-weight: 900; margin-bottom: 12px; }
   .final p { color: var(--ink-soft); margin-bottom: 32px; font-size: 17px; }
+  .final .err { display: none; margin-top: 6px; font-size: 15px; color: var(--terra-deep); text-align: right; }
+  .final .err.on { display: block; }
 
   footer { text-align: center; padding: 8px 0 56px; color: var(--ink-soft); font-size: 14px; }
   footer .heart { color: var(--gold-deep); }
@@ -159,10 +154,6 @@
   .video-frame { position: relative; width: 100%; padding-top: 56.25%; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); border: 1px solid var(--line); background: #000; }
   .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
   .video-cap { text-align: center; color: var(--ink-soft); font-size: 15px; margin-top: 18px; }
-  .quotes { display: grid; gap: 20px; }
-  .quote { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 26px 28px; box-shadow: var(--shadow); }
-  .quote p { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 19px; line-height: 1.65; color: var(--ink); }
-  .quote .by { margin-top: 14px; font-size: 15px; color: var(--gold-deep); font-weight: 500; }
   .chair-card { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%); color: var(--cream); border-radius: 18px; padding: 40px 34px; text-align: center; box-shadow: var(--shadow); }
   .chair-eyebrow { color: var(--gold); font-weight: 500; letter-spacing: 0.28em; font-size: 12px; text-transform: uppercase; margin-bottom: 16px; }
   .chair-card h3 { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: clamp(24px,4.5vw,32px); font-weight: 700; color: var(--cream); margin-bottom: 14px; line-height: 1.15; }
@@ -178,20 +169,18 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
 </head>
 <body>
 
+  <!-- Interim after-talk version (Anat, 7.9 night): the past evening, its date, its seat sale and its
+       payment form are gone. One door: organisations that want the talk leave a name, a company and an
+       email. The full after-version (photos, named quotes, the House skin) is being built in
+       the-system/O-output/150-talk-page-after-2026-09-07/ and replaces this file when Anat says go. -->
   <header class="hero">
     <div class="wrap">
       <div class="kicker">Connecting the Dots</div>
       <h1 dir="ltr">The Human is the Loop</h1>
       <div class="sub">למה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI</div>
-      <div class="meta">
-        <span>יום ראשון, 6.9.2026</span><span class="sep">·</span><span>דלתות 18:00</span><span class="sep">·</span><span>מתחילים 18:30</span><span class="sep">·</span><span>תל אביב, ליד תחנת הרכבת הקלה קרליבך</span>
-      </div>
-      <p class="notice">לא באתי להסביר לכם איך למצוא ערך בעצמכם. בניתי חברת AI, צוות של סוכנים, ואת קליאו, שמנהלת את הרישום להרצאה הזאת בעצמה. האדם הוא לא בתוך הלולאה. האדם הוא הלולאה.</p>
-      <a class="cta" href="#register"><span class="when-open">שמרו לי מקום ל-6.9</span><span class="when-wait" hidden>לרשימת ההמתנה ל-6.9</span></a>
-      <span class="seats when-open">מקומות מוגבלים</span>
-      <span class="seats when-wait" hidden>החדר מלא</span>
-      <span class="seats when-open" style="margin-top:10px;">לכניסה עלות סמלית של 60 ₪, רק כדי לשמור שהכיסא שלך לא יישאר ריק.</span>
-      <span class="seats when-wait" hidden style="margin-top:10px;">כל הכיסאות נתפסו. אם מתפנה מקום, הראשונים ברשימה יודעים ראשונים.</span>
+      <p class="notice">לא באתי להסביר לכם איך למצוא ערך בעצמכם. בניתי חברת AI, צוות של סוכנים, ואת קליאו, שמטפלת בפניות מהדף הזה בעצמה. האדם הוא לא בתוך הלולאה. האדם הוא הלולאה.</p>
+      <a id="org-btn" class="cta" href="#org">מעניין אתכם לקבל פרטים? רוצים גם?</a>
+      <span class="seats">הרצאה חיה, שעה, מול החדר שלכם.</span>
       <div class="ignore-row">
         <button id="ignore-btn" type="button" class="ignore-link" aria-expanded="false" aria-controls="ignore-reply">אני מעדיף להמשיך להתעלם?</button>
         <p id="ignore-reply" class="ignore-reply" hidden>בסדר גמור. השאלה תחכה. היא טובה בזה.</p>
@@ -201,11 +190,11 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
 
   <section class="video">
     <div class="wrap">
-      <h2>טעימה שיצרה גל של עניין</h2>
+      <h2>טעימה מההרצאה</h2>
       <div class="video-frame">
         <iframe src="https://www.youtube-nocookie.com/embed/8yGkim5RPqA?start=183" title="The Human is the Loop · ענת וייסמן" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-      <p class="video-cap">זו הייתה טעימה קצרה, והיא יצרה גל של עניין. הגרסה החיה והמורחבת עולה ב-6.9 בתל אביב.</p>
+      <p class="video-cap">הגרסה הקצרה. ההרצאה המלאה היא שעה, חיה, מול חדר.</p>
     </div>
   </section>
 
@@ -214,16 +203,8 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
       <div class="chair-card">
         <div class="chair-eyebrow">הכיסא האנושי</div>
         <h3>ארבעה סוכני AI ישבו לראיין אותי</h3>
-        <!-- A COUNT IS REMOVED, NOT UPDATED. Anat's ruling, 20.8, when the hub was caught
-             advertising a stale episode. "האזינו לפרק הראשון" was written when there was one.
-             As of 3.9 there are four, and this line has been false since episode 2 landed on
-             5.8, which is twenty-nine days of telling every visitor to listen to the first one,
-             not the fourteen since Cleo flagged it. A number on a page nobody owns is a future lie with
-             a date on it, so the replacement carries none and cannot go stale.
-             The imperative is kept on purpose: the ruling says remove the NUMBER, and this is a
-             registration page, so "אפשר להאזין" would have traded a call to action for a
-             statement of permission. The link is tagged, because it was bare and nobody could
-             tell whether this page has ever sent a single listener to the show. -->
+        <!-- A COUNT IS REMOVED, NOT UPDATED. Anat's ruling, 20.8: no episode number on a page nobody
+             owns; the imperative is kept on purpose, and the link is tagged. -->
         <p>וזה בדיוק הרעיון של ההרצאה: הסוכנים שואלים, האדם עונה. האזינו.</p>
         <a class="chair-cta" href="https://connecthedots.co/the-human-chair/?utm_source=talkpage&amp;utm_medium=content&amp;utm_campaign=podcast-from-talkpage" target="_blank" rel="noopener">להאזנה: הכיסא האנושי →</a>
       </div>
@@ -240,7 +221,7 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
 
   <section>
     <div class="wrap">
-      <h2>מה תיקחו מפה</h2>
+      <h2>מה לוקחים מפה</h2>
       <ul class="points">
         <li><span class="n"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2 2 7l10 5 10-5-10-5Z"/><path d="m2 12 10 5 10-5"/><path d="m2 17 10 5 10-5"/></svg></span><span>למה האדם הוא לא עוד חוליה בתוך הלולאה אלא הלולאה עצמה, והמקום המדויק שבו אתם לא ניתנים להחלפה.</span></li>
         <li><span class="n"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5.5 21v-1a6.5 6.5 0 0 1 13 0v1"/></svg></span><span>מה נשאר ממך כשמכונה עושה כל משימה בודדת טוב ממך, ואיך בונים "אני" שלא תלוי בטייטל שנתנו לך או במי שמעסיק אותך.</span></li>
@@ -268,36 +249,27 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
         <div class="role">מייסדת, מאמנת, בונה מוצרים. מחברת נקודות הרבה מעל עשור. האדם היחיד בחדר.</div>
         <a class="li" href="https://www.linkedin.com/in/anatdotconnector/" target="_blank" rel="noopener">ענת בלינקדאין →</a>
         <div class="cleo">
-          ההרשמה מנוהלת על ידי <b>קליאו</b>, סוכנת ה-AI שענת בנתה. כן, באמת.
-          שסוכנת שומרת לך מקום בהרצאה על למה האדם הוא מה שלא מתחלף, זה לא באג. זה כל הסיפור.
+          את הפניות מהדף הזה מקבלת <b>קליאו</b>, סוכנת ה-AI שענת בנתה. כן, באמת.
+          שסוכנת מטפלת בפנייה בהרצאה על למה האדם הוא מה שלא מתחלף, זה לא באג. זה כל הסיפור.
         </div>
       </div>
     </div>
   </section>
 
-  <section class="final" id="register">
+  <section class="final" id="org">
     <div class="wrap">
-      <h3 class="when-open">לשמור לך מקום בחדר?</h3>
-      <h3 class="when-wait" hidden>החדר מלא. להיכנס לרשימה?</h3>
-      <p class="when-open">מקומות מוגבלים. כשמתמלא, רשימת המתנה, וראשונים בה יודעים ראשונים.</p>
-      <p class="when-wait" hidden>כל הכיסאות בחדר נתפסו. הרשימה פתוחה, ואם מתפנה מקום, הראשונים בה יודעים ראשונים.</p>
-      <p class="when-open" style="font-size:15px;color:var(--ink-soft);margin-top:-14px;margin-bottom:30px;">העלות הסמלית, 60 ₪, היא לא על הכסף. היא ההתחייבות הקטנה שהופכת "אולי אגיע" ל"שמרתי מקום", וזה מה ששומר שהחדר יתמלא באנשים שבאמת רוצים להיות בו.</p>
-      <p class="when-wait" hidden style="font-size:15px;color:var(--ink-soft);margin-top:-14px;margin-bottom:30px;">אין כאן תשלום ואין התחייבות. רק השארת פרטים, וכשמתפנה מקום או כשנקבע ערב נוסף, אני מעדכנת.</p>
-      <form id="reg-form" class="reg" novalidate>
+      <h3>רוצים את ההרצאה אצלכם?</h3>
+      <p>שם, ארגון ואימייל. ענת חוזרת אליכם עם הפרטים: פורמט, משך, ומה צריך כדי שזה יקרה אצלכם.</p>
+      <form id="org-form" class="reg" novalidate>
         <input type="text" name="שם" placeholder="שם מלא" required autocomplete="name" />
-        <input type="email" name="אימייל" placeholder="אימייל" required autocomplete="email" />
-        <input type="tel" name="טלפון" placeholder="טלפון (לא חובה)" autocomplete="tel" />
-        <textarea name="אם מחר לוקחים ממך את הטייטל, מי את/ה" placeholder="אם מחר לוקחים ממך את הטייטל, מי את/ה? במשפט אחד. (אולי נשלב תשובות בערב עצמו)" rows="3"></textarea>
+        <input type="text" name="חברה" placeholder="חברה / ארגון" required autocomplete="organization" />
+        <input type="email" name="אימייל" placeholder="אימייל" required autocomplete="email" inputmode="email" />
         <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
-        <label class="consent"><input type="checkbox" name="אישור תקנון" value="כן" required /><span>קראתי ואישרתי את <a href="/takanon">התקנון</a> ואת <a href="/privacy">מדיניות הפרטיות</a></span></label>
-        <label class="consent when-wait" hidden><input type="checkbox" id="consent-next" name="עדכון על הערב הבא" value="כן" /><span>אפשר לעדכן אותי גם על הערב הבא ועל תכנים קרובים. אפשר להסיר בכל רגע, בתשובה למייל.</span></label>
-        <button type="submit" class="cta"><span class="when-open">לשמור לי מקום</span><span class="when-wait" hidden>להוסיף אותי לרשימה</span></button>
+        <label class="consent"><input type="checkbox" name="אישור" value="כן" required /><span>אפשר לחזור אליי עם פרטים. קראתי את <a href="/privacy">מדיניות הפרטיות</a>.</span></label>
+        <button type="submit" class="cta">שלחו לי פרטים</button>
+        <div class="err" id="org-err" role="alert"></div>
       </form>
-      <div id="reg-ok" class="reg-ok" hidden>
-        <span class="when-open">עוד שלב אחד ואת/ה רשום/ה...<br>
-        לא נפתח? <a href="https://mrng.to/xLBVX7IdR6" style="color:inherit;">אפשר ללחוץ כאן</a>. קליאו</span>
-        <span class="when-wait" hidden>את/ה ברשימה. אם מתפנה מקום, או כשנקבע ערב נוסף, אני מעדכנת. קליאו</span>
-      </div>
+      <div id="org-ok" class="reg-ok" hidden>קיבלתי. ענת חוזרת אליכם עם הפרטים. קליאו</div>
 
       <div class="share">
         <span class="ask">מכירים מישהו שצריך לשמוע את זה?</span>
@@ -312,106 +284,46 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
 
   <script>
     (function () {
-      var f = document.getElementById('reg-form');
-
-      /* ── which of the two forms is this? ──────────────────────────────────────
-         The answer comes from the seat rail, and it is a decision Anat makes by hand:
-         filling the room changes nothing on its own (her ruling, 13.8). If the rail is
-         slow, unreachable, or simply gone, the page stays exactly as it is today and
-         keeps taking payments. A registration rail must never be able to fail CLOSED. */
-      var MODE = 'open';
-      var RAIL = 'https://seats.connecthedots.co';
-
-      function applyMode(mode) {
-        MODE = (mode === 'waitlist') ? 'waitlist' : 'open';
-        var wait = MODE === 'waitlist';
-        document.querySelectorAll('.when-wait').forEach(function (el) { el.hidden = !wait; });
-        document.querySelectorAll('.when-open').forEach(function (el) { el.hidden = wait; });
-      }
-
-      function askMode() {
-        return fetch(RAIL + '/api/mode', { mode: 'cors', cache: 'no-store' })
-          .then(function (r) { return r.ok ? r.json() : null; })
-          .then(function (d) { if (d && d.mode) applyMode(d.mode); })
-          .catch(function () { /* stay with what we have */ });
-      }
-      askMode();
-
-      /* The row is stored on our side too, not only mailed. Fire-and-forget on purpose:
-         a store that is down must not cost a registration.
-
-         keepalive, because on the open path the very next line navigates to the payment
-         page and the browser cancels an ordinary fetch on the way out. text/plain for the
-         same reason: application/json forces a CORS preflight, and the navigation kills
-         that too, so the row would simply never arrive. The rail reads the body as JSON
-         regardless of the header. */
-      function storeLead(data) {
-        var consent = document.getElementById('consent-next');
-        return fetch(RAIL + '/api/lead', {
-          method: 'POST',
-          mode: 'cors',
-          keepalive: true,
-          headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
-          body: JSON.stringify({
-            type: MODE === 'waitlist' ? 'waitlist' : 'registration',
-            name: data['שם'] || '',
-            email: data['אימייל'] || '',
-            phone: data['טלפון'] || '',
-            answer: data['אם מחר לוקחים ממך את הטייטל, מי את/ה'] || '',
-            consent: !!(consent && consent.checked && MODE === 'waitlist'),
-            source: document.referrer || location.search || 'direct'
-          })
-        }).catch(function () {});
-      }
-
-      f.addEventListener('submit', async function (e) {
+      /* "רוצים גם?" · the organisation lead form. Same mail rail as every registration for this talk
+         (web3forms, Cleo's inbox), a distinct subject so it is never mistaken for a seat. A CC to Anat
+         is a paid web3forms field and returns 400 on this plan (tested 7.9), so the inbox is the landing. */
+      var orgSec = document.getElementById('org'), orgBtn = document.getElementById('org-btn');
+      orgBtn.addEventListener('click', function (e) {
         e.preventDefault();
-        if (!f.reportValidity()) return;
-        var btn = f.querySelector('button');
-        btn.disabled = true;
-        var label = btn.innerHTML;
-        btn.textContent = 'רגע...';
-
-        /* Ask again, here, at the moment it matters. A tab left open since this morning
-           was told the room was open; if it has filled since, the worst thing this page
-           can do is take another 60 ₪ for a chair that no longer exists. Capped at two
-           seconds so a slow rail delays nobody. */
-        await Promise.race([askMode(), new Promise(function (r) { setTimeout(r, 2000); })]);
-        btn.textContent = MODE === 'waitlist' ? 'רושמת אותך...' : 'מעבירה לתשלום...';
-
-        var data = Object.fromEntries(new FormData(f).entries());
-        data.access_key = '690d6955-066d-4f3c-b193-43aa737740ea';
-        data.subject = MODE === 'waitlist'
-          ? 'רשימת המתנה: The Human is the Loop'
-          : 'רישום חדש להרצאה: The Human is the Loop';
-        if (data['אימייל']) data.email = data['אימייל'];
+        if (window.posthog && posthog.capture) posthog.capture('org_lead_open');
+        orgSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        var first = orgSec.querySelector('input[name="שם"]'); if (first) setTimeout(function () { first.focus(); }, 500);
+      });
+      var of = document.getElementById('org-form'), oerr = document.getElementById('org-err');
+      of.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        oerr.className = 'err'; oerr.textContent = '';
+        if (!of.reportValidity()) return;
+        var fd = new FormData(of);
+        if (fd.get('botcheck')) return;
+        var d = Object.fromEntries(fd.entries());
+        delete d.botcheck;
+        d.access_key = '690d6955-066d-4f3c-b193-43aa737740ea';
+        d.subject = 'רוצים גם: ' + (d['חברה'] || '') + ' · The Human is the Loop';
+        d.from_name = 'Want this too (talk page)';
+        if (d['אימייל']) d.email = d['אימייל'];
+        d.source = document.referrer || location.search || 'direct';
+        var ob = of.querySelector('button'), olabel = ob.textContent;
+        ob.disabled = true; ob.textContent = 'שולחת...';
         try {
-          /* Rollback (FormSubmit, release 1):
-          var r = await fetch('https://formsubmit.co/ajax/270a46323ff014e5308e2a7db82902fd', {
-            with data._subject / data._template='table' / data._replyto and honeypot input name="_honey" });
-          */
-          var r = await fetch('https://api.web3forms.com/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(data)
+          var orr = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify(d)
           });
-          if (!r.ok) throw new Error('bad');
-          storeLead(data);
-          f.style.display = 'none';
-          document.getElementById('reg-ok').hidden = false;
-          if (MODE === 'waitlist') {
-            /* No payment, so no navigation, so a normal capture is fine here. */
-            if (window.posthog && posthog.capture) posthog.capture('waitlist_joined');
-            return;
-          }
-          /* sendBeacon, because the next line navigates away and a normal XHR would be cancelled */
-          if (window.posthog && posthog.capture) posthog.capture('registration_submitted', {}, { transport: 'sendBeacon' });
-          window.location.href = 'https://mrng.to/xLBVX7IdR6';
-        } catch (err) {
-          btn.disabled = false;
-          btn.innerHTML = label;
-          if (window.posthog && posthog.capture) posthog.capture('registration_failed');
-          alert('משהו השתבש לרגע. אפשר גם לכתוב לי ישירות: cleo@connecthedots.co');
+          var oj = await orr.json();
+          if (!(oj.success === true || oj.success === 'true')) throw new Error('bad');
+          of.hidden = true;
+          document.getElementById('org-ok').hidden = false;
+          if (window.posthog && posthog.capture) posthog.capture('org_lead_submitted');
+        } catch (x) {
+          ob.disabled = false; ob.textContent = olabel;
+          if (window.posthog && posthog.capture) posthog.capture('org_lead_failed');
+          oerr.textContent = 'משהו נתקע בדרך. אפשר לנסות שוב, או לכתוב ישירות: cleo@connecthedots.co';
+          oerr.className = 'err on';
         }
       });
 
@@ -425,7 +337,7 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
       var sBtn = document.getElementById('share-btn');
       var sMsg = document.getElementById('share-msg');
       var shareUrl = 'https://thehumanistheloop.co/';
-      var shareText = 'The Human is the Loop · האדם הוא הלולאה. הרצאה של ענת וייסמן על למה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI. ערב אחד, 6.9.2026, תל אביב.';
+      var shareText = 'The Human is the Loop · האדם הוא הלולאה. ההרצאה של ענת וייסמן על למה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI.';
       sBtn.addEventListener('click', async function () {
         if (navigator.share) {
           try { await navigator.share({ title: 'The Human is the Loop', text: shareText, url: shareUrl }); return; }
@@ -442,7 +354,7 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
   </script>
 
   <footer>
-    <div class="wrap">את הדף הזה בנתה <b>קליאו</b>, סוכנת ה-AI של ענת, לא ענת. גם זה חלק מהסיפור. <span class="heart">♥</span><br/>ענת וייסמן · Connecting the Dots · <a href="/takanon">תקנון רכישה וביטול</a> · <a href="/privacy">מדיניות פרטיות</a></div>
+    <div class="wrap">את הדף הזה בנתה <b>קליאו</b>, סוכנת ה-AI של ענת, לא ענת. גם זה חלק מהסיפור. <span class="heart">♥</span><br/>ענת וייסמן · <a href="mailto:anat@connecthedots.co">anat@connecthedots.co</a> · Connecting the Dots · <a href="/takanon">תקנון</a> · <a href="/privacy">מדיניות פרטיות</a></div>
   </footer>
 
 </body>
