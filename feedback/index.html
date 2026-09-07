@@ -293,14 +293,26 @@
     if(data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)){ err.textContent = 'המייל לא נראה תקין. אפשר גם בלי.'; err.className = 'err on'; return; }
     if(data.whatsapp && data.phone.replace(/\D/g,'').length < 9){ err.textContent = 'בשביל ההזמנה לקבוצה צריך מספר טלפון.'; err.className = 'err on'; document.getElementById('wa-phone').focus(); return; }
     if(data.botcheck){ return; }
-    delete data.botcheck;
-    data.access_key = '690d6955-066d-4f3c-b193-43aa737740ea';
-    data.subject = 'משוב מההרצאה 6.9: ' + (data.name || 'אנונימי') + (data.whatsapp ? ' · וואטסאפ' : '');
-    data.from_name = 'Talk feedback';
+    /* What lands in the inbox: Hebrew labels in question order, empty answers left out, reply-to = the writer. */
+    var who = data.name || 'אנונימי';
+    var payload = { access_key:'690d6955-066d-4f3c-b193-43aa737740ea', from_name:'משוב ' + who,
+      subject:'משוב מההרצאה 6.9 · ' + who + (data.whatsapp ? ' · רוצה לקבוצת הוואטסאפ' : '') + (data.callback ? ' · לחזור' : '') };
+    if(data.email){ payload.replyto = data.email; }
+    var lines = [
+      ['מי', (data.name || '') + (data.email ? ' · ' + data.email : '') || 'אנונימי'],
+      ['1 · מה נשאר איתכם', data.stayed],
+      ['2 · מה היה ממש טוב', data.great],
+      ['3 · מה דורש דיוק', data.cute],
+      ['4 · האורך', data.length],
+      ['אפשר לצטט', data.quote],
+      ['לחזור אליהם', data.callback],
+      ['קבוצת וואטסאפ', data.whatsapp ? 'כן · ' + data.phone : '']
+    ];
+    lines.forEach(function(l){ if(l[1]){ payload[l[0]] = l[1]; } });
     btn.disabled = true; btn.textContent = 'שולחים...';
     try{
       var r = await fetch('https://api.web3forms.com/submit', {
-        method:'POST', headers:{'Content-Type':'application/json',Accept:'application/json'}, body: JSON.stringify(data)
+        method:'POST', headers:{'Content-Type':'application/json',Accept:'application/json'}, body: JSON.stringify(payload)
       });
       var j = await r.json();
       if(j.success === true || j.success === 'true'){
@@ -335,8 +347,8 @@
       btn2.disabled=true; btn2.textContent='שולחים...';
       try{
         var r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
-          body:JSON.stringify({access_key:'690d6955-066d-4f3c-b193-43aa737740ea', subject:'תחזרי אליי: '+(fb.name||email)+' · '+ticks.join(' · '), from_name:'Talk feedback',
-            talk:'the-human-is-the-loop-6-9-2026', interests:ticks.join(' · '), name:fb.name||'', email:email})});
+          body:JSON.stringify({access_key:'690d6955-066d-4f3c-b193-43aa737740ea', subject:'תחזרי אליי · '+(fb.name||email)+' · '+ticks.join(' · '), from_name:'תחזרי אליי · '+(fb.name||email), replyto:email,
+            'מי':(fb.name||'')+' · '+email, 'מה מעניין':ticks.join(' · ')})});
         var j=await r.json();
         if(j.success===true||j.success==='true'){ document.querySelector('#ic .interests').hidden=true; ok2.hidden=false; try{ posthog.capture('feedback_interest',{interests:ticks.join(' · ')}); }catch(x){} }
         else { throw new Error('x'); }
