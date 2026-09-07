@@ -73,6 +73,9 @@
     border:1.5px solid var(--ink-25);border-radius:999px;background:var(--cream);color:var(--navy);cursor:pointer;
     transition:background .15s ease,border-color .15s ease,color .15s ease,transform .1s ease;-webkit-tap-highlight-color:transparent}
   .chip:hover{border-color:var(--sky)}
+.chips.menu{flex-direction:column;align-items:stretch}
+.chips.menu .chip{border-radius:16px;text-align:right;line-height:1.45;padding:12px 16px;white-space:normal}
+.chips.menu .chip b{font-weight:700}
   .chip:active{transform:scale(.97)}
   .chip[aria-pressed=true]{background:var(--navy);color:var(--cream);border-color:var(--navy)}
   .chip[aria-pressed=true]::before{content:"✓ ";color:var(--sky)}
@@ -166,11 +169,15 @@
       </section>
 
       <section class="q">
-        <div class="head"><p class="n">05</p><h2>הייתם מביאים את ההרצאה הזאת לארגון שלכם?</h2></div>
-        <div class="chips" data-group="recommend" data-multi="false" role="group" aria-label="לארגון">
-          <button type="button" class="chip" aria-pressed="false" data-v="כן">כן</button>
-          <button type="button" class="chip" aria-pressed="false" data-v="אולי">אולי</button>
-          <button type="button" class="chip" aria-pressed="false" data-v="עוד לא">עוד לא</button>
+        <div class="head"><p class="n">05</p><h2>איך נמשיך מפה?</h2></div>
+        <p class="why">אפשר לסמן יותר מתשובה אחת.</p>
+        <div class="chips menu" data-group="next" data-multi="true" role="group" aria-label="איך נמשיך">
+          <button type="button" class="chip" aria-pressed="false" data-v="לארגון שלי"><b>לארגון שלי.</b> הייתי רוצה להתחיל תנועה של The Human is the Loop אצלנו. אשמח לחשוב יחד איך בונים משהו שמתאים לנו.</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="קפה ומחשבות"><b>קפה ומחשבות.</b> נשארה לי שאלה פתוחה מההרצאה ואשמח לקפה (וירטואלי או אמיתי) כדי להמשיך לדבר עליה.</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="אימון אישי"><b>אימון אישי (1:1).</b> אני מחפש/ת ליווי אימוני, ואשמח לתאם שיחת היכרות כדי לבדוק התאמה.</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="כלים וייעוץ"><b>כלים וייעוץ.</b> הייתי רוצה להבין איך StoryOS ו-CX Mate עובדים בפועל, ואיך אפשר לשלב אותם אצלנו יחד עם הליווי שלך.</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="קבוצת וואטסאפ"><b>עוד קבוצת וואטסאפ?!</b> כן, אבל למרות העומס פה אשמח להיות. קבוצה שקטה (בלי 'מזל טובים', רק את כותבת) עם מאמרים, פוסטים ועדכונים סביב The Human is the Loop.</button>
+          <button type="button" class="chip" aria-pressed="false" data-v="תודה"><b>תודה.</b> רק באתי להגיד תודה, אין צורך להמשיך את השיחה כרגע.</button>
         </div>
       </section>
 
@@ -201,8 +208,10 @@
         <h2>תודה<span class="dot">.</span></h2>
         <p>זה הגיע אליי, ואני קוראת כל מילה.<br>ההרצאה הבאה כבר קצת יותר טובה בגללכם.</p>
       </div>
-      <p class="why">ואם משהו מהערב נשאר פתוח, זה מה שאני עושה:</p>
+      <p class="why">ואם משהו מהערב נשאר פתוח, הנה כל מה שהבטחתי:</p>
       <ul class="doors">
+        <li><a class="door" data-door="gates" href="https://www.gatesnotes.com/home/home-page-topic/reader/a-turbulent-ai-era-and-critical-choices-to-make" target="_blank" rel="noopener">
+          <span class="txt"><span class="name">קריאה לקפה של הבוקר</span><span class="sub">ביל גייטס, סוף אוגוסט: הבחירות הקריטיות שעושים עכשיו מול המכונה. המאמר מהשקף.</span></span></a></li>
         <li><a class="door primary" data-door="whoami" href="https://connecthedots.co/whoami/?utm_source=feedback&amp;utm_medium=content&amp;utm_campaign=talk-6-9-feedback">
           <span class="txt"><span class="name">עוד לא כתבתם את המשפט שלכם?</span><span class="sub">הדף מהטלפון עדיין פתוח.</span></span></a></li>
         <li><a class="door" data-door="coaching" href="https://connecthedots.co/book/?utm_source=feedback&amp;utm_medium=content&amp;utm_campaign=talk-6-9-feedback">
@@ -252,14 +261,14 @@
       great: (fd.get('great')||'').trim(),
       cute: (fd.get('cute')||'').trim(),
       length: chips('length').join(''),
-      recommend: chips('recommend').join(' · '),
+      next: chips('next').join(' · '),
       name: (fd.get('name')||'').trim(),
       email: (fd.get('email')||'').trim(),
       quote: chips('quote').join(''),
       callback: fd.get('callback') ? 'כן' : '',
       botcheck: fd.get('botcheck') ? 'x' : ''
     };
-    var answered = data.stayed || data.great || data.cute || data.length || data.recommend || data.email || data.callback;
+    var answered = data.stayed || data.great || data.cute || data.length || data.next || data.email || data.callback;
     if(!answered){ err.textContent = 'כתבו משהו אחד, אפילו מילה.'; err.className = 'err on'; document.getElementById('stayed').focus(); return; }
     if(data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)){ err.textContent = 'המייל לא נראה תקין. אפשר גם בלי.'; err.className = 'err on'; return; }
     if(data.botcheck){ return; }
@@ -277,7 +286,7 @@
         form.style.display = 'none';
         document.getElementById('done').className = 'done on';
         window.scrollTo({top:0, behavior:'smooth'});
-        try{ posthog.capture('feedback_submit', {length:data.length, recommend:data.recommend, identified: !!(data.name||data.email)}); }catch(x){}
+        try{ posthog.capture('feedback_submit', {length:data.length, next:data.next, identified: !!(data.name||data.email)}); }catch(x){}
       } else { throw new Error('submit failed'); }
     }catch(x){
       btn.disabled = false; btn.textContent = 'לשלוח';
