@@ -32,7 +32,8 @@
     font-family:Rubik,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     -webkit-text-size-adjust:100%}
   body{min-height:100vh;display:flex;flex-direction:column}
-  .wrap{width:100%;max-width:560px;margin:0 auto;padding:0 20px}
+  .wrap{width:100%;max-width:720px;margin:0 auto;padding:0 20px}
+  .hero h1 .dot{color:var(--sky)}
   .mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace}
 
   .hero{background:var(--navy);color:var(--cream);padding:28px 0 34px;position:relative;overflow:hidden}
@@ -204,10 +205,6 @@
     </form>
 
     <section class="done" id="done" aria-live="polite">
-      <div class="card">
-        <h2>תודה<span class="dot">.</span></h2>
-        <p>זה הגיע אליי, ואני קוראת כל מילה.<br>ההרצאה הבאה כבר קצת יותר טובה בגללכם.</p>
-      </div>
       <p class="why">רגע לפני שחוזרים לשגרה, הנה שני דברים שכדאי לקחת איתכם:</p>
       <ul class="doors">
         <li><a class="door" data-door="gates" href="https://www.gatesnotes.com/home/home-page-topic/reader/a-turbulent-ai-era-and-critical-choices-to-make" target="_blank" rel="noopener">
@@ -290,6 +287,8 @@
       var j = await r.json();
       if(j.success === true || j.success === 'true'){
         form.style.display = 'none';
+        document.querySelector('.hero h1').innerHTML = 'תודה<span class="dot">.</span>';
+        document.querySelector('.hero .lede').innerHTML = 'זה הגיע אליי, ואני קוראת כל מילה.<br>ההרצאה הבאה כבר קצת יותר טובה בגללכם.';
         document.getElementById('done').className = 'done on';
         window.scrollTo({top:0, behavior:'smooth'});
         try{ posthog.capture('feedback_submit', {length:data.length, whatsapp:!!data.whatsapp, identified: !!(data.name||data.email)}); }catch(x){}
