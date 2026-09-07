@@ -102,6 +102,11 @@
   .done .card{background:var(--paper);border:1px solid var(--ink-12);border-radius:22px;padding:26px 20px;box-shadow:0 10px 30px rgba(27,40,56,.07);margin:0 0 18px}
   .done h2{font-size:40px;line-height:1.05;font-weight:800;margin:0 0 12px;letter-spacing:-.5px}
   .done h2 .dot{color:var(--sky)}
+  .done .wa h3{font-size:22px;font-weight:800;margin:0 0 8px}
+  .wa-more{display:grid;gap:12px;margin-top:12px}
+  .wa-more input{width:100%;font:inherit;font-size:17px;padding:14px 16px;border:1.5px solid var(--ink-25);border-radius:14px;background:var(--cream);color:var(--navy);text-align:right;box-sizing:border-box}
+  .wa-more .btn{min-height:54px;font-size:18px}
+  .wa-ok{margin:12px 0 0;font-weight:700;color:var(--navy)}
   .done p{font-size:18px;line-height:1.55;margin:0}
   .done .why{font-size:15px;color:var(--ink-72);margin:0 0 12px}
   .doors{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
@@ -169,20 +174,7 @@
       </section>
 
       <section class="q">
-        <div class="head"><p class="n">05</p><h2>איך נמשיך מפה?</h2></div>
-        <p class="why">אפשר לסמן יותר מתשובה אחת.</p>
-        <div class="chips menu" data-group="next" data-multi="true" role="group" aria-label="איך נמשיך">
-          <button type="button" class="chip" aria-pressed="false" data-v="לארגון שלי"><b>לארגון שלי.</b> הייתי רוצה להתחיל תנועה של The Human is the Loop אצלנו. אשמח לחשוב יחד איך בונים משהו שמתאים לנו.</button>
-          <button type="button" class="chip" aria-pressed="false" data-v="קפה ומחשבות"><b>קפה ומחשבות.</b> נשארה לי שאלה פתוחה מההרצאה ואשמח לקפה (וירטואלי או אמיתי) כדי להמשיך לדבר עליה.</button>
-          <button type="button" class="chip" aria-pressed="false" data-v="אימון אישי"><b>אימון אישי (1:1).</b> אני מחפש/ת ליווי אימוני, ואשמח לתאם שיחת היכרות כדי לבדוק התאמה.</button>
-          <button type="button" class="chip" aria-pressed="false" data-v="כלים וייעוץ"><b>כלים וייעוץ.</b> הייתי רוצה להבין איך StoryOS ו-CX Mate עובדים בפועל, ואיך אפשר לשלב אותם אצלנו יחד עם הליווי שלך.</button>
-          <button type="button" class="chip" aria-pressed="false" data-v="קבוצת וואטסאפ"><b>עוד קבוצת וואטסאפ?!</b> כן, אבל למרות העומס פה אשמח להיות. קבוצה שקטה (בלי 'מזל טובים', רק את כותבת) עם מאמרים, פוסטים ועדכונים סביב The Human is the Loop.</button>
-          <button type="button" class="chip" aria-pressed="false" data-v="תודה"><b>תודה.</b> רק באתי להגיד תודה, אין צורך להמשיך את השיחה כרגע.</button>
-        </div>
-      </section>
-
-      <section class="q">
-        <div class="head"><p class="n">06</p><h2>ואם בא לכם, מי אתם?</h2></div>
+        <div class="head"><p class="n">05</p><h2>ואם בא לכם, מי אתם?</h2></div>
         <p class="why">נשבעת שאני לא שומרת טינה. ומי שמזדהה, אני יודעת למי להגיד תודה.</p>
         <div class="who">
           <input type="text" name="name" placeholder="שם" autocomplete="name">
@@ -207,6 +199,16 @@
       <div class="card">
         <h2>תודה<span class="dot">.</span></h2>
         <p>זה הגיע אליי, ואני קוראת כל מילה.<br>ההרצאה הבאה כבר קצת יותר טובה בגללכם.</p>
+      </div>
+      <div class="card wa" id="wa">
+        <h3>עוד קבוצת וואטסאפ?!</h3>
+        <label class="check"><input type="checkbox" id="wa-yes"> <span>כן, אבל למרות העומס פה אשמח להיות. קבוצה שקטה (בלי "מזל טובים", רק את כותבת) עם מאמרים ועדכונים סביב The Human is the Loop.</span></label>
+        <div class="wa-more" id="wa-more" hidden>
+          <input type="tel" id="wa-phone" placeholder="מספר הטלפון, בשביל ההזמנה לקבוצה" autocomplete="tel" inputmode="tel">
+          <button type="button" class="btn" id="wa-btn">להצטרף</button>
+          <div class="err" id="wa-err" role="alert"></div>
+        </div>
+        <p class="wa-ok" id="wa-ok" hidden>קיבלתי. ההזמנה לקבוצה תגיע בוואטסאפ.</p>
       </div>
       <p class="why">ואם משהו מהערב נשאר פתוח, הנה כל מה שהבטחתי:</p>
       <ul class="doors">
@@ -261,14 +263,13 @@
       great: (fd.get('great')||'').trim(),
       cute: (fd.get('cute')||'').trim(),
       length: chips('length').join(''),
-      next: chips('next').join(' · '),
       name: (fd.get('name')||'').trim(),
       email: (fd.get('email')||'').trim(),
       quote: chips('quote').join(''),
       callback: fd.get('callback') ? 'כן' : '',
       botcheck: fd.get('botcheck') ? 'x' : ''
     };
-    var answered = data.stayed || data.great || data.cute || data.length || data.next || data.email || data.callback;
+    var answered = data.stayed || data.great || data.cute || data.length || data.email || data.callback;
     if(!answered){ err.textContent = 'כתבו משהו אחד, אפילו מילה.'; err.className = 'err on'; document.getElementById('stayed').focus(); return; }
     if(data.email && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)){ err.textContent = 'המייל לא נראה תקין. אפשר גם בלי.'; err.className = 'err on'; return; }
     if(data.botcheck){ return; }
@@ -283,10 +284,11 @@
       });
       var j = await r.json();
       if(j.success === true || j.success === 'true'){
+        window.__fb = {name:data.name, email:data.email};
         form.style.display = 'none';
         document.getElementById('done').className = 'done on';
         window.scrollTo({top:0, behavior:'smooth'});
-        try{ posthog.capture('feedback_submit', {length:data.length, next:data.next, identified: !!(data.name||data.email)}); }catch(x){}
+        try{ posthog.capture('feedback_submit', {length:data.length, identified: !!(data.name||data.email)}); }catch(x){}
       } else { throw new Error('submit failed'); }
     }catch(x){
       btn.disabled = false; btn.textContent = 'לשלוח';
@@ -298,6 +300,27 @@
   /* PostHog, the same project and the same init as the other hub pages. Pageview, one submit event, no free text. */
   !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
   posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_recording:true,autocapture:false,api_host:'https://us.i.posthog.com',defaults:'2025-05-24',person_profiles:'identified_only'});
+  /* WhatsApp group: the checkbox opens the phone field; one more send to the same inbox, carrying the name and email from the first. */
+  (function(){
+    var yes=document.getElementById('wa-yes'), more=document.getElementById('wa-more'), phone=document.getElementById('wa-phone'),
+        wbtn=document.getElementById('wa-btn'), werr=document.getElementById('wa-err'), wok=document.getElementById('wa-ok');
+    yes.addEventListener('change', function(){ more.hidden = !yes.checked; if(yes.checked){ phone.focus(); } });
+    wbtn.addEventListener('click', async function(){
+      werr.className='err'; werr.textContent='';
+      var ph=(phone.value||'').trim();
+      if(ph.replace(/\D/g,'').length < 9){ werr.textContent='צריך מספר טלפון בשביל ההזמנה.'; werr.className='err on'; phone.focus(); return; }
+      var fb=window.__fb||{};
+      wbtn.disabled=true; wbtn.textContent='שולחים...';
+      try{
+        var r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},
+          body:JSON.stringify({access_key:'690d6955-066d-4f3c-b193-43aa737740ea', subject:'קבוצת וואטסאפ: '+(fb.name||ph), from_name:'Talk feedback',
+            talk:'the-human-is-the-loop-6-9-2026', whatsapp:'כן', phone:ph, name:fb.name||'', email:fb.email||''})});
+        var j=await r.json();
+        if(j.success===true||j.success==='true'){ more.hidden=true; yes.disabled=true; wok.hidden=false; try{ posthog.capture('whatsapp_join',{}); }catch(x){} }
+        else { throw new Error('x'); }
+      }catch(x){ wbtn.disabled=false; wbtn.textContent='להצטרף'; werr.textContent='משהו נתקע בדרך. אפשר לנסות שוב.'; werr.className='err on'; }
+    });
+  })();
   document.querySelectorAll('[data-door]').forEach(function(a){
     a.addEventListener('click',function(){ try{ posthog.capture('feedback_door',{door:a.getAttribute('data-door')}); }catch(e){} });
   });
