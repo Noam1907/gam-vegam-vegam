@@ -66,6 +66,7 @@
   .consent input[type="checkbox"] { width:18px; height:18px; flex:0 0 18px; padding:0; border-radius:4px; }
   .consent span { flex:1 1 auto; min-width:0; }
   .consent a { color: inherit; text-decoration: underline; }
+.consent.choice { font-size: 17px; color: var(--ink); font-weight: 500; margin: 0 0 4px; }
   .kicker { color: var(--gold); font-weight: 500; letter-spacing: 0.34em; font-size: 13px; text-transform: uppercase; margin-bottom: 34px; }
   h1 { font-family: 'Frank Ruhl Libre', Georgia, serif; color: var(--cream); font-size: clamp(54px, 11vw, 96px); font-weight: 700; line-height: 1.0; letter-spacing: 0; margin-bottom: 26px; }
   h1 .dot { color: var(--gold); font-size: 0.34em; vertical-align: middle; margin: 0 0.36em; }
@@ -179,8 +180,8 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
       <h1 dir="ltr">The Human is the Loop</h1>
       <div class="sub">למה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI</div>
       <p class="notice">לא באתי להסביר לכם איך למצוא ערך בעצמכם. בניתי חברת AI, צוות של סוכנים, ואת קליאו, שמטפלת בפניות מהדף הזה בעצמה. האדם הוא לא בתוך הלולאה. האדם הוא הלולאה.</p>
-      <a id="org-btn" class="cta" href="#org">מעניין אתכם לקבל פרטים? רוצים גם?</a>
-      <span class="seats">הרצאה חיה, שעה, מול החדר שלכם.</span>
+      <a id="org-btn" class="cta" href="#org">רוצים גם?</a>
+      <span class="seats">עדכון על התאריך הבא, או הרצאה חיה, שעה, מול החדר שלכם.</span>
       <div class="ignore-row">
         <button id="ignore-btn" type="button" class="ignore-link" aria-expanded="false" aria-controls="ignore-reply">אני מעדיף להמשיך להתעלם?</button>
         <p id="ignore-reply" class="ignore-reply" hidden>בסדר גמור. השאלה תחכה. היא טובה בזה.</p>
@@ -258,18 +259,20 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
 
   <section class="final" id="org">
     <div class="wrap">
-      <h3>רוצים את ההרצאה אצלכם?</h3>
-      <p>שם, ארגון ואימייל. ענת חוזרת אליכם עם הפרטים: פורמט, משך, ומה צריך כדי שזה יקרה אצלכם.</p>
+      <h3>רוצים גם?</h3>
+      <p>עדכון על התאריך הבא, או ההרצאה אצלכם בארגון. סמנו מה מתאים, ענת חוזרת אליכם.</p>
       <form id="org-form" class="reg" novalidate>
+        <label class="consent choice"><input type="checkbox" name="תאריך הבא" value="כן" /><span>עדכנו אותי על התאריך הבא</span></label>
+        <label class="consent choice"><input type="checkbox" name="לארגון" value="כן" /><span>מעניין לארגון שלי, צרו קשר</span></label>
         <input type="text" name="שם" placeholder="שם מלא" required autocomplete="name" />
-        <input type="text" name="חברה" placeholder="חברה / ארגון" required autocomplete="organization" />
+        <input type="text" name="חברה" id="org-company" placeholder="חברה / ארגון (לא חובה)" autocomplete="organization" />
         <input type="email" name="אימייל" placeholder="אימייל" required autocomplete="email" inputmode="email" />
         <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
         <label class="consent"><input type="checkbox" name="אישור" value="כן" required /><span>אפשר לחזור אליי עם פרטים. קראתי את <a href="/privacy">מדיניות הפרטיות</a>.</span></label>
-        <button type="submit" class="cta">שלחו לי פרטים</button>
+        <button type="submit" class="cta">שלחו</button>
         <div class="err" id="org-err" role="alert"></div>
       </form>
-      <div id="org-ok" class="reg-ok" hidden>קיבלתי. ענת חוזרת אליכם עם הפרטים. קליאו</div>
+      <div id="org-ok" class="reg-ok" hidden>קיבלתי. ענת חוזרת אליכם. קליאו</div>
 
       <div class="share">
         <span class="ask">מכירים מישהו שצריך לשמוע את זה?</span>
@@ -295,16 +298,25 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
         var first = orgSec.querySelector('input[name="שם"]'); if (first) setTimeout(function () { first.focus(); }, 500);
       });
       var of = document.getElementById('org-form'), oerr = document.getElementById('org-err');
+      var orgBox = of.querySelector('input[name="לארגון"]'), compIn = document.getElementById('org-company');
+      orgBox.addEventListener('change', function () {
+        compIn.required = orgBox.checked;
+        compIn.placeholder = orgBox.checked ? 'חברה / ארגון' : 'חברה / ארגון (לא חובה)';
+      });
       of.addEventListener('submit', async function (e) {
         e.preventDefault();
         oerr.className = 'err'; oerr.textContent = '';
+        var wantDate = of.querySelector('input[name="תאריך הבא"]').checked, wantOrg = of.querySelector('input[name="לארגון"]').checked;
+        if (!wantDate && !wantOrg) { oerr.textContent = 'סמנו מה מעניין אתכם. אחד מהשניים, או שניהם.'; oerr.className = 'err on'; return; }
+        var comp = document.getElementById('org-company'); comp.required = wantOrg;
+        if (wantOrg && !comp.value.trim()) { oerr.textContent = 'צריך גם שם של חברה או ארגון.'; oerr.className = 'err on'; comp.focus(); return; }
         if (!of.reportValidity()) return;
         var fd = new FormData(of);
         if (fd.get('botcheck')) return;
         var d = Object.fromEntries(fd.entries());
         delete d.botcheck;
         d.access_key = '690d6955-066d-4f3c-b193-43aa737740ea';
-        d.subject = 'רוצים גם: ' + (d['חברה'] || '') + ' · The Human is the Loop';
+        d.subject = 'רוצים גם' + (wantDate ? ' [תאריך הבא]' : '') + (wantOrg ? ' [ארגון]' : '') + ': ' + (d['שם'] || '') + (d['חברה'] ? ' · ' + d['חברה'] : '') + ' · The Human is the Loop';
         d.from_name = 'Want this too (talk page)';
         if (d['אימייל']) d.email = d['אימייל'];
         d.source = document.referrer || location.search || 'direct';
@@ -318,7 +330,7 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
           if (!(oj.success === true || oj.success === 'true')) throw new Error('bad');
           of.hidden = true;
           document.getElementById('org-ok').hidden = false;
-          if (window.posthog && posthog.capture) posthog.capture('org_lead_submitted');
+          if (window.posthog && posthog.capture) { if (wantOrg) posthog.capture('org_lead_submitted'); if (wantDate) posthog.capture('next_date_signup'); }
         } catch (x) {
           ob.disabled = false; ob.textContent = olabel;
           if (window.posthog && posthog.capture) posthog.capture('org_lead_failed');
