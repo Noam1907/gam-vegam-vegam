@@ -1,0 +1,30 @@
+<!doctype html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8">
+<title>מעביר</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="We were never meant to be ״human doings&quot; / ענת וייסמן">
+<meta property="og:image" content="https://i.ytimg.com/vi/8yGkim5RPqA/hqdefault.jpg">
+<!-- Measured bridge (the destination cannot count): YouTube ignores our UTM, so the bridge fires the event.
+     sendBeacon, never posthog.js, on a redirect page. The refresh sits AFTER the script so it cannot race the beacon. -->
+<script>
+(function(){
+  try {
+    var q = new URLSearchParams(location.search);
+    var body = JSON.stringify({ api_key: 'phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx', event: 'bridge_click',
+      properties: { distinct_id: 'bridge-' + Math.random().toString(36).slice(2), slug: 'excerpt', destination: 'youtube',
+        s: q.get('s') || 'unspecified', c: q.get('c') || 'talk-2-11-page', p: q.get('p') || 'unspecified', $host: location.host } });
+    navigator.sendBeacon('https://us.i.posthog.com/e/', new Blob([body], { type: 'text/plain' }));
+  } catch (e) {}
+  setTimeout(function(){ location.replace('https://www.youtube.com/watch?v=8yGkim5RPqA'); }, 150);
+})();
+</script>
+<meta http-equiv="refresh" content="1;url=https://www.youtube.com/watch?v=8yGkim5RPqA">
+<style>body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#1B2838;color:#F0EBE0;font-family:'Heebo',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}a{color:#38BDEF}</style>
+</head>
+<body>
+<p>מעביר ליוטיוב. <a href="https://www.youtube.com/watch?v=8yGkim5RPqA">להמשיך ידנית</a></p>
+</body>
+</html>

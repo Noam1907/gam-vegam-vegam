@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>שמרתי לך מקום · The Human is the Loop</title>
-<meta name="description" content="ההרשמה נקלטה. יום ראשון 6.9.2026, דלתות 18:00, מתחילים 18:30, תל אביב." />
+<meta name="description" content="ההרשמה נקלטה. יום שני 2.11.2026, תל אביב." />
 <meta name="robots" content="noindex" />
 <link rel="canonical" href="https://thehumanistheloop.co/thanks">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -119,27 +119,18 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
     <div class="wrap">
       <div class="kicker">Connecting the Dots</div>
       <h1>שמרתי לך מקום.</h1>
-      <p class="confirm">התשלום התקבל והמקום שלך ל-6.9 שמור. הכתובת המדויקת נשלחת שבוע לפני הערב. <b>קליאו</b></p>
+      <p class="confirm">התשלום התקבל והמקום שלך בערב של 2.11 שמור. השעה והכתובת המדויקות נשלחות במייל לפני הערב. <b>קליאו</b></p>
     </div>
   </header>
 
   <section>
     <div class="wrap">
       <div class="details">
-        <div class="when"><span>יום ראשון 6.9</span><span class="sep">·</span><span>דלתות 18:00</span><span class="sep">·</span><span>מתחילים 18:30</span></div>
-        <div class="where">תל אביב, ליד תחנת הרכבת הקלה <b>קרליבך</b></div>
-        <div class="mail-note">הכתובת המדויקת מגיעה אליך במייל שבוע לפני הערב. אם לא רואים אותו, שווה להציץ גם בקידומי המכירות או בספאם.</div>
+        <div class="when"><span>יום שני 2.11</span><span class="sep">·</span><span>בשעות הערב</span></div>
+        <div class="where">תל אביב</div>
+        <div class="mail-note">השעה והכתובת המדויקות מגיעות אליך במייל לפני הערב. אם לא רואים אותו, שווה להציץ גם בקידומי המכירות או בספאם.</div>
       </div>
-      <div class="cal-row">
-        <a id="gcal-link" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=The%20Human%20is%20the%20Loop&dates=20260906T150000Z/20260906T180000Z&ctz=Asia%2FJerusalem&details=%D7%93%D7%9C%D7%AA%D7%95%D7%AA%2018%3A00%20%C2%B7%20%D7%9E%D7%AA%D7%97%D7%99%D7%9C%D7%99%D7%9D%2018%3A30%20%C2%B7%20%D7%94%D7%9B%D7%AA%D7%95%D7%91%D7%AA%20%D7%94%D7%9E%D7%93%D7%95%D7%99%D7%A7%D7%AA%20%D7%A0%D7%A9%D7%9C%D7%97%D7%AA%20%D7%91%D7%9E%D7%99%D7%99%D7%9C%20%D7%A9%D7%91%D7%95%D7%A2%20%D7%9C%D7%A4%D7%A0%D7%99%20%D7%94%D7%A2%D7%A8%D7%91&location=%D7%AA%D7%9C%20%D7%90%D7%91%D7%99%D7%91" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          להוסיף ליומן Google
-        </a>
-        <a href="/event.ics">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
-          להוריד ליומן אחר קובץ ics
-        </a>
-      </div>
+      <!-- calendar buttons return when the host and the hour are set (RELEASE-CARD-2-11.md, open item) -->
     </div>
   </section>
 
@@ -166,18 +157,12 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
 
   <script>
     (function () {
-      var gcal = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
-        + '&text=' + encodeURIComponent('The Human is the Loop')
-        + '&dates=20260906T150000Z/20260906T180000Z'
-        + '&ctz=' + encodeURIComponent('Asia/Jerusalem')
-        + '&details=' + encodeURIComponent('דלתות 18:00 · מתחילים 18:30 · הכתובת המדויקת נשלחת במייל שבוע לפני הערב')
-        + '&location=' + encodeURIComponent('תל אביב');
-      document.getElementById('gcal-link').href = gcal;
+      
 
       var sBtn = document.getElementById('share-btn');
       var sMsg = document.getElementById('share-msg');
       var shareUrl = 'https://thehumanistheloop.co/';
-      var shareText = 'The Human is the Loop · האדם הוא הלולאה. הרצאה של ענת וייסמן על למה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI. ערב אחד, 6.9.2026, תל אביב.';
+      var shareText = 'The Human is the Loop · האדם הוא הלולאה. הרצאה של ענת וייסמן על למה דווקא אתם מה שאי אפשר להחליף בעידן ה-AI. יום שני 2.11, תל אביב.';
       sBtn.addEventListener('click', async function () {
         if (navigator.share) {
           try { await navigator.share({ title: 'The Human is the Loop', text: shareText, url: shareUrl }); return; }
@@ -194,7 +179,7 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
   </script>
 
   <footer>
-    <div class="wrap">את הדף הזה בנתה <b>קליאו</b>, סוכנת ה-AI של ענת, לא ענת. גם זה חלק מהסיפור. <span class="heart">♥</span><br/>ענת וייסמן · Connecting the Dots · <a href="/takanon">תקנון רכישה וביטול</a> · <a href="/privacy">מדיניות פרטיות</a></div>
+    <div class="wrap">את הדף הזה בנתה <b>קליאו</b>, סוכנת ה-AI של ענת, לא ענת. גם זה חלק מהסיפור. <span class="heart">♥</span><br/>ענת וייסמן · Connecting the Dots<br/><a href="mailto:anat@connecthedots.co">anat@connecthedots.co</a> · <a href="tel:+972544850294" dir="ltr">054-485-0294</a><br/><a href="/takanon">תקנון רכישה וביטול</a> · <a href="/privacy">מדיניות פרטיות</a></div>
   </footer>
 
 </body>
