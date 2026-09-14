@@ -73,7 +73,7 @@ input::placeholder{color:#8A90A3}
 <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:8px">
 <a href="#book" data-door="seat" data-ph="seat_door_click" data-place="hero" style="background:#EDE9DF;color:#0B1020;font-weight:500;font-size:15px;padding:16px 28px;border-radius:3px;min-height:52px;display:inline-flex;align-items:center;gap:10px" style-hover="background:#F2C230;text-decoration:none;color:#0B1020"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#E0413A"></span>שמרו לי מקום · 60 ₪</a>
 </div>
-<div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center"><a href="#manifesto" data-ph="ignore_pill_click" style="border:1px solid rgba(237,233,223,.35);color:#EDE9DF;font-weight:400;font-size:16px;padding:14px 26px;border-radius:999px;display:inline-flex;align-items:center" style-hover="border-color:#EDE9DF;text-decoration:none;color:#EDE9DF">אני מעדיף להמשיך להתעלם?</a><span style="font-size:13px;color:#8A90A3">שעה וחצי.</span></div>
+<div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center"><button type="button" id="ignore-pill" style="font-family:inherit;background:transparent;cursor:pointer;border:1px solid rgba(237,233,223,.35);color:#EDE9DF;font-weight:400;font-size:16px;padding:14px 26px;border-radius:999px;display:inline-flex;align-items:center">אני מעדיף להמשיך להתעלם?</button><div id="ignore-answer" hidden style="flex-basis:100%;display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:16px;color:#EDE9DF"><span>טוב, אז אולי עד ההרצאה הבאה אני אתעשת.</span><a id="ignore-list" href="mailto:anat@connecthedots.co?subject=%D7%94%D7%9B%D7%A0%D7%99%D7%A1%D7%95%20%D7%90%D7%95%D7%AA%D7%99%20%D7%9C%D7%A8%D7%A9%D7%99%D7%9E%D7%94%20%C2%B7%20The%20Human%20is%20the%20Loop&amp;body=%D7%A2%D7%93%D7%9B%D7%A0%D7%95%20%D7%90%D7%95%D7%AA%D7%99%20%D7%A2%D7%9C%20%D7%94%D7%94%D7%A8%D7%A6%D7%90%D7%94%20%D7%94%D7%91%D7%90%D7%94." style="color:#F2C230;text-decoration:underline" style-hover="color:#EDE9DF">הכניסו אותי לרשימה</a></div><span style="font-size:13px;color:#8A90A3">שעה וחצי.</span></div>
 </div>
 </div>
 </section>
@@ -263,6 +263,11 @@ input::placeholder{color:#8A90A3}
     a.addEventListener('click',function(){ err.textContent='ההרשמה לערב של 2.11 נפתחת ממש בקרוב. בינתיים אפשר לכתוב במייל: anat@connecthedots.co'; ph('seat_register_blocked',{reason:'no_pay_url',place:a.getAttribute('data-place')||''}); });
   });
   port('style-hover','mouseenter','mouseleave');port('style-focus','focus','blur');
+
+  /* the ignore pill: her joke, then the door to the list (mailto, no stranger form) */
+  var ip=document.getElementById('ignore-pill'), ia=document.getElementById('ignore-answer');
+  if(ip&&ia){ ip.addEventListener('click',function(){ ia.hidden=!ia.hidden; ph('ignore_pill_click'); });
+    document.getElementById('ignore-list').addEventListener('click',function(){ ph('ignore_list_click'); }); }
 
   /* share: her copyLink, with the tagged URL */
   var sc=document.getElementById('share-copy');
