@@ -53,7 +53,6 @@ input::placeholder{color:#8A90A3}
 <span>CONNECTING THE DOTS · ANAT WEISSMAN · CTD 001 · TRACK 03</span>
 </a>
 <nav style="display:flex;gap:26px;align-items:center;font-size:14px;font-weight:400;flex-wrap:wrap">
-<a href="#video" style="color:#B9BCC8" style-hover="color:#EDE9DF">טעימה</a>
 <a href="#takeaways" style="color:#B9BCC8" style-hover="color:#EDE9DF">ההרצאה</a>
 <a href="#anat" style="color:#B9BCC8" style-hover="color:#EDE9DF">ענת</a>
 <a href="#book" data-door="seat" data-ph="seat_door_click" data-place="nav" style="color:#0B1020;background:#EDE9DF;padding:10px 18px;border-radius:3px;font-weight:500;letter-spacing:.01em" style-hover="background:#F2C230;color:#0B1020;text-decoration:none">שמרו לי מקום</a>
@@ -73,7 +72,6 @@ input::placeholder{color:#8A90A3}
 <p style="margin:0;font-size:17px;font-weight:300;line-height:1.75;color:#B9BCC8;max-width:540px;text-wrap:pretty">לא באתי להסביר לכם איך למצוא ערך בעצמכם. בניתי חברת AI, צוות של סוכנים, ואת קליאו, שהגתה את הדף הזה. האדם הוא לא בתוך הלולאה. <span style="color:#EDE9DF;font-weight:500">האדם הוא הלולאה.</span></p>
 <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:8px">
 <a href="#book" data-door="seat" data-ph="seat_door_click" data-place="hero" style="background:#EDE9DF;color:#0B1020;font-weight:500;font-size:15px;padding:16px 28px;border-radius:3px;min-height:52px;display:inline-flex;align-items:center;gap:10px" style-hover="background:#F2C230;text-decoration:none;color:#0B1020"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#E0413A"></span>שמרו לי מקום · 60 ₪</a>
-<a href="#video" style="border:1px solid rgba(237,233,223,.28);color:#EDE9DF;font-weight:400;font-size:15px;padding:16px 28px;border-radius:3px;min-height:52px;display:inline-flex;align-items:center" style-hover="border-color:#EDE9DF;text-decoration:none;color:#EDE9DF">טעימה מההרצאה</a>
 </div>
 <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center"><a href="#manifesto" data-ph="ignore_pill_click" style="border:1px solid rgba(237,233,223,.35);color:#EDE9DF;font-weight:400;font-size:16px;padding:14px 26px;border-radius:999px;display:inline-flex;align-items:center" style-hover="border-color:#EDE9DF;text-decoration:none;color:#EDE9DF">אני מעדיף להמשיך להתעלם?</a><span style="font-size:13px;color:#8A90A3">שעה וחצי.</span></div>
 </div>
@@ -110,19 +108,15 @@ input::placeholder{color:#8A90A3}
 </div>
 </section>
 
-<section id="video" data-screen-label="Video" style="max-width:1280px;margin:0 auto;padding:112px 28px 112px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:end">
-<div style="display:flex;flex-direction:column;gap:16px">
-<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;color:#6E9BFF;direction:ltr;text-align:right">EXCERPT · 03:03</div>
-<h2 style="margin:0;font-family:'Frank Ruhl Libre',serif;font-size:clamp(36px,4.5vw,60px);font-weight:500;line-height:1.02">טעימה מההרצאה</h2>
-<p style="margin:0;color:#B9BCC8;font-size:17px;font-weight:300;line-height:1.7">הקלטה מהרצאה קודמת, גרסה מוקדמת יותר, מול קהל אחר. ההרצאה המלאה היא שעה וחצי.</p>
+<section data-screen-label="Photos" style="max-width:1280px;margin:0 auto;padding:0 28px 112px">
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:clamp(150px,22vw,260px);grid-auto-flow:dense;gap:10px">
+<img src="img/stage-agents.jpg" alt="ענת על הבמה, 17 סוכנים עם שמות ותפקידים" style="width:100%;height:100%;object-fit:cover;border-radius:3px;display:block;grid-column:span 2;grid-row:span 2">
+<img src="img/room-sunset.jpg" alt="החדר בשקיעה" style="width:100%;height:100%;object-fit:cover;border-radius:3px;display:block">
+<img src="img/room-quote.jpg" alt="People are naturally creative, resourceful, and whole" style="width:100%;height:100%;object-fit:cover;border-radius:3px;display:block">
+<img src="img/room-wide.jpg" alt="החדר" style="width:100%;height:100%;object-fit:cover;object-position:center 78%;border-radius:3px;display:block;grid-column:span 3">
+<img src="img/room-thesis.jpg" alt="ענת מרצה מול החדר, מבט מאחור" style="width:100%;height:100%;object-fit:cover;border-radius:3px;display:block;grid-row:span 2">
+<img src="img/opening-slide.jpg" alt="ענת מביטה בשקף הפתיחה, החלון בשקיעה" style="width:100%;height:100%;object-fit:cover;border-radius:3px;display:block;grid-column:span 2;grid-row:span 2">
 </div>
-<div style="position:relative;aspect-ratio:16/9;background:#10172B;border-radius:4px;overflow:hidden;border:1px solid rgba(237,233,223,.1);box-shadow:0 40px 80px -30px rgba(0,0,0,.7)">
-<button type="button" id="video-play" aria-label="לנגן את הטעימה מההרצאה" style="all:unset;position:absolute;inset:0;cursor:pointer;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;gap:14px;padding:clamp(18px,3vw,32px);background:radial-gradient(120% 100% at 85% 10%,#1B2645 0%,#10172B 65%)">
-<span style="font-family:'Instrument Serif',serif;font-size:clamp(28px,3.4vw,46px);line-height:1;color:#EDE9DF;direction:ltr;text-align:left">We were never meant<br>to be <em style="font-style:italic;color:#F2C230">human doings</em></span>
-<span style="display:inline-flex;align-items:center;gap:10px;background:#EDE9DF;color:#0B1020;font-weight:500;font-size:15px;padding:12px 20px;border-radius:3px;min-height:46px"><span style="display:inline-block;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:10px solid #0B1020"></span>לנגן · 03:03</span>
-</button>
-</div>
-<a href="https://thehumanistheloop.co/go/excerpt/?s=talk-page&amp;c=talk-2-11-page&amp;p=video" id="video-out" data-ph="excerpt_youtube_click" hidden style="grid-column:1/-1;justify-self:start;color:#8A90A3;font-size:14px;text-decoration:underline" style-hover="color:#EDE9DF">לא נטען? לצפייה ביוטיוב</a>
 </section>
 
 <section id="takeaways" data-screen-label="Takeaways" style="max-width:1280px;margin:0 auto;padding:0 28px 112px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px">
@@ -167,17 +161,6 @@ input::placeholder{color:#8A90A3}
 <blockquote style="margin:0;font-family:'Frank Ruhl Libre',serif;font-size:clamp(22px,2.2vw,28px);line-height:1.45;font-weight:400;color:#EDE9DF;text-wrap:pretty"></blockquote>
 <figcaption style="font-size:13px;color:#8A90A3;letter-spacing:.02em"></figcaption>
 </figure></template>
-</section>
-
-<section data-screen-label="Photos" style="max-width:1280px;margin:0 auto;padding:0 28px 112px">
-<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:clamp(150px,22vw,260px);grid-auto-flow:dense;gap:10px">
-<img src="img/stage-agents.jpg" alt="ענת על הבמה, 17 סוכנים עם שמות ותפקידים" style="width:100%;height:100%;object-fit:cover;border-radius:3px;display:block;grid-column:span 2;grid-row:span 2">
-<img src="img/room-sunset.jpg" alt="החדר בשקיעה" style="width:100%;height:100%;object-fit:cover;border-radius:3px;display:block">
-<img src="img/room-quote.jpg" alt="People are naturally creative, resourceful, and whole" style="width:100%;height:100%;object-fit:cover;border-radius:3px;display:block">
-<img src="img/room-wide.jpg" alt="החדר" style="width:100%;height:100%;object-fit:cover;object-position:center 78%;border-radius:3px;display:block;grid-column:span 3">
-<img src="img/room-thesis.jpg" alt="ענת מרצה מול החדר, מבט מאחור" style="width:100%;height:100%;object-fit:cover;border-radius:3px;display:block;grid-row:span 2">
-<img src="img/opening-slide.jpg" alt="ענת מביטה בשקף הפתיחה, החלון בשקיעה" style="width:100%;height:100%;object-fit:cover;border-radius:3px;display:block;grid-column:span 2;grid-row:span 2">
-</div>
 </section>
 
 <section data-screen-label="Side B" style="max-width:1280px;margin:0 auto;padding:0 28px 112px">
@@ -280,19 +263,6 @@ input::placeholder{color:#8A90A3}
     a.addEventListener('click',function(){ err.textContent='ההרשמה לערב של 2.11 נפתחת ממש בקרוב. בינתיים אפשר לכתוב במייל: anat@connecthedots.co'; ph('seat_register_blocked',{reason:'no_pay_url',place:a.getAttribute('data-place')||''}); });
   });
   port('style-hover','mouseenter','mouseleave');port('style-focus','focus','blur');
-
-  /* video: her player, loaded on tap (the fallback poster stands in until then) */
-  var vb=document.getElementById('video-play');
-  vb.addEventListener('click',function(){
-    ph('excerpt_play');
-    var fr=document.createElement('iframe');
-    fr.src='https://www.youtube-nocookie.com/embed/8yGkim5RPqA?start=183&autoplay=1&rel=0&playsinline=1';
-    fr.title='The Human is the Loop · טעימה';
-    fr.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-    fr.referrerPolicy='strict-origin-when-cross-origin'; fr.allowFullscreen=true;
-    fr.setAttribute('style','position:absolute;inset:0;width:100%;height:100%;border:0');
-    vb.replaceWith(fr); document.getElementById('video-out').hidden=false;
-  });
 
   /* share: her copyLink, with the tagged URL */
   var sc=document.getElementById('share-copy');
