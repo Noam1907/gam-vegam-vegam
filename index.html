@@ -37,7 +37,7 @@ input::placeholder{color:#8A90A3}
 :focus-visible{outline:2px solid #F2C230;outline-offset:3px}
 .bot{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden;clip-path:inset(50%);opacity:0;pointer-events:none;min-height:0!important;padding:0!important;border:0!important}
 @media (prefers-reduced-motion:reduce){#track{animation:none!important;flex-wrap:wrap;width:auto!important}#track [data-dup]{display:none}html,body{scroll-behavior:auto}}
-@media (max-width:640px){.hero-fit{min-height:calc(100svh - 118px)!important}.hero-in{padding-top:48px!important;padding-bottom:40px!important}}
+@media (max-width:640px){.hero-fit{min-height:0!important}.hero-in{padding-top:28px!important;padding-bottom:36px!important}}
 .why-more summary::-webkit-details-marker{display:none}.why-more[open] summary{display:none}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(50%)}}
 @keyframes draw{to{stroke-dashoffset:0}}
@@ -61,11 +61,11 @@ input::placeholder{color:#8A90A3}
 </div>
 </header>
 
-<section data-screen-label="Hero" class="hero-fit" style="position:relative;min-height:calc(100vh - 70px);display:flex;align-items:flex-end;overflow:hidden">
+<section data-screen-label="Hero" class="hero-fit" style="position:relative;min-height:min(calc(100vh - 70px),720px);display:flex;align-items:flex-end;overflow:hidden">
 <img src="img/room-sunset.jpg" alt="ענת וייסמן מול החדר בשקיעה" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 92%;display:block">
 <div style="position:absolute;inset:0;background:linear-gradient(to left,rgba(11,16,32,.94) 0%,rgba(11,16,32,.7) 40%,rgba(11,16,32,.12) 100%)"></div>
 <div style="position:absolute;inset:0;background:linear-gradient(to top,#0B1020 0%,rgba(11,16,32,.55) 30%,rgba(11,16,32,0) 60%)"></div>
-<div class="hero-in" style="position:relative;max-width:1280px;margin:0 auto;padding:clamp(96px,14vw,180px) 28px 72px;width:100%">
+<div class="hero-in" style="position:relative;max-width:1280px;margin:0 auto;padding:clamp(40px,5vw,72px) 28px 56px;width:100%">
 <div style="display:flex;flex-direction:column;gap:28px;animation:fadeUp .9s ease both;max-width:680px">
 <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;color:#6E9BFF;direction:ltr;text-align:right">TRACK 03 · THE KEYNOTE</div>
 <div style="display:inline-flex;align-items:center;gap:12px;align-self:flex-start;border:1px solid #F2C230;border-radius:999px;padding:8px 20px;font-family:'Frank Ruhl Libre',serif;font-size:clamp(22px,2.6vw,30px);font-weight:500;line-height:1.2;color:#F2C230"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#E0413A"></span>יום שני 2.11 · תל אביב · ערב</div>
