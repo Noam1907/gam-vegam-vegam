@@ -106,6 +106,9 @@
   @media (max-width: 640px) {
     html, body { max-width: 100%; overflow-x: hidden; }
   }
+  .cal { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+  .cal a { flex:1 1 200px; display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:12px 16px; border:1px solid var(--ink); border-radius:3px; color:var(--ink); font-size:15px; font-weight:500; text-decoration:none; }
+  .cal a:hover, .cal a:focus-visible { background:var(--ink); color:#EDE9DF; }
 </style>
 <!-- PostHog web analytics -->
 <script>
@@ -119,18 +122,21 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
     <div class="wrap">
       <div class="kicker">Connecting the Dots</div>
       <h1>שמרתי לך מקום.</h1>
-      <p class="confirm">התשלום התקבל והמקום שלך בערב של 2.11 שמור. השעה והכתובת המדויקות נשלחות במייל לפני הערב. <b>קליאו</b></p>
+      <p class="confirm">התשלום התקבל והמקום שלך בערב של 2.11 בשעה 18:00 שמור. הכתובת המדויקת נשלחת במייל לפני הערב. <b>קליאו</b></p>
     </div>
   </header>
 
   <section>
     <div class="wrap">
       <div class="details">
-        <div class="when"><span>יום שני 2.11</span><span class="sep">·</span><span>בשעות הערב</span></div>
+        <div class="when"><span>יום שני 2.11</span><span class="sep">·</span><span>18:00</span></div>
         <div class="where">תל אביב</div>
-        <div class="mail-note">השעה והכתובת המדויקות מגיעות אליך במייל לפני הערב. אם לא רואים אותו, שווה להציץ גם בקידומי המכירות או בספאם.</div>
+        <div class="mail-note">הכתובת המדויקת מגיעה אליך במייל לפני הערב. אם לא רואים אותו, שווה להציץ גם בקידומי המכירות או בספאם.</div>
       </div>
-      <!-- calendar buttons return when the host and the hour are set (RELEASE-CARD-2-11.md, open item) -->
+      <div class="cal">
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The+Human+is+the+Loop+%C2%B7+%D7%A2%D7%A0%D7%AA+%D7%95%D7%99%D7%99%D7%A1%D7%9E%D7%9F&amp;dates=20261102T160000Z%2F20261102T173000Z&amp;details=%D7%94%D7%A8%D7%A6%D7%90%D7%94+%D7%A9%D7%9C+%D7%A2%D7%A0%D7%AA+%D7%95%D7%99%D7%99%D7%A1%D7%9E%D7%9F.+%D7%94%D7%9B%D7%AA%D7%95%D7%91%D7%AA+%D7%94%D7%9E%D7%93%D7%95%D7%99%D7%A7%D7%AA+%D7%9E%D7%92%D7%99%D7%A2%D7%94+%D7%91%D7%9E%D7%99%D7%99%D7%9C+%D7%9C%D7%A4%D7%A0%D7%99+%D7%94%D7%A2%D7%A8%D7%91.+https%3A%2F%2Fthehumanistheloop.co&amp;location=%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91&amp;ctz=Asia%2FJerusalem" target="_blank" rel="noopener" data-cal="google">הוספה ליומן Google</a>
+        <a href="/event.ics" download="the-human-is-the-loop-2-11.ics" data-cal="ics">הוספה ליומן Apple / Outlook</a>
+      </div>
     </div>
   </section>
 

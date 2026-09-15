@@ -1,17 +1,22 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//Connecting the Dots//The Human is the Loop//HE
+PRODID:-//Connecting the Dots//Talk 2.11//HE
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:20260906-the-human-is-the-loop@thehumanistheloop.co
-DTSTAMP:20260803T160000Z
-DTSTART:20260906T150000Z
-DTEND:20260906T180000Z
-SUMMARY:The Human is the Loop
+UID:talk-2026-11-02@thehumanistheloop.co
+DTSTAMP:20260915T140000Z
+DTSTART:20261102T160000Z
+DTEND:20261102T173000Z
+SUMMARY:The Human is the Loop · ענת וייסמן
 LOCATION:תל אביב
-DESCRIPTION:דלתות 18:00\nמתחילים 18:30\nהכתובת המדו
- יקת נשלחת במייל שבוע לפני הערב
-URL:https://thehumanistheloop.co/
+DESCRIPTION:הרצאה של ענת וייסמן. הכתובת המדויק
+ ת מגיעה במייל לפני הערב. https://thehumanistheloop.co
+URL:https://thehumanistheloop.co
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:The Human is the Loop · ענת וייסמן
+END:VALARM
 END:VEVENT
 END:VCALENDAR
