@@ -85,7 +85,14 @@ a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
 <p style="margin:0;font-family:'Frank Ruhl Libre',serif;font-size:clamp(24px,2.8vw,36px);font-weight:500;line-height:1.3;color:#F2C230;text-wrap:balance">Who are we without a title?</p>
 </div>
 <div class="hero-doors" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:8px">
-<a href="#online" data-ph="seat_door_click" data-place="hero" class="hero-btn" style="min-height:52px;background:transparent;border:1px solid rgba(242,194,48,.55);color:#F2C230;font-weight:500;font-size:16px;padding:14px 26px;border-radius:999px;display:inline-flex;align-items:center" style-hover="border-color:#F2C230;text-decoration:none;color:#F2C230">Get a seat</a>
+<!-- Anat, 22.9: "אין סיבה לכפתור שמקפיץ לכפתור." It stays an anchor, and the second
+     seat is the reason. #online is not a button: it is the only place on this page the date,
+     the hours and the $25 appear. Sending the hero straight to the door asked a reader who
+     had seen the headline and nothing else to commit before being told it costs money. That
+     is a button that jumps to the PRICE, which is the opposite fault. The id is here so the
+     pay hook below sets both doors; the moment PAY_URL is filled the hero becomes a real
+     checkout and the jump goes away on its own. -->
+<a id="seatDoorHero" href="#online" data-ph="seat_door_click" data-place="hero" class="hero-btn" style="min-height:52px;background:transparent;border:1px solid rgba(242,194,48,.55);color:#F2C230;font-weight:500;font-size:16px;padding:14px 26px;border-radius:999px;display:inline-flex;align-items:center" style-hover="border-color:#F2C230;text-decoration:none;color:#F2C230">Get a seat</a>
 </div>
 <p style="margin:0;font-size:17px;font-weight:300;line-height:1.75;color:#B9BCC8;max-width:540px;text-wrap:pretty">I’m not here to explain theories about finding your value. I built products, a team of AI agents, and Cleo, the agent who came up with this page. I didn’t do it to prove anything, but the process proved one thing to me: the human isn’t in the loop. <span style="color:#EDE9DF;font-weight:500">The human is the loop.</span></p>
 <p class="hero-p2" style="margin:0;font-size:17px;font-weight:300;line-height:1.75;color:#B9BCC8;max-width:540px;text-wrap:pretty">If you want one more feel-good talk about the future of work, this isn’t it. <span style="color:#EDE9DF;font-weight:500">If you already know the rules changed, bring it to your people.</span></p>
@@ -209,7 +216,7 @@ a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
 <ul style="margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;border-top:1px solid rgba(11,16,32,.18)">
 <li style="display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid rgba(11,16,32,.18);font-size:15px"><span style="font-weight:500">Consulting</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#4B5166"><a href="https://cxmate.io/?utm_source=thehumanistheloop&amp;utm_medium=content&amp;utm_campaign=talk-en-page" target="_blank" rel="noopener" style="color:#4B5166" style-hover="color:#2F63D6">CX Mate</a> · <a href="https://storyos.connecthedots.co/?utm_source=thehumanistheloop&amp;utm_medium=content&amp;utm_campaign=talk-en-page" target="_blank" rel="noopener" style="color:#4B5166" style-hover="color:#2F63D6">StoryOS</a></span></li>
 <li style="display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid rgba(11,16,32,.18);font-size:15px"><span style="font-weight:500">Talks</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#2A5BC9">The Human is the Loop</span></li>
-<li style="display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid rgba(11,16,32,.18);font-size:15px"><span style="font-weight:500">Cleo · the agent</span><span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:#4B5166"><a href="https://connecthedots.co/the-human-chair/?utm_source=thehumanistheloop&amp;utm_medium=content&amp;utm_campaign=talk-en-page" target="_blank" rel="noopener" style="color:#4B5166" style-hover="color:#2F63D6">The Human Chair</a></span></li>
+<!-- Anat, 22.9: the podcast has been in Hebrew, so it is not an English reader's door. This row existed only to point at it. Cleo is still named below, as the agent whose idea this page was, which is the part that reads in any language. -->
 </ul>
 <div style="display:flex;gap:22px;flex-wrap:wrap;font-size:15px">
 <a href="https://connecthedots.co/?utm_source=thehumanistheloop&amp;utm_medium=content&amp;utm_campaign=talk-en-page" target="_blank" rel="noopener" style="color:#0B1020;font-weight:500;text-decoration:underline" style-hover="color:#2F63D6">connecthedots.co →</a>
@@ -288,10 +295,16 @@ a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
 /* Anat, 22.9: "כמובן לחבר לסליקה אפשר פייפל". One line. Empty means the door stays her inbox,
    which is true and reaches her; a PayPal link here makes it a checkout with no other change. */
 (function(){
+  /* The $25 no-code checkout from Anat's PayPal Business account. Empty means the door stays
+     her inbox, which is true and reaches her. Filling this one line turns BOTH doors into a
+     checkout and changes nothing else on the page. */
   var PAY_URL = "";
   if(!PAY_URL) return;
-  var a = document.getElementById("seatDoor");
-  if(a){ a.href = PAY_URL; a.target = "_blank"; a.rel = "noopener"; a.textContent = "Save me a seat \u00b7 $25"; }
+  [["seatDoor", "Save my seat \u00b7 $25"], ["seatDoorHero", "Get a seat \u00b7 $25"]].forEach(function(pair){
+    var a = document.getElementById(pair[0]);
+    if(!a) return;
+    a.href = PAY_URL; a.target = "_blank"; a.rel = "noopener"; a.textContent = pair[1];
+  });
 })();
 </script>
 </body>
