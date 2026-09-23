@@ -119,7 +119,7 @@ a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
 <span>60 minutes, live</span>
 </div>
 </div>
-<a id="seatDoor" href="mailto:anat@connecthedots.co?subject=Online%20session%20%C2%B7%2026%20November" data-ph="online_seat_click" data-place="online" style="color:#0B1020;background:#F2C230;font-weight:500;font-size:15px;padding:16px 28px;border-radius:3px;min-height:52px;display:inline-flex;align-items:center;text-decoration:none" style-hover="background:#EDE9DF">Save me a seat</a>
+<a id="seatDoor" href="mailto:anat@connecthedots.co?subject=Online%20session%20%C2%B7%2026%20November" data-mailto="1" data-ph="online_seat_click" data-place="online" style="color:#0B1020;background:#F2C230;font-weight:500;font-size:15px;padding:16px 28px;border-radius:3px;min-height:52px;display:inline-flex;align-items:center;text-decoration:none" style-hover="background:#EDE9DF">Save me a seat</a>
 </div>
 </section>
 
@@ -305,6 +305,40 @@ a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
     if(!a) return;
     a.href = PAY_URL; a.target = "_blank"; a.rel = "noopener"; a.textContent = pair[1];
   });
+})();
+</script>
+<script>
+/* THE SEAT DOOR AND THE $25. Anat, 23.9: "save me a seat is not connected to payment, only
+   to sending an email — that needs configuring too."
+
+   It was a mailto:, which asks a stranger to open their mail app, write to a person they
+   have never met and then wait. The page says $25 two lines above it, so the button was
+   also the only place on this page where the price is named and nothing can be paid.
+
+   ONE LINE TURNS IT INTO A CHECKOUT. Paste the PayPal link below and the button becomes the
+   payment; leave it empty and it stays the mailto it is today, which at least reaches her.
+   It is a constant and not a build for the same reason the $5 was: the link can only be
+   made inside her PayPal account, and a button that leads nowhere costs more than a
+   mailto does.
+
+   It has to be PayPal and not Morning. Her own finding, read inside her account 21.9:
+   "התשלום זמין בשקלים חדשים וניתן לשימוש בישראל בלבד" — shekels only, Israel only. This
+   session is sold in English to people who are not in Israel.
+
+   WHAT A LINK ALONE STILL DOES NOT DO, and it is the same gap as the $5: PayPal takes the
+   money in a tab this page never hears from, so nobody is recorded as having a seat and
+   nobody is sent the joining link. /api/paid on the fifty rail is the pattern; the seat
+   rail needs the same door before this sells to a stranger rather than to somebody she
+   is already writing to. */
+var SEAT_PAY_URL = "";
+
+(function () {
+  var a = document.getElementById("seatDoor");
+  if (!a || !SEAT_PAY_URL) return;
+  a.href = SEAT_PAY_URL;
+  a.target = "_blank";
+  a.rel = "noopener";
+  a.removeAttribute("data-mailto");
 })();
 </script>
 </body>
