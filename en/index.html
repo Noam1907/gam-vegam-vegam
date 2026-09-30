@@ -36,6 +36,7 @@
 posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_recording:true,api_host:'https://us.i.posthog.com',defaults:'2025-05-24',person_profiles:'identified_only'});
 posthog.register({page_lang:'en'});
 </script>
+<!-- DESIGN-PASS by=lior on=2026-09-30 card=O-output/181-en-page-no-hebrew-checkout-2026-09-30/RELEASE-CARD.md shots=O-output/181-en-page-no-hebrew-checkout-2026-09-30/shots -->
 <style>
 html,body{margin:0;padding:0;background:#0B1020;color:#EDE9DF;font-family:'Heebo',system-ui,sans-serif;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
 a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
@@ -47,6 +48,7 @@ a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
 @media (max-width:640px){.hero-fit{min-height:0!important}.hero-in{padding-top:28px!important;padding-bottom:36px!important}.hero-img{object-position:80% 100%!important}}
 @media (max-width:640px){.hdr{padding:10px 16px!important;flex-wrap:nowrap!important}.hdr-brand{display:none!important}.hdr-nav{width:100%;justify-content:space-between;gap:12px!important;flex-wrap:nowrap!important;font-size:14px!important}.hdr-nav a{white-space:nowrap}}
 @media (max-width:420px){.hdr-talk{display:none!important}}
+@media (max-width:520px){.hero-date .d-long{display:none!important}.hero-date .d-short{display:inline!important}.hero-date{font-size:min(19px,5vw)!important;gap:9px!important;padding:8px 15px!important}}
 .why-more summary::-webkit-details-marker{display:none}.why-more[open] summary{display:none}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
@@ -64,7 +66,7 @@ a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
 <nav class="hdr-nav" style="display:flex;gap:26px;align-items:center;font-size:14px;font-weight:400;flex-wrap:wrap">
 <a class="hdr-talk" href="#takeaways" style="color:#B9BCC8" style-hover="color:#EDE9DF">The talk</a>
 <a href="#anat" data-ph="why_anat_nav" style="color:#F2C230;font-weight:500;border-bottom:1px solid #F2C230;padding-bottom:2px" style-hover="color:#EDE9DF;border-color:#EDE9DF">Why Anat?</a>
-<a href="/" lang="he" dir="rtl" hreflang="he" data-ph="lang_switch" data-place="nav" style="color:#B9BCC8;font-family:'Heebo',sans-serif" style-hover="color:#EDE9DF">עברית</a>
+<a href="/" hreflang="he" data-ph="lang_switch" data-place="nav" style="color:#B9BCC8;font-family:'Heebo',sans-serif" style-hover="color:#EDE9DF">Hebrew</a>
 <a href="#book" data-ph="org_door_click" data-place="nav" style="color:#0B1020;background:#EDE9DF;padding:10px 18px;border-radius:3px;font-weight:500;letter-spacing:.01em" style-hover="background:#F2C230;color:#0B1020;text-decoration:none">Book the talk</a>
 </nav>
 </div>
@@ -77,7 +79,7 @@ a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
 <div class="hero-in" style="position:relative;max-width:1280px;margin:0 auto;padding:clamp(40px,5vw,72px) 28px 56px;width:100%">
 <div style="display:flex;flex-direction:column;gap:28px;animation:fadeUp .9s ease both;max-width:680px">
 <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;color:#6E9BFF">TRACK 03 · A KEYNOTE ON THE FUTURE OF WORK</div>
-<div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;color:#F2C230;margin-top:-18px">THURSDAY, NOVEMBER 26 · ONLINE · IN ENGLISH</div>
+<div class="hero-date" style="display:inline-flex;align-items:center;gap:12px;align-self:flex-start;border:1px solid #F2C230;border-radius:999px;padding:8px 20px;font-family:'Frank Ruhl Libre',serif;font-size:clamp(22px,2.6vw,30px);font-weight:500;line-height:1.2;color:#F2C230;white-space:nowrap"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#E0413A;flex:none"></span><span><span class="d-long">Thursday 26 November</span><span class="d-short" style="display:none">Thu 26 Nov</span> · 11:30 ET · Online</span></div>
 <h1 style="margin:0;font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(60px,9.5vw,148px);line-height:.92;letter-spacing:-.015em;text-wrap:balance">The Human<br><em style="font-style:italic;color:#F2C230;-webkit-text-stroke:2px #F2C230;paint-order:stroke fill">is</em> the Loop</h1>
 <div style="display:flex;flex-direction:column;gap:6px;max-width:600px">
 <p style="margin:0;font-family:'Frank Ruhl Libre',serif;font-size:clamp(24px,2.8vw,36px);font-weight:500;line-height:1.3;color:#EDE9DF;text-wrap:balance">We’re not going anywhere. Really, we’re not.</p>
@@ -85,7 +87,7 @@ a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
 <p style="margin:0;font-family:'Frank Ruhl Libre',serif;font-size:clamp(24px,2.8vw,36px);font-weight:500;line-height:1.3;color:#F2C230;text-wrap:balance">Who are we without a title?</p>
 </div>
 <div class="hero-doors" style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:8px">
-<!-- Anat, 22.9: "אין סיבה לכפתור שמקפיץ לכפתור." It stays an anchor, and the second
+<!-- Anat, 22.9: "there is no reason for a button that jumps to a button." It stays an anchor, and the second
      seat is the reason. #online is not a button: it is the only place on this page the date,
      the hours and the $25 appear. Sending the hero straight to the door asked a reader who
      had seen the headline and nothing else to commit before being told it costs money. That
@@ -108,7 +110,7 @@ a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
 <section id="online" data-screen-label="Online" style="max-width:1280px;margin:0 auto;padding:0 28px 40px">
 <div style="border:1px solid rgba(242,194,48,.5);border-radius:4px;padding:26px 24px;display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between">
 <div style="display:flex;flex-direction:column;gap:10px;min-width:300px">
-<div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:#F2C230">OPEN ONLINE SESSION &middot; IN ENGLISH</div>
+<div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.2em;color:#F2C230">26.11.2026 &middot; OPEN ONLINE SESSION &middot; IN ENGLISH</div>
 <div style="font-family:'Frank Ruhl Libre',serif;font-size:30px;font-weight:500;line-height:1.05;color:#EDE9DF">Thursday 26 November</div>
 <div style="display:flex;flex-wrap:wrap;gap:18px;font-size:15px;font-weight:300;color:#B9BCC8;align-items:baseline">
 <span><b style="color:#EDE9DF;font-weight:500">11:30</b> ET</span>
@@ -190,7 +192,7 @@ a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
 <div id="track" style="display:flex;width:max-content;animation:marquee 60s linear infinite" style-hover="animation-play-state:paused"></div>
 <template id="qt"><figure style="margin:0;width:min(460px,84vw);padding:8px 0 8px 40px;border-left:1px solid rgba(11,16,32,.22);margin-left:40px;display:flex;flex-direction:column;gap:18px;flex-shrink:0">
 <blockquote style="margin:0;font-family:'Frank Ruhl Libre',serif;font-size:clamp(21px,2.1vw,26px);line-height:1.45;font-weight:400;color:#0B1020;text-wrap:pretty"></blockquote>
-<figcaption style="display:flex;flex-direction:column;gap:10px"><span data-who style="font-size:13px;font-weight:500;color:#0B1020;letter-spacing:.02em"></span><span data-orig dir="rtl" lang="he" style="font-size:13px;line-height:1.55;font-weight:400;color:#4B5166;text-align:right"></span></figcaption>
+<figcaption style="display:flex;flex-direction:column;gap:10px"><span data-who style="font-size:13px;font-weight:500;color:#0B1020;letter-spacing:.02em"></span><span data-orig style="font-size:13px;line-height:1.55;font-weight:400;color:#4B5166;text-align:right"></span></figcaption>
 </figure></template>
 </section>
 
@@ -240,7 +242,7 @@ a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
 <a id="org-door" href="mailto:anat@connecthedots.co?subject=Keynote%20for%20my%20organization%20%C2%B7%20The%20Human%20is%20the%20Loop&amp;body=Organization%3A%0ARough%20date%3A%0AWho%27ll%20be%20in%20the%20room%3A%0AEnglish%20or%20Hebrew%3A%0A" data-ph="org_door_open" data-place="booking" style="background:#EDE9DF;color:#0B1020;font-weight:500;font-size:16px;padding:0 36px;border-radius:3px;min-height:54px;display:inline-flex;align-items:center;gap:10px;align-self:flex-start" style-hover="background:#F2C230;text-decoration:none;color:#0B1020"><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:#E0413A"></span>Write to Anat about your event</a>
 <p style="margin:0;font-size:13px;font-weight:300;color:#8A90A3">Opens your email with four short lines to fill in.</p>
 </div>
-<p style="margin:28px 0 0;font-size:15px;font-weight:300;line-height:1.6;color:#B9BCC8">Rather hear it yourself first? The public evenings are in Tel Aviv, in Hebrew. <a href="/" lang="he" hreflang="he" data-ph="lang_switch" data-place="booking" style="color:#EDE9DF;text-decoration:underline;text-underline-offset:.25em" style-hover="color:#F2C230">See the Hebrew page</a></p>
+<p style="margin:28px 0 0;font-size:15px;font-weight:300;line-height:1.6;color:#B9BCC8">Rather hear it yourself first? The public evenings are in Tel Aviv, in Hebrew. <a href="/" hreflang="he" data-ph="lang_switch" data-place="booking" style="color:#EDE9DF;text-decoration:underline;text-underline-offset:.25em" style-hover="color:#F2C230">See the Hebrew page</a></p>
 </div>
 </section>
 
@@ -264,7 +266,7 @@ a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
 <a href="tel:+972544850294" style="color:#8A90A3" style-hover="color:#EDE9DF">+972 (0)54 485 0294</a><span>·</span>
 <a href="https://connecthedots.co/?utm_source=thehumanistheloop&amp;utm_medium=content&amp;utm_campaign=talk-en-page" style="color:#8A90A3" style-hover="color:#EDE9DF">Connecting the Dots</a><span>·</span>
 <a href="https://thehumanistheloop.co/privacy" style="color:#8A90A3" style-hover="color:#EDE9DF">Privacy policy (in Hebrew)</a><span>·</span>
-<a href="/" lang="he" hreflang="he" style="color:#8A90A3" style-hover="color:#EDE9DF">עברית</a>
+<a href="/" hreflang="he" style="color:#8A90A3" style-hover="color:#EDE9DF">Hebrew</a>
 </div>
 </div>
 </footer>
@@ -272,17 +274,17 @@ a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
 <script>
 (function(){
   /* Named, public LinkedIn comments and one post, from people who were in the room on 6.9 (Anat authorised 14.9;
-     sources in QUOTES-FROM-POST.md). The original Hebrew is shown verbatim under each English rendering. */
+     sources in QUOTES-FROM-POST.md). English renderings only; the originals are in QUOTES-FROM-POST.md. */
   var quotes=[
-    {"en":"The smarter the systems get, the more the human doesn’t leave the process but sits at its center. Judgment, context, sensitivity, the ability to connect dots, to choose, to influence and to bring something truly our own, all take on even more meaning.","he":"ככל שהמערכות הופכות חכמות יותר, האדם לא יוצא מהתהליך אלא הוא מרכזו. השיפוט, ההקשר, הרגישות, היכולת לחבר נקודות, לבחור, להשפיע ולהביא משהו שהוא באמת שלנו, מקבלים אפילו יותר משמעות.","who":"Orit Stanton"},
-    {"en":"I don’t think I’ve ever smiled this much at a talk 🙂 You made an evening that was funny, moving, fascinating and inspiring. I learned so much from you 🙏🏻","he":"לא חושבת שאי פעם חייכתי כ\"כ הרבה בהרצאה 🙂 יצרת ערב מצחיק, מפעים, מרתק ומעורר השראה. למדתי ממך המון 🙏🏻","who":"Perlin Agranati"},
-    {"en":"What a champion you are. The talk was interesting and thought-provoking, practical and carefully made.","he":"איזה אלופה את, היתה הרצאה מעניינת ומעוררת מחשבה, פרקטית ומושקעת","who":"Danit Alon Weitz"},
-    {"en":"I got to be at your first talk, and I got you as my mentor. A woman who is all inspiration, through your courage and what you do. A talk about how to grow and play to your strengths, as much as about how to make AI work for you 🦄","he":"זכיתי להיות בהרצאה הראשונה שלך, וזכיתי בך כמנטורית שלי. אישה שהיא כולה השראה, דרך האומץ שלך והעשייה שלך. הרצאה על איך לצמוח ולשחק על החוזקות שלך לא פחות מאיך למנף AI 🦄","who":"Michal Levin"},
-    {"en":"Thank you so much, you reminded me why being more human is always an advantage.","he":"תודה רבה, הזכרת לי למה זה תמיד יתרון להיות יותר אנושיים","who":"Efrat Barak"}
+    {"en":"The smarter the systems get, the more the human doesn’t leave the process but sits at its center. Judgment, context, sensitivity, the ability to connect dots, to choose, to influence and to bring something truly our own, all take on even more meaning.","who":"Orit Stanton"},
+    {"en":"I don’t think I’ve ever smiled this much at a talk 🙂 You made an evening that was funny, moving, fascinating and inspiring. I learned so much from you 🙏🏻","who":"Perlin Agranati"},
+    {"en":"What a champion you are. The talk was interesting and thought-provoking, practical and carefully made.","who":"Danit Alon Weitz"},
+    {"en":"I got to be at your first talk, and I got you as my mentor. A woman who is all inspiration, through your courage and what you do. A talk about how to grow and play to your strengths, as much as about how to make AI work for you 🦄","who":"Michal Levin"},
+    {"en":"Thank you so much, you reminded me why being more human is always an advantage.","who":"Efrat Barak"}
   ];
   var track=document.getElementById('track'),tpl=document.getElementById('qt');
   var list=quotes.concat(quotes);
-  list.concat(list).forEach(function(q,i){var n=tpl.content.firstElementChild.cloneNode(true);if(i>=quotes.length)n.setAttribute('data-dup','');if(i>=quotes.length)n.setAttribute('aria-hidden','true');n.querySelector('blockquote').textContent=q.en;n.querySelector('[data-who]').textContent=q.who;n.querySelector('[data-orig]').textContent='„'+q.he+'“';track.appendChild(n);});
+  list.concat(list).forEach(function(q,i){var n=tpl.content.firstElementChild.cloneNode(true);if(i>=quotes.length)n.setAttribute('data-dup','');if(i>=quotes.length)n.setAttribute('aria-hidden','true');n.querySelector('blockquote').textContent=q.en;n.querySelector('[data-who]').textContent=q.who;track.appendChild(n);});
   function port(attr,on,off){document.querySelectorAll('['+attr+']').forEach(function(el){var base=el.getAttribute('style')||'';el.addEventListener(on,function(){el.setAttribute('style',base+';'+el.getAttribute(attr));});el.addEventListener(off,function(){el.setAttribute('style',base);});});}
   function ph(ev,p){try{if(window.posthog&&posthog.capture)posthog.capture(ev,p||{},{transport:'sendBeacon'});}catch(e){}}
   document.querySelectorAll('[data-ph]').forEach(function(el){el.addEventListener('click',function(){ph(el.getAttribute('data-ph'),{place:el.getAttribute('data-place')||''});});});
@@ -292,19 +294,48 @@ a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
 })();
 </script>
 <script>
-/* Anat, 22.9: "כמובן לחבר לסליקה אפשר פייפל". One line. Empty means the door stays her inbox,
+/* Anat, 22.9: "of course connect it to checkout, PayPal is fine". One line. Empty means the door stays her inbox,
    which is true and reaches her; a PayPal link here makes it a checkout with no other change. */
 (function(){
   /* The $25 no-code checkout from Anat's PayPal Business account. Empty means the door stays
      her inbox, which is true and reaches her. Filling this one line turns BOTH doors into a
      checkout and changes nothing else on the page. */
-  var PAY_URL = "";
+  /* 30.9: the fifty rail's /api/seat-en makes a $25.00 PayPal order and sends the buyer to
+     approve it. PayPal returns them to the rail, the rail captures server side, records the
+     seat, queues both mails, and lands them back here on ?paid=1 (or ?paid=0). Same tab, so
+     the thank-you below is the next thing they see. */
+  var PAY_URL = "https://fifty.connecthedots.co/api/seat-en";
   if(!PAY_URL) return;
   [["seatDoor", "Save my seat \u00b7 $25"], ["seatDoorHero", "Get a seat \u00b7 $25"]].forEach(function(pair){
     var a = document.getElementById(pair[0]);
     if(!a) return;
-    a.href = PAY_URL; a.target = "_blank"; a.rel = "noopener"; a.textContent = pair[1];
+    a.href = PAY_URL; a.removeAttribute("data-mailto"); a.textContent = pair[1];
   });
+
+  /* The return. Words only, in the seat card's own elements: no new markup, no new CSS. */
+  var m = /[?&]paid=([01]|pending)(?:&|$)/.exec(location.search);
+  if(!m) return;
+  var ok = m[1] === "1";
+  var pend = m[1] === "pending";
+  var sec = document.getElementById("online");
+  var col = sec && sec.firstElementChild && sec.firstElementChild.firstElementChild;
+  var door = document.getElementById("seatDoor");
+  var hero = document.getElementById("seatDoorHero");
+  if(col && col.children.length >= 3){
+    col.children[0].textContent = ok ? "YOU HAVE A SEAT \u00b7 26 NOVEMBER" : pend ? "PAYMENT RECEIVED \u00b7 CONFIRMING" : "THE PAYMENT DID NOT COMPLETE";
+    col.children[1].textContent = ok ? "Thank you. Your seat is saved." : pend ? "Thank you. PayPal is still confirming your payment." : "Your seat is not saved yet.";
+    col.children[2].textContent = ok
+      ? "A confirmation is on its way to your email. The join link arrives by email before the talk."
+      : pend ? "There is nothing to do. You will get an email as soon as it clears, and the join link arrives by email before the talk."
+      : "Try again, or write to anat@connecthedots.co and I will sort it out.";
+  }
+  if(ok || pend){
+    if(door){ door.href = "mailto:anat@connecthedots.co?subject=My%20seat%20%C2%B7%2026%20November"; door.textContent = "Questions? Write to me"; }
+    if(hero){ hero.href = "#online"; hero.textContent = ok ? "You have a seat" : "Payment received"; }
+  }
+  try{ if(window.posthog && posthog.capture) posthog.capture(ok ? "seat_paid" : pend ? "seat_pay_pending" : "seat_pay_failed", {place:"return"}); }catch(e){}
+  try{ history.replaceState(null, "", location.pathname + "#online"); }catch(e){}
+  if(sec && sec.scrollIntoView) sec.scrollIntoView();
 })();
 </script>
 <script>
@@ -322,14 +353,12 @@ a{color:#EDE9DF;text-decoration:none}a:hover{color:#F2C230}
    mailto does.
 
    It has to be PayPal and not Morning. Her own finding, read inside her account 21.9:
-   "התשלום זמין בשקלים חדשים וניתן לשימוש בישראל בלבד" — shekels only, Israel only. This
+   (in Hebrew, in the Morning dashboard) shekels only, Israel only. This
    session is sold in English to people who are not in Israel.
 
-   WHAT A LINK ALONE STILL DOES NOT DO, and it is the same gap as the $5: PayPal takes the
-   money in a tab this page never hears from, so nobody is recorded as having a seat and
-   nobody is sent the joining link. /api/paid on the fifty rail is the pattern; the seat
-   rail needs the same door before this sells to a stranger rather than to somebody she
-   is already writing to. */
+   SUPERSEDED 30.9. PAY_URL above now points at the fifty rail's /api/seat-en, which records
+   the seat and sends the mails, so this constant stays empty on purpose. A payment link here
+   would take money in a tab this page never hears from again. */
 var SEAT_PAY_URL = "";
 
 (function () {
