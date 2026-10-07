@@ -88,10 +88,10 @@ html{scroll-behavior:smooth}
   <h1 class="h1" style="margin:0 0 32px;font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(40px,7.6vw,104px);line-height:.95;letter-spacing:-.03em;color:#14162B">The Human <em style="font-weight:300;font-style:italic;color:#F23A2E">is</em> the Loop</h1>
   <div class="two" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:stretch">
     <div style="display:flex;flex-direction:column;justify-content:flex-end;gap:22px;padding-bottom:8px">
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#F23A2E">NEXT UP · ONLINE</span>
-      <p style="margin:0;font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(30px,3.4vw,46px);line-height:1.1;color:#1C4FE0">Thursday, Nov 5, 2026<br>Online · 11:00 ET / 16:00 UK</p>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#F23A2E" data-next="tag">NEXT UP · IN THE ROOM</span>
+      <p style="margin:0;font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(30px,3.4vw,46px);line-height:1.1;color:#1C4FE0" data-next="line">Monday, Nov 2, 2026<br>Tel Aviv · 18:00</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
-        <a href="https://fifty.connecthedots.co/api/seat-en" data-ph="seat_door_click" data-place="hero" style="background:#1C4FE0;color:#fff;text-decoration:none;padding:20px 34px;font-size:20px;font-weight:700;display:inline-flex;gap:14px;align-items:center">Get tickets <span aria-hidden="true">→</span></a>
+        <a data-next="door" href="https://mrng.to/pxuVnuzSm5" data-ph="seat_door_click" data-place="hero" style="background:#1C4FE0;color:#fff;text-decoration:none;padding:20px 34px;font-size:20px;font-weight:700;display:inline-flex;gap:14px;align-items:center">Get tickets <span aria-hidden="true">→</span></a>
         <a href="#dates" style="color:#14162B;font-weight:700;font-size:17px;text-decoration:underline;text-underline-offset:4px">All dates, live and online</a>
       </div>
     </div>
@@ -289,11 +289,11 @@ html{scroll-behavior:smooth}
 <div class="bar" style="position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(980px,100%);background:#1C4FE0;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 24px;box-shadow:0 -8px 30px rgba(20,22,43,.15);z-index:50">
   <div style="display:flex;flex-direction:column;gap:4px;min-width:0">
     <span style="font-family:'Rubik',sans-serif;font-weight:900;font-size:18px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">The Human is the Loop</span>
-    <span style="font-size:14px;color:#CFE0FF">Thursday, Nov 5, 2026 | Online · 11:00 ET / 16:00 UK</span>
+    <span style="font-size:14px;color:#CFE0FF" data-next="bar">Monday, Nov 2, 2026 | Tel Aviv · 18:00</span>
   </div>
   <div style="display:flex;gap:10px;align-items:center">
     <a class="bar-all" href="#dates" style="color:#fff;font-weight:700;font-size:15px;white-space:nowrap;padding:14px 10px">All dates</a>
-    <a id="barTickets" href="https://fifty.connecthedots.co/api/seat-en" data-ph="seat_door_click" data-place="bar" style="background:#fff;color:#1C4FE0;text-decoration:none;padding:14px 24px;font-weight:700;font-size:16px;white-space:nowrap">Get tickets</a>
+    <a id="barTickets" data-next="door" href="https://mrng.to/pxuVnuzSm5" data-ph="seat_door_click" data-place="bar" style="background:#fff;color:#1C4FE0;text-decoration:none;padding:14px 24px;font-weight:700;font-size:16px;white-space:nowrap">Get tickets</a>
   </div>
 </div>
 
@@ -313,6 +313,12 @@ html{scroll-behavior:smooth}
       if(b.id==='storyBtn'){var l=document.getElementById('storyLabel'); l.textContent=open?'Close the story':'Read the rest of the story'; b.setAttribute('aria-label',l.textContent);}
     });
   });
+
+  /* Anat 7.10: the nearest date leads. After 2.11 ends (Israel time) the hero and the bar move to 5.11. */
+  if(Date.now() > Date.parse('2026-11-02T23:00:00+02:00')){
+    var N={tag:'NEXT UP \u00b7 ONLINE', line:'Thursday, Nov 5, 2026<br>Online \u00b7 11:00 ET / 16:00 UK', bar:'Thursday, Nov 5, 2026 | Online \u00b7 11:00 ET / 16:00 UK', door:'https://fifty.connecthedots.co/api/seat-en'};
+    document.querySelectorAll('[data-next]').forEach(function(el){var k=el.getAttribute('data-next'); if(k==='door') el.href=N.door; else el.innerHTML=N[k];});
+  }
 
   /* The PayPal return. /api/seat-en sends the buyer back with ?paid=1, 0 or pending
      (via /en/, which forwards here with the query intact). */
