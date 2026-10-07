@@ -1,0 +1,22 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Connecting the Dots//Talk 5.11//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:talk-2026-11-05@thehumanistheloop.co
+DTSTAMP:20261007T200000Z
+DTSTART:20261105T160000Z
+DTEND:20261105T170000Z
+SUMMARY:The Human is the Loop · Anat Weissman (online)
+LOCATION:Online
+DESCRIPTION:Live online talk by Anat Weissman\, in English. The join link a
+ rrives by email before the talk. https://thehumanistheloop.co
+URL:https://thehumanistheloop.co
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:The Human is the Loop · tomorrow
+END:VALARM
+END:VEVENT
+END:VCALENDAR
