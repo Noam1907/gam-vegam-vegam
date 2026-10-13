@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<!-- DESIGN-PASS by=lior on=2026-10-07 card=O-output/197-talk-site-english-main-2026-10-07/RELEASE-CARD.md shots=O-output/197-talk-site-english-main-2026-10-07/shots resign=2026-10-07 change=header 14px, hero top 4px, h1 40-104px one line at 761+; formats section removed, dates-to-takeaways gap 96px -->
+<!-- DESIGN-PASS by=lior on=2026-10-13 card=O-output/200-seat-email-step-2026-10-13/DESIGN-PASS-2026-10-13.md shots=O-output/200-seat-email-step-2026-10-13/shots change=2.11 email step sheet -->
 <!-- DATE-OK 2026-11-02 Tel Aviv in-room talk in Hebrew, date locked by Anat; US election eve does not touch this audience. -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -66,6 +66,30 @@ html{scroll-behavior:smooth}
 }
 @media (max-width:420px){.hdr nav a.nav-talk{display:none}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+/* The 2.11 email step (Anat 13.10): one short sheet between the ticket door and Morning. Design pass: Lior 13.10. */
+.seat-step{border:0;border-top:4px solid #14162B;padding:0;margin:auto;width:calc(100% - 32px);max-width:480px;background:#F4F3EE;color:#14162B;font-family:'Assistant',sans-serif;box-shadow:0 24px 64px rgba(20,22,43,.35);overscroll-behavior:contain}
+.seat-step[open]{animation:ssIn .22s cubic-bezier(.2,.8,.2,1)}
+.seat-step::backdrop{background:rgba(20,22,43,.62)}
+@keyframes ssIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.seat-step form{position:relative;padding:36px 32px 28px;display:flex;flex-direction:column;gap:16px}
+.seat-step h2{font-family:'Rubik',sans-serif;font-weight:900;font-size:30px;line-height:1.1;margin:0 0 8px;padding-inline-end:48px}
+.seat-step label{display:flex;flex-direction:column;gap:8px;font-weight:700;font-size:16px;line-height:1.3}
+.seat-step label .opt{font-weight:400;color:#5C5E6E}
+.seat-step input{font:inherit;font-size:18px;font-weight:400;padding:14px 14px;border:2px solid #14162B;border-radius:0;background:#fff;color:#14162B;width:100%;min-height:52px;-webkit-appearance:none;appearance:none}
+.seat-step input:focus-visible{outline:3px solid #F5D010;outline-offset:0}
+.seat-step input[aria-invalid="true"]{border-color:#B3261E;box-shadow:inset 0 0 0 1px #B3261E}
+.seat-step .err{color:#B3261E;font-size:15px;line-height:1.3;font-weight:700;margin:-8px 0 0}
+.seat-step .go{display:flex;justify-content:center;gap:12px;align-items:center;margin-top:8px;background:#1C4FE0;color:#fff;border:0;border-radius:0;padding:18px 24px;font:inherit;font-size:19px;font-weight:700;cursor:pointer;min-height:56px;width:100%}
+.seat-step .go:hover{background:#14162B}
+.seat-step .go:focus-visible{outline:3px solid #F5D010;outline-offset:3px}
+.seat-step .go[disabled]{opacity:.7;cursor:progress}
+.seat-step .fine{font-size:14px;line-height:1.5;color:#5C5E6E;margin:0}
+.seat-step .fine a{color:#14162B;text-decoration:underline;text-underline-offset:3px;display:inline-block;padding:12px 0;margin:-12px 0}
+.seat-step .x{position:absolute;top:28px;inset-inline-end:20px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:none;border:0;color:#14162B;font-size:32px;line-height:1;cursor:pointer;padding:0}
+.seat-step .x:focus-visible{outline:3px solid #F5D010;outline-offset:0}
+@media (max-width:760px){.seat-step{width:100%;max-width:100%;margin:auto 0 0;max-height:100%}.seat-step[open]{animation-name:ssUp}.seat-step form{padding:28px 16px calc(20px + env(safe-area-inset-bottom))}.seat-step h2{font-size:28px}.seat-step .x{top:20px;inset-inline-end:6px}}
+@keyframes ssUp{from{transform:translateY(100%)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){.seat-step[open]{animation:none}}
 </style>
 </head>
 <body>
@@ -286,10 +310,70 @@ html{scroll-behavior:smooth}
 </div>
 
 </div>
+
+<!-- FORM-FLOW store=https://fifty.connecthedots.co/api/flow owner=Adam followup=24h -->
+<dialog id="seatStep" class="seat-step" aria-labelledby="seatStepT">
+  <form id="seatForm" novalidate>
+    <button type="button" class="x" id="seatX" aria-label="Close">&times;</button>
+    <h2 id="seatStepT">One step before payment</h2>
+    <label>Email<input id="seatEmail" enterkeyhint="go" name="email" type="email" inputmode="email" autocomplete="email" required autofocus></label>
+    <p class="err" id="seatErr" role="alert" hidden>Please enter a valid email</p>
+    <label><span>Name <span class="opt">(optional)</span></span><input id="seatName" enterkeyhint="go" name="name" type="text" autocomplete="name" maxlength="80"></label>
+    <input type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+    <button type="submit" class="go" id="seatGo">Continue to payment <span aria-hidden="true">→</span></button>
+    <p class="fine">We keep your email only to get back to you about the talk. <a href="https://thehumanistheloop.co/privacy">Privacy policy</a></p>
+  </form>
+</dialog>
 <script>
 (function(){
   function ph(ev,p){try{if(window.posthog&&posthog.capture)posthog.capture(ev,p||{},{transport:'sendBeacon'});}catch(e){}}
   document.querySelectorAll('[data-ph]').forEach(function(el){el.addEventListener('click',function(){ph(el.getAttribute('data-ph'),{place:el.getAttribute('data-place')||''});});});
+
+  /* Anat 13.10: "תוסיף את שלב המייל לפני מורנינג". Every 2.11 ticket door asks for an address
+     first, then goes straight to Morning. The step never blocks payment: whatever the store
+     answers, or if it never answers, the press ends on Morning. One address per visit: a
+     second press goes straight through. Checked at click time, so after 2.11 (when the doors
+     move to the 5.11 PayPal seat) nothing is intercepted. */
+  var SEAT='https://mrng.to/pxuVnuzSm5', LEAD='https://fifty.connecthedots.co/api/seat-lead', LANG='en';
+  var dlg=document.getElementById('seatStep');
+  function given(){try{return sessionStorage.getItem('seatLead')==='1';}catch(e){return false;}}
+  function go(){location.href=SEAT;}
+  if(dlg && typeof dlg.showModal==='function'){
+    var form=document.getElementById('seatForm'), em=document.getElementById('seatEmail'), nm=document.getElementById('seatName'),
+        err=document.getElementById('seatErr'), btn=document.getElementById('seatGo'), place='';
+    document.addEventListener('click',function(e){
+      var a=e.target.closest&&e.target.closest('a[href]');
+      if(!a||a.href.indexOf(SEAT)!==0) return;
+      if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
+      if(given()) return;
+      e.preventDefault();
+      place=a.getAttribute('data-place')||'';
+      err.hidden=true; em.removeAttribute('aria-invalid'); btn.disabled=false;
+      dlg.showModal(); em.focus();
+    });
+    document.getElementById('seatX').addEventListener('click',function(){dlg.close();});
+    dlg.addEventListener('click',function(e){if(e.target===dlg) dlg.close();});
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var v=(em.value||'').trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){err.hidden=false; em.setAttribute('aria-invalid','true'); em.focus(); return;}
+      em.removeAttribute('aria-invalid'); err.hidden=true; btn.disabled=true;
+      var q=new URLSearchParams(location.search), body={email:v,name:(nm.value||'').trim(),lang:LANG,place:place,botcheck:form.botcheck.value};
+      ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){body[k]=q.get(k)||'';});
+      var done=false;
+      function finish(stored){
+        if(done) return; done=true;
+        try{sessionStorage.setItem('seatLead','1');}catch(x){}
+        ph('seat_email_captured',{place:place,lang:LANG,stored:!!stored,has_name:!!body.name});
+        go();
+      }
+      setTimeout(function(){finish(false);},2500);
+      try{
+        fetch(LEAD,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),keepalive:true,mode:'cors'})
+          .then(function(r){finish(r.ok);},function(){finish(false);});
+      }catch(x){finish(false);}
+    });
+  }
 
   /* The + buttons: each opens the text it controls and turns into an x. */
   document.querySelectorAll('button.plus').forEach(function(b){
