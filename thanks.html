@@ -1,116 +1,124 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
+<!-- DESIGN-PASS by=lior on=2026-10-14 card=O-output/206-thanks-new-skin-2026-10-14/DESIGN-PASS-2026-10-14.md shots=O-output/206-thanks-new-skin-2026-10-14/shots -->
 <!-- DATE-OK 2026-11-02 Tel Aviv in-room talk in Hebrew, date locked by Anat; US election eve does not touch this audience. -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>שמרתי לך מקום · The Human is the Loop</title>
 <meta name="description" content="ההרשמה נקלטה. יום שני 2.11.2026, תל אביב." />
 <meta name="robots" content="noindex" />
+<meta name="theme-color" content="#F4F3EE">
 <link rel="canonical" href="https://thehumanistheloop.co/thanks">
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;900&family=Assistant:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<!-- /thanks in the /he/ skin (Lior 14.10). Tokens and components are lifted from /he/: paper #F4F3EE, ink #14162B,
+     blue #1C4FE0 for the one press, dark red #B3261E for the small mono tag (AA on paper), yellow #F5D010 rule and focus ring on ink, ink focus ring on paper, grey #5C5E6E.
+     Rubik 900 for display, Assistant for text, IBM Plex Mono for tags. Square corners, 2px ink rules. Words, links, ids,
+     data attributes and the script are byte-identical to the live page of 13.10. -->
 <style>
-  :root {
-    --paper: #f8f3ea;
-    --paper-warm: #f1e8d8;
-    --ink: #25313f;
-    --ink-soft: #5d6675;
-    --terra: #c4703f;
-    --terra-deep: #a85a2e;
-    --line: rgba(37,49,63,0.12);
-    --card: #fffdf8;
-    --shadow: 0 16px 44px rgba(37,49,63,0.07);
-    --navy: #1a2540;
-    --navy-deep: #121a2e;
-    --gold: #d8a64e;
-    --gold-soft: #e6bd6e;
-    --gold-deep: #ab7a2a;
-    --cream: #f2ece0;
-  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
   body {
-    font-family: 'Heebo', system-ui, 'Segoe UI', Arial, sans-serif;
-    background: var(--paper);
-    color: var(--ink);
-    line-height: 1.75;
+    background: #F4F3EE; color: #14162B;
+    font-family: 'Assistant', system-ui, sans-serif; line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-  .serif { font-family: 'Frank Ruhl Libre', Georgia, serif; }
-  .wrap { max-width: 680px; margin: 0 auto; padding: 0 28px; }
+  a { color: #14162B; }
+  :focus-visible { outline: 3px solid #14162B; outline-offset: 3px; }
+  .share-band :focus-visible { outline-color: #F5D010; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+  .col { max-width: 720px; }
 
-  .hero {
-    position: relative; text-align: center;
-    background: linear-gradient(165deg, var(--navy) 0%, var(--navy-deep) 100%);
-    color: var(--cream);
-    padding: 84px 0 72px;
-  }
-  .kicker { color: var(--gold); font-weight: 500; letter-spacing: 0.34em; font-size: 13px; text-transform: uppercase; margin-bottom: 34px; }
-  h1 { font-family: 'Frank Ruhl Libre', Georgia, serif; color: var(--cream); font-size: clamp(38px, 8vw, 64px); font-weight: 700; line-height: 1.05; margin-bottom: 22px; }
-  .confirm { max-width: 560px; margin: 0 auto; font-size: clamp(17px, 2.6vw, 20px); font-weight: 300; line-height: 1.75; color: rgba(242,236,224,0.85); }
-  .confirm b { color: var(--gold); font-weight: 700; }
+  /* Hero: paper, not navy. The headline is the page. */
+  .hero { padding: 40px 0 0; }
+  .kicker { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: #B3261E; direction: ltr; text-align: right; margin-bottom: 20px; }
+  h1 { font-family: 'Rubik', sans-serif; font-weight: 900; font-size: clamp(44px, 9vw, 104px); line-height: .95; letter-spacing: -.02em; color: #14162B; margin-bottom: 20px; text-wrap: balance; }
+  .confirm { font-size: clamp(19px, 2.2vw, 24px); font-weight: 600; line-height: 1.5; color: #14162B; }
+  .confirm b { font-weight: 700; }
+  .rule { height: 4px; background: #F5D010; margin-top: 32px; }
 
-  section { padding: 58px 0; border-bottom: 1px solid var(--line); }
-  h2 { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: 26px; font-weight: 700; margin-bottom: 26px; }
-
-  .details {
-    background: var(--card); border: 1px solid var(--line); border-radius: 16px;
-    padding: 34px 32px; box-shadow: var(--shadow); text-align: center;
-  }
-  .details .when { font-family: 'Frank Ruhl Libre', Georgia, serif; font-size: clamp(20px, 3.4vw, 25px); font-weight: 700; color: var(--ink); margin-bottom: 10px; }
-  .details .when .sep { color: var(--gold-deep); margin: 0 10px; }
-  .details .where { font-size: 17px; color: var(--ink-soft); }
-  .details .where b { color: var(--gold-deep); font-weight: 500; }
-  .details .mail-note { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 15px; color: var(--ink-soft); }
-  .details .mail-note p { margin-bottom: 14px; }
-
-  .cal-row { margin-top: 28px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
-  .cal-row a {
-    display: inline-flex; align-items: center; gap: 9px; cursor: pointer;
-    font-family: inherit; font-size: 15px; font-weight: 500; color: var(--ink);
-    background: transparent; border: 1px solid var(--line); border-radius: 11px; padding: 11px 22px;
-    text-decoration: none;
-    transition: border-color .15s ease, color .15s ease;
-  }
-  .cal-row a:hover { border-color: var(--gold-deep); color: var(--gold-deep); }
-  .cal-row a svg { width: 17px; height: 17px; }
-
-  .share { margin-top: 8px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-  .share .ask { font-size: 15px; color: var(--ink-soft); }
-  .share button {
-    display: inline-flex; align-items: center; gap: 9px; cursor: pointer;
-    font-family: inherit; font-size: 15px; font-weight: 500; color: var(--ink);
-    background: transparent; border: 1px solid var(--line); border-radius: 11px; padding: 11px 22px;
-    transition: border-color .15s ease, color .15s ease;
-  }
-  .share button:hover { border-color: var(--gold-deep); color: var(--gold-deep); }
-  .share button svg { width: 17px; height: 17px; }
-  .share .copied { font-size: 13px; color: var(--gold-deep); min-height: 16px; }
-
+  /* The details: the date in the /he/ hero line, then the one press. */
+  .details { padding: 32px 0 0; }
+  .when { font-family: 'Rubik', sans-serif; font-weight: 900; font-size: clamp(30px, 3.6vw, 46px); line-height: 1.1; color: #1C4FE0; }
+  .when .sep { margin: 0 .3em; }
+  .where { font-family: 'Rubik', sans-serif; font-weight: 900; font-size: clamp(30px, 3.6vw, 46px); line-height: 1.1; color: #1C4FE0; }
+  .mail-note { margin-top: 28px; padding-top: 20px; border-top: 2px solid #14162B; }
+  .mail-note p { font-size: 18px; line-height: 1.65; color: #3A3C4D; margin-bottom: 20px; }
   .cta {
-    display: inline-block; background: var(--gold); color: var(--navy-deep);
-    font-weight: 700; font-size: 18px; padding: 15px 44px; border-radius: 12px;
-    text-decoration: none; box-shadow: 0 10px 26px rgba(216,166,78,0.28);
-    transition: background .15s ease, transform .15s ease;
+    display: inline-flex; align-items: center; justify-content: center; min-height: 60px;
+    background: #1C4FE0; color: #fff; text-decoration: none;
+    font-weight: 700; font-size: 20px; padding: 18px 40px;
+    transition: background .15s ease;
   }
-  .cta:hover { background: var(--gold-soft); transform: translateY(-1px); }
+  .cta:hover { background: #14162B; color: #fff; }
 
-  .back { text-align: center; padding: 44px 0; border-bottom: none; }
-  .back a { color: var(--ink-soft); font-size: 15px; text-decoration: underline; text-underline-offset: 3px; }
-  .back a:hover { color: var(--gold-deep); }
+  .cal { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+  .cal a {
+    flex: 0 1 auto; display: inline-flex; align-items: center; justify-content: center; min-height: 52px;
+    padding: 12px 22px; border: 2px solid #14162B; color: #14162B; background: transparent;
+    font-size: 16px; font-weight: 700; text-decoration: none;
+    transition: background .15s ease, color .15s ease;
+  }
+  .cal a:hover { background: #14162B; color: #F4F3EE; }
 
-  footer { text-align: center; padding: 8px 0 56px; color: var(--ink-soft); font-size: 14px; }
-  footer .heart { color: var(--gold-deep); }
-  footer a { color: var(--ink-soft); text-decoration: underline; text-underline-offset: 3px; }
-  footer a:hover { color: var(--gold-deep); }
-  @media (max-width: 640px) {
+  /* Share: the ink band from /he/ (liner notes), one paper button on it. */
+  .share-band { background: #14162B; color: #F4F3EE; margin-top: 64px; }
+  .share { padding: 48px 0; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+  .share .ask { font-family: 'Rubik', sans-serif; font-weight: 900; font-size: clamp(26px, 3vw, 36px); line-height: 1.15; }
+  .share button {
+    display: inline-flex; align-items: center; gap: 10px; min-height: 52px; cursor: pointer;
+    font-family: inherit; font-size: 17px; font-weight: 700; color: #14162B;
+    background: #F4F3EE; border: 0; border-radius: 0; padding: 12px 22px;
+    transition: background .15s ease, color .15s ease;
+  }
+  .share button:hover { background: #1FB6F0; }
+  .share button svg { width: 18px; height: 18px; }
+  .share .copied { font-size: 15px; color: #1FB6F0; min-height: 20px; }
+
+  .back { padding: 32px 0; }
+  .back a { display: inline-block; padding: 12px 0; font-size: 17px; font-weight: 700; text-decoration: underline; text-underline-offset: 4px; }
+  .back a:hover { color: #1C4FE0; }
+
+  footer { padding: 8px 0 40px; }
+  footer .wrap > div { border-top: 2px solid #14162B; padding-top: 18px; font-size: 15px; line-height: 1.9; color: #5C5E6E; }
+  footer b { color: #14162B; }
+  footer .heart { color: #F23A2E; }
+  footer a { color: #14162B; text-underline-offset: 3px; }
+  footer a:hover { color: #1C4FE0; }
+
+  @media (min-width: 900px) {
+    .hero { padding-top: 64px; }
+    .rule { margin-top: 48px; }
+    .details { padding-top: 48px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 60px; align-items: start; }
+    .details .mail-note { margin-top: 0; padding-top: 22px; }
+    .details .cal { grid-column: 2; margin-top: 16px; }
+    h1 { white-space: nowrap; }
+    .hero .col { max-width: none; }
+    .confirm { max-width: 720px; }
+    .share { flex-direction: row; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 56px 0; }
+    .share .copied { flex-basis: 100%; }
+  }
+  @media (max-width: 760px) {
     html, body { max-width: 100%; overflow-x: hidden; }
+    .wrap { padding: 0 16px; }
+    .hero { padding-top: 24px; }
+    .kicker { margin-bottom: 14px; }
+    h1 { margin-bottom: 14px; }
+    .rule { margin-top: 24px; }
+    .details { padding-top: 24px; }
+    .mail-note { margin-top: 20px; padding-top: 16px; }
+    .mail-note p { font-size: 17px; margin-bottom: 16px; }
+    .cta { display: flex; width: 100%; }
+    .cal { flex-direction: column; gap: 10px; }
+    .cal a { width: 100%; }
+    .share-band { margin-top: 48px; }
+    .share { padding: 40px 0; }
+    .share button { width: 100%; justify-content: center; }
+    footer a { display: inline-block; padding: 10px 0; }
   }
-  .cal { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
-  .cal a { flex:1 1 200px; display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:12px 16px; border:1px solid var(--ink); border-radius:3px; color:var(--ink); font-size:15px; font-weight:500; text-decoration:none; }
-  .cal a:hover, .cal a:focus-visible { background:var(--ink); color:#EDE9DF; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
 </style>
 <!-- PostHog web analytics -->
 <script>
@@ -122,32 +130,37 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
 
   <header class="hero">
     <div class="wrap">
-      <div class="kicker">Connecting the Dots</div>
-      <h1>שמרתי לך מקום.</h1>
-      <p class="confirm">נתראה ביום שני 2.11 ב-18:00. <b>קליאו</b></p>
+      <div class="col">
+        <div class="kicker">Connecting the Dots</div>
+        <h1>שמרתי לך מקום.</h1>
+        <p class="confirm">נתראה ביום שני 2.11 ב-18:00. <b>קליאו</b></p>
+      </div>
+      <div class="rule"></div>
     </div>
   </header>
 
   <section>
     <div class="wrap">
       <div class="details">
-        <div class="when"><span>יום שני 2.11</span><span class="sep">·</span><span>18:00</span></div>
-        <div class="where">תל אביב</div>
+        <div>
+          <div class="when"><span>יום שני 2.11</span><span class="sep">·</span><span>18:00</span></div>
+          <div class="where">תל אביב</div>
+        </div>
         <div class="mail-note">
           <p>הכתובת המדויקת תגיע ממני במייל לפני הערב. לחיצה אחת כאן, והמייל שלי לא ייפול לספאם:</p>
           <a class="cta" data-hello="cleo" href="mailto:cleo@connecthedots.co?subject=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A7%D7%9C%D7%99%D7%90%D7%95%2C%20%D7%A0%D7%A8%D7%A9%D7%9E%D7%AA%D7%99%20%D7%9C-2.11&amp;body=%D7%94%D7%99%D7%99%20%D7%A7%D7%9C%D7%99%D7%90%D7%95%2C%20%D7%96%D7%94%20%D7%90%D7%A0%D7%99.%20%D7%A0%D7%AA%D7%A8%D7%90%D7%94%20%D7%91-2.11.">שלום, קליאו</a>
         </div>
-      </div>
-      <div class="cal">
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The+Human+is+the+Loop+%C2%B7+%D7%A2%D7%A0%D7%AA+%D7%95%D7%99%D7%99%D7%A1%D7%9E%D7%9F&amp;dates=20261102T160000Z%2F20261102T173000Z&amp;details=%D7%94%D7%A8%D7%A6%D7%90%D7%94+%D7%A9%D7%9C+%D7%A2%D7%A0%D7%AA+%D7%95%D7%99%D7%99%D7%A1%D7%9E%D7%9F.+%D7%94%D7%9B%D7%AA%D7%95%D7%91%D7%AA+%D7%94%D7%9E%D7%93%D7%95%D7%99%D7%A7%D7%AA+%D7%9E%D7%92%D7%99%D7%A2%D7%94+%D7%91%D7%9E%D7%99%D7%99%D7%9C+%D7%9C%D7%A4%D7%A0%D7%99+%D7%94%D7%A2%D7%A8%D7%91.+https%3A%2F%2Fthehumanistheloop.co&amp;location=%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91&amp;ctz=Asia%2FJerusalem" target="_blank" rel="noopener" data-cal="google">הוספה ליומן Google</a>
-        <a href="/event.ics" download="the-human-is-the-loop-2-11.ics" data-cal="ics">הוספה ליומן Apple / Outlook</a>
+        <div class="cal">
+          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The+Human+is+the+Loop+%C2%B7+%D7%A2%D7%A0%D7%AA+%D7%95%D7%99%D7%99%D7%A1%D7%9E%D7%9F&amp;dates=20261102T160000Z%2F20261102T173000Z&amp;details=%D7%94%D7%A8%D7%A6%D7%90%D7%94+%D7%A9%D7%9C+%D7%A2%D7%A0%D7%AA+%D7%95%D7%99%D7%99%D7%A1%D7%9E%D7%9F.+%D7%94%D7%9B%D7%AA%D7%95%D7%91%D7%AA+%D7%94%D7%9E%D7%93%D7%95%D7%99%D7%A7%D7%AA+%D7%9E%D7%92%D7%99%D7%A2%D7%94+%D7%91%D7%9E%D7%99%D7%99%D7%9C+%D7%9C%D7%A4%D7%A0%D7%99+%D7%94%D7%A2%D7%A8%D7%91.+https%3A%2F%2Fthehumanistheloop.co&amp;location=%D7%AA%D7%9C+%D7%90%D7%91%D7%99%D7%91&amp;ctz=Asia%2FJerusalem" target="_blank" rel="noopener" data-cal="google">הוספה ליומן Google</a>
+          <a href="/event.ics" download="the-human-is-the-loop-2-11.ics" data-cal="ics">הוספה ליומן Apple / Outlook</a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Payment moved UPSTREAM 3.8.2026 (Anat: the flow must go form -> payment, no re-explaining money). /thanks is now the post-payment landing; Morning redirects here after a successful charge. -->
 
-  <section>
+  <section class="share-band">
     <div class="wrap">
       <div class="share">
         <span class="ask">מכירים מישהו שצריך לשמוע את זה?</span>
@@ -190,7 +203,7 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
   </script>
 
   <footer>
-    <div class="wrap">את הדף הזה בנתה <b>קליאו</b>, סוכנת ה-AI של ענת, לא ענת. גם זה חלק מהסיפור. <span class="heart">♥</span><br/>ענת וייסמן · Connecting the Dots<br/><a href="mailto:anat@connecthedots.co">anat@connecthedots.co</a> · <a href="tel:+972544850294" dir="ltr">054-485-0294</a><br/><a href="/takanon">תקנון רכישה וביטול</a> · <a href="/privacy">מדיניות פרטיות</a></div>
+    <div class="wrap"><div>את הדף הזה בנתה <b>קליאו</b>, סוכנת ה-AI של ענת, לא ענת. גם זה חלק מהסיפור. <span class="heart">♥</span><br/>ענת וייסמן · Connecting the Dots<br/><a href="mailto:anat@connecthedots.co">anat@connecthedots.co</a> · <a href="tel:+972544850294" dir="ltr">054-485-0294</a><br/><a href="/takanon">תקנון רכישה וביטול</a> · <a href="/privacy">מדיניות פרטיות</a></div></div>
   </footer>
 
 </body>
