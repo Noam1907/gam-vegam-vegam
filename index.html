@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<!-- DESIGN-PASS by=lior on=2026-10-28 card=O-output/197-talk-site-english-main-2026-10-07/RELEASE-CARD-quotes-2026-10-28.md shots=O-output/197-talk-site-english-main-2026-10-07/shots/quotes-2026-10-28 resign=2026-10-28 change=quotes band restored between who-it-is-for and dates; three columns desktop, swipe row at 760 and below -->
+<!-- DESIGN-PASS by=lior on=2026-10-29 card=O-output/216-paid-return-modal-2026-10-29/DESIGN-PASS-2026-10-29.md shots=O-output/216-paid-return-modal-2026-10-29/shots resign=2026-10-29 change=PayPal return (?paid=1|pending|0) moves from the navy strip above the H1 to a centred dialog in the seat-step skin; calendar links become two buttons -->
 <!-- DATE-OK 2026-11-02 Tel Aviv in-room talk in Hebrew, date locked by Anat; US election eve does not touch this audience. -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,8 +39,6 @@ a{color:#1C4FE0}a:hover{color:#14162B}
 html{scroll-behavior:smooth}
 [hidden]{display:none!important}
 :focus-visible{outline:3px solid #F5D010;outline-offset:3px}
-.paid-note{max-width:1240px;margin:0 auto 24px;padding:18px 28px;background:#14162B;color:#F4F3EE;font-size:17px;line-height:1.6}
-.paid-note strong{color:#F5D010}
 @media (min-width:761px){.h1{white-space:nowrap}}
 @media (max-width:760px){
   .hdr{padding:16px!important}
@@ -101,6 +99,19 @@ html{scroll-behavior:smooth}
 @media (max-width:760px){.seat-step{width:100%;max-width:100%;margin:auto 0 0;max-height:100%}.seat-step[open]{animation-name:ssUp}.seat-step form{padding:28px 16px calc(20px + env(safe-area-inset-bottom))}.seat-step h2{font-size:28px}.seat-step .x{top:20px;inset-inline-end:6px}}
 @keyframes ssUp{from{transform:translateY(100%)}to{transform:none}}
 @media (prefers-reduced-motion:reduce){.seat-step[open]{animation:none}}
+/* The PayPal return (Anat 29.10: the strip "ממש קשה לראות", make it a square pop-up). Same sheet as the seat step, centred on every width. Design pass: Lior 29.10. */
+.paid-step .pbody{position:relative;padding:36px 32px 28px;display:flex;flex-direction:column;gap:16px}
+.paid-step h2:focus{outline:none}
+.paid-step p{margin:0;font-size:18px;line-height:1.55}
+.paid-step p a{color:#14162B;text-decoration:underline;text-underline-offset:3px;font-weight:700;display:inline-block;padding:11px 0;margin:-11px 0}
+.paid-step .cal{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.paid-step .cal a{display:flex;justify-content:center;align-items:center;min-height:56px;padding:14px 24px;font-size:19px;font-weight:700;text-decoration:none;border:2px solid #14162B}
+.paid-step .cal a.p{background:#1C4FE0;border-color:#1C4FE0;color:#fff}
+.paid-step .cal a.p:hover{background:#14162B;border-color:#14162B}
+.paid-step .cal a.s{background:transparent;color:#14162B}
+.paid-step .cal a.s:hover{background:#14162B;color:#F4F3EE}
+.paid-step .cal a:focus-visible{outline:3px solid #F5D010;outline-offset:3px}
+@media (max-width:760px){.seat-step.paid-step{width:calc(100% - 32px);max-width:480px;margin:auto;max-height:calc(100% - 32px)}.seat-step.paid-step[open]{animation-name:ssIn}.paid-step .pbody{padding:28px 20px 24px}.paid-step .x{top:20px;inset-inline-end:8px}.paid-step p{font-size:17px}}
 </style>
 </head>
 <body>
@@ -116,7 +127,6 @@ html{scroll-behavior:smooth}
   </nav>
 </header>
 
-<div id="paidNote" class="paid-note" role="status" hidden></div>
 
 <main>
 <section class="sec" data-screen-label="hero" style="max-width:1240px;margin:0 auto;padding:4px 28px 0">
@@ -340,6 +350,12 @@ html{scroll-behavior:smooth}
 
 </div>
 
+<dialog id="paidStep" class="seat-step paid-step" aria-labelledby="paidT" aria-describedby="paidD">
+  <div class="pbody">
+    <button type="button" class="x" id="paidX" aria-label="Close">&times;</button>
+    <div id="paidNote"></div>
+  </div>
+</dialog>
 <!-- FORM-FLOW store=https://fifty.connecthedots.co/api/flow owner=Adam followup=24h -->
 <dialog id="seatStep" class="seat-step" aria-labelledby="seatStepT">
   <form id="seatForm" novalidate>
@@ -438,10 +454,14 @@ html{scroll-behavior:smooth}
   if(!m) return;
   var ok=m[1]==='1', pend=m[1]==='pending';
   var n=document.getElementById('paidNote');
-  n.innerHTML = ok ? '<strong>You have a seat · Nov 5.</strong> Thank you. A confirmation is on its way to your email. The join link arrives by email before the talk. <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The+Human+is+the+Loop+%C2%B7+Anat+Weissman+%28online%29&amp;dates=20261105T160000Z%2F20261105T170000Z&amp;details=Live+online+talk+by+Anat+Weissman%2C+in+English.+The+join+link+arrives+by+email+before+the+talk.+https%3A%2F%2Fthehumanistheloop.co&amp;location=Online&amp;ctz=Asia%2FJerusalem" target="_blank" rel="noopener" data-ph="cal_add" data-place="google" style="color:#F5D010">Add to Google Calendar</a> \u00b7 <a href="/event-5-11.ics" download="the-human-is-the-loop-5-11.ics" data-ph="cal_add" data-place="ics" style="color:#F5D010">Apple / Outlook</a>'
-    : pend ? '<strong>Payment received · confirming.</strong> Thank you. PayPal is still confirming your payment. You will get an email as soon as it clears.'
-    : '<strong>The payment did not complete.</strong> Your seat is not saved yet. Try again, or write to <a href="mailto:anat@connecthedots.co" style="color:#F5D010">anat@connecthedots.co</a> and I will sort it out.';
-  n.hidden=false;
+  n.innerHTML = ok ? '<h2 id="paidT" tabindex="-1">You have a seat \u00b7 Nov 5.</h2><p id="paidD">Thank you. A confirmation with your join link is on its way to your email.</p><div class="cal"><a class="p" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The+Human+is+the+Loop+%C2%B7+Anat+Weissman+%28online%29&amp;dates=20261105T160000Z%2F20261105T170000Z&amp;details=Live+online+talk+by+Anat+Weissman%2C+in+English.+The+join+link+arrives+by+email+before+the+talk.+https%3A%2F%2Fthehumanistheloop.co&amp;location=Online&amp;ctz=Asia%2FJerusalem" target="_blank" rel="noopener" data-ph="cal_add" data-place="google">Add to Google Calendar</a><a class="s" href="/event-5-11.ics" download="the-human-is-the-loop-5-11.ics" data-ph="cal_add" data-place="ics">Apple / Outlook</a></div>'
+    : pend ? '<h2 id="paidT" tabindex="-1">Payment received \u00b7 confirming.</h2><p id="paidD">Thank you. PayPal is still confirming your payment. Your confirmation and join link are on their way to your email.</p>'
+    : '<h2 id="paidT" tabindex="-1">The payment did not complete.</h2><p id="paidD">Your seat is not saved yet. Try again, or write to <a href="mailto:anat@connecthedots.co">anat@connecthedots.co</a> and I will sort it out.</p>';
+  var pd=document.getElementById('paidStep');
+  document.getElementById('paidX').addEventListener('click',function(){pd.close();});
+  pd.addEventListener('click',function(e){if(e.target===pd) pd.close();});
+  if(typeof pd.showModal==='function'){pd.showModal();} else {pd.setAttribute('open','');}
+  try{document.getElementById('paidT').focus();}catch(e){}
   if(ok||pend){var bt=document.getElementById('barTickets'); bt.href='mailto:anat@connecthedots.co?subject=My%20seat%20%C2%B7%205%20November'; bt.textContent='Questions?';}
   ph(ok?'seat_paid':pend?'seat_pay_pending':'seat_pay_failed',{place:'return'});
   try{history.replaceState(null,'',location.pathname);}catch(e){}
