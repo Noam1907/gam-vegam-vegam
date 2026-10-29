@@ -29,7 +29,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;0,900;1,300;1,400&family=Assistant:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script>
 !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey canRenderSurveyAsync identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug getPageViewId captureTraceFeedback captureTraceMetric".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
-posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_recording:true,api_host:'https://us.i.posthog.com',defaults:'2025-05-24',person_profiles:'identified_only'});
+posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_recording:true,api_host:'https://us.i.posthog.com',defaults:'2025-05-24',person_profiles:'identified_only',persistence:'memory'});
 posthog.register({page_lang:'en'});
 </script>
 <style>
@@ -363,22 +363,27 @@ html{scroll-behavior:smooth}
      answers, or if it never answers, the press ends on Morning. One address per visit: a
      second press goes straight through. Checked at click time, so after 2.11 (when the doors
      move to the 5.11 PayPal seat) nothing is intercepted. */
-  var SEAT='https://mrng.to/pxuVnuzSm5', LEAD='https://fifty.connecthedots.co/api/seat-lead', LANG='en';
+  var SEAT='https://mrng.to/pxuVnuzSm5', LEAD='https://fifty.connecthedots.co/api/seat-lead', EN='https://fifty.connecthedots.co/api/seat-en', mode='', LANG='en';
   var dlg=document.getElementById('seatStep');
   function given(){try{return sessionStorage.getItem('seatLead')==='1';}catch(e){return false;}}
   function go(){location.href=SEAT;}
   if(dlg && typeof dlg.showModal==='function'){
     var form=document.getElementById('seatForm'), em=document.getElementById('seatEmail'), nm=document.getElementById('seatName'),
         err=document.getElementById('seatErr'), btn=document.getElementById('seatGo'), place='';
+    /* Anat 29.10: "there cant be someone signing up without an email." The 5.11 PayPal door
+       opens the same step, every time, and the step itself posts to the rail, which stores
+       the person and only then opens the PayPal order. No address, no order. */
+    function openStep(m,pl){mode=m; place=pl||''; err.hidden=true; em.removeAttribute('aria-invalid'); btn.disabled=false; dlg.showModal(); em.focus();}
+    if(/[?&]seat=1(?:&|$)/.test(location.search)){openStep('en','return'); try{history.replaceState(null,'',location.pathname);}catch(x){}}
     document.addEventListener('click',function(e){
       var a=e.target.closest&&e.target.closest('a[href]');
-      if(!a||a.href.indexOf(SEAT)!==0) return;
-      if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey) return;
-      if(given()) return;
+      if(!a) return;
+      var en=a.href.indexOf(EN)===0;
+      if(!en&&a.href.indexOf(SEAT)!==0) return;
+      if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey){if(en)e.preventDefault(); else return;}
+      if(!en&&given()) return;
       e.preventDefault();
-      place=a.getAttribute('data-place')||'';
-      err.hidden=true; em.removeAttribute('aria-invalid'); btn.disabled=false;
-      dlg.showModal(); em.focus();
+      openStep(en?'en':'he',a.getAttribute('data-place')||'');
     });
     document.getElementById('seatX').addEventListener('click',function(){dlg.close();});
     dlg.addEventListener('click',function(e){if(e.target===dlg) dlg.close();});
@@ -389,6 +394,12 @@ html{scroll-behavior:smooth}
       em.removeAttribute('aria-invalid'); err.hidden=true; btn.disabled=true;
       var q=new URLSearchParams(location.search), body={email:v,name:(nm.value||'').trim(),lang:LANG,place:place,botcheck:form.botcheck.value};
       ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){body[k]=q.get(k)||'';});
+      if(mode==='en'){
+        ph('seat_email_captured',{place:place,lang:LANG,talk:'5.11',has_name:!!body.name});
+        var f=document.createElement('form'); f.method='POST'; f.action=EN; f.style.display='none';
+        Object.keys(body).forEach(function(k){if(k==='lang')return; var i=document.createElement('input'); i.type='hidden'; i.name=k; i.value=body[k]; f.appendChild(i);});
+        document.body.appendChild(f); f.submit(); return;
+      }
       var done=false;
       function finish(stored){
         if(done) return; done=true;
