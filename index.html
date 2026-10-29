@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<!-- DESIGN-PASS by=lior on=2026-10-13 card=O-output/200-seat-email-step-2026-10-13/DESIGN-PASS-2026-10-13.md shots=O-output/200-seat-email-step-2026-10-13/shots change=2.11 email step sheet -->
+<!-- DESIGN-PASS by=lior on=2026-10-28 card=O-output/197-talk-site-english-main-2026-10-07/RELEASE-CARD-quotes-2026-10-28.md shots=O-output/197-talk-site-english-main-2026-10-07/shots/quotes-2026-10-28 resign=2026-10-28 change=quotes band restored between who-it-is-for and dates; three columns desktop, swipe row at 760 and below -->
 <!-- DATE-OK 2026-11-02 Tel Aviv in-room talk in Hebrew, date locked by Anat; US election eve does not touch this audience. -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -63,6 +63,17 @@ html{scroll-behavior:smooth}
   footer div[style*="flex-wrap"]{gap:0 16px!important}
   .bar .bar-all{display:none!important}
   .book{grid-template-columns:minmax(0,1fr)!important;gap:32px!important;padding:64px 16px!important}
+}
+/* Quotes band (Lior 28.10): restores the 6.9 comments the 7.10 rebuild dropped. Desktop: three columns; phone: one swipeable row so the band stays one screen tall and the dates door stays close. */
+.q-list{list-style:none;margin:0;padding:0;columns:3 300px;column-gap:48px}
+.q{break-inside:avoid;margin:0 0 40px;padding-top:20px;border-top:2px solid #14162B;display:flex;flex-direction:column;gap:14px}
+.q blockquote{margin:0;font-size:20px;line-height:1.6;font-weight:600;color:#14162B;text-wrap:pretty}
+.q p{margin:0;font-size:15px;font-weight:700;color:#5C5E6E}
+@media (max-width:760px){
+  .q-list{columns:auto;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 4px;scroll-padding:0 16px;scrollbar-width:none}
+  .q-list::-webkit-scrollbar{display:none}
+  .q{flex:0 0 84%;scroll-snap-align:start;margin:0}
+  .q blockquote{font-size:19px}
 }
 @media (max-width:420px){.hdr nav a.nav-talk{display:none}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
@@ -163,6 +174,24 @@ html{scroll-behavior:smooth}
       <a href="https://connecthedots.co/go/spotify/" data-ph="podcast_click" data-place="side-b-spotify" style="border:2px solid #F4F3EE;color:#F4F3EE;text-decoration:none;padding:10px 20px;font-weight:700">Spotify</a>
     </div>
   </div>
+</section>
+
+<!-- QUOTES BAND (Lior 28.10). Public comments on Anat's 6.9 LinkedIn post, live on the Hebrew page 14.9 to 7.10 with her GO (decisions.md 14.9). Translated from Hebrew; source O-output/150-talk-page-after-2026-09-07/QUOTES-FROM-POST.md. -->
+<section id="quotes" class="sec" data-screen-label="quotes" aria-labelledby="quotes-label" style="max-width:1240px;margin:0 auto;padding:96px 28px 0">
+  <div style="display:flex;align-items:baseline;gap:8px 20px;flex-wrap:wrap;margin-bottom:28px">
+    <span id="quotes-label" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#5C5E6E">FROM THE ROOM · TEL AVIV, SEP 6, 2026</span>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#5C5E6E">TRANSLATED FROM HEBREW</span>
+  </div>
+  <ul class="q-list">
+    <li class="q"><blockquote>“I don’t think I’ve ever smiled this much at a talk You created an evening that was funny, stirring, fascinating and inspiring. I learned so much from you”</blockquote><p>Perlin Agranati</p></li>
+    <li class="q"><blockquote>“A fascinating evening, full of humor and quite a few insights and thought-provoking points. I got to know you through Cleo, who turns out to be a proper Polish mother, but you leave her in the dust. Thank you for the opportunity”</blockquote><p>Smadar Tadmor</p></li>
+    <li class="q"><blockquote>“I was lucky to be at your first talk, and lucky to have you as my mentor. A woman who is pure inspiration, through your courage and what you do. A talk about how to grow and play to your strengths as much as how to leverage AI”</blockquote><p>Michal Levin</p></li>
+    <li class="q"><blockquote>“A new era (not just gpt6) of human and AI relations!!”</blockquote><p>David Noy Elazar</p></li>
+    <li class="q"><blockquote>“What a champion you are. It was an interesting, thought-provoking talk, practical and carefully made”</blockquote><p>Danit Alon Weitz</p></li>
+    <li class="q"><blockquote>“We’re the ones who got to know you live yesterday. So much humor, wit and work went into last night! Here’s to more agents and humanity, together!”</blockquote><p>Galit Gold</p></li>
+    <li class="q"><blockquote>“As systems get smarter, the human doesn’t leave the process, the human is at its center. Judgment, context, sensitivity, the ability to connect the dots, to choose, to influence and to bring something truly our own, take on even more meaning.”</blockquote><p>Orit Stanton</p></li>
+    <li class="q"><blockquote>“Thank you so much, you reminded me why being more human is always an advantage”</blockquote><p>Efrat Barak</p></li>
+  </ul>
 </section>
 
 <section id="dates" class="sec" data-screen-label="dates" style="max-width:1240px;margin:0 auto;padding:96px 28px 96px">
