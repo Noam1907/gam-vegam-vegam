@@ -107,8 +107,14 @@ footer .legal a{color:#5C5E6E}
 
   <!-- CLOSED: the page turns itself after the conversation. No registration for a past date. -->
   <div id="closedView" hidden>
-    <p class="when"><span>השיחה הפתוחה התקיימה</span><span><b>יום שלישי, 17.11.2026</b></span></p>
+    <p class="when"><span>השיחה הפתוחה התקיימה</span><span><b>יום שלישי, 24.11.2026</b></span></p>
     <h2 class="sub">רוצים לדעת אם ומתי ההרצאה הבאה?</h2>
+  </div>
+
+  <!-- FULL: the room cap was reached before the date (Anat 16.11). Same shape as CLOSED, no new CSS. -->
+  <div id="fullView" hidden>
+    <p class="when"><span id="fullWhy">השיחה של 17.11 התמלאה</span><span>התאריך הבא: <b>יום שלישי, 24.11.2026</b> · <b>21:00</b></span></p>
+    <h2 class="sub">אפשר להירשם לתאריך הבא</h2>
   </div>
 
   <form id="f" class="f" novalidate>
@@ -158,20 +164,34 @@ footer .legal a{color:#5C5E6E}
      22:00 is only the calendar placeholder end: no duration was promised. */
   var START='20261117T190000Z', END='20261117T200000Z', CLOSE=Date.UTC(2026,10,17,20,30,0);
   var TITLE='מי אני בלי טייטל? שיחה פתוחה עם ענת וייסמן';
-  function closed(){return Date.now()>=CLOSE;}
+  /* The next date (Anat 16.11): Tuesday 24.11.2026 21:00. From the moment 17.11 is full or over, the page registers for it,
+     until 24.11 22:30 (20:30Z); only then does it fall back to the plain "tell me the next date" signup. */
+  var CLOSE2=Date.UTC(2026,10,24,20,30,0);
+  function over(){return Date.now()>=CLOSE;}
+  function closed(){return Date.now()>=CLOSE2;}
+  /* The room cap: the rail says when the conversation is full. If the question fails, the page stays open as before. */
+  var OPEN='https://seats.connecthedots.co/api/open', FULL=false;
 
   var f=$('f'), fn=$('fName'), fe=$('fEmail'), er=$('fErr'), go=$('fGo');
 
   function paint(){
-    var c=closed();
-    $('openView').hidden=c; $('closedView').hidden=!c;
+    var past=closed(), nx=!past&&(FULL||over()), c=past||nx;   /* c = the form no longer asks for a place on 17.11 */
+    $('openView').hidden=c; $('closedView').hidden=!past; $('fullView').hidden=!nx;
+    $('fullWhy').textContent=over()?'השיחה של 17.11 התקיימה':'השיחה של 17.11 התמלאה';
     $('ckRow').hidden=c;
-    $('fGoT').textContent=c?'אני רוצה לדעת':'להרשמה';
+    $('fGoT').textContent=past?'אני רוצה לדעת':'להרשמה';
     $('eye').textContent=c?'THE HUMAN IS THE LOOP · NEXT DATE':'OPEN CONVERSATION · GOOGLE MEET';
-    document.documentElement.setAttribute('data-state',c?'closed':'open');
+    document.documentElement.setAttribute('data-state',past?'closed':(nx?(over()?'next':'full'):'open'));
     return c;
   }
   paint();
+  if(!over()){
+    try{
+      fetch(OPEN,{mode:'cors'}).then(function(r){return r.json();}).then(function(j){
+        if(j&&j.full===true&&$('done').hidden){FULL=true; paint(); ph('zoom_full_view',{});}
+      },function(){});
+    }catch(x){}
+  }
 
   function src(base){
     var q=new URLSearchParams(location.search), s=base;
@@ -190,10 +210,14 @@ footer .legal a{color:#5C5E6E}
       'SUMMARY:'+icsEsc(TITLE),'LOCATION:'+icsEsc(url),'DESCRIPTION:'+icsEsc(details),'URL:'+url,'END:VEVENT','END:VCALENDAR'].join('\r\n');
     $('calI').href='data:text/calendar;charset=utf-8,'+encodeURIComponent(ics);
   }
-  function success(j,wasClosed){
+  function success(j,wasClosed,next){
     f.hidden=true;
     var d=$('done'), h=$('doneH'), p=$('doneP');
-    if(wasClosed){
+    if(next){
+      /* Her words, 16.11. The link line is Adam's addition: no Meet link exists for 24.11 yet. */
+      h.textContent='איזה כיף שנרשמת!';
+      p.textContent=(over()?'':'מכיוון שזו שיחה, שמרתי את זה מצומצם. ')+'נרשמת לתאריך הבא: יום שלישי, 24.11.26, בשעה 21:00. הלינק יגיע במייל לפני השיחה. נתראה!';
+    }else if(wasClosed){
       /* Same words as the talk page's next-date signup (card 226), already live. */
       h.textContent='קיבלתי.';
       p.textContent='אכתוב לכם כשהתאריך הבא ייקבע. אישור כבר בדרך למייל שלכם.';
@@ -225,9 +249,12 @@ footer .legal a{color:#5C5E6E}
     er.hidden=true; go.disabled=true;
     var c=paint();   /* the clock is read again at the press: a tab left open past the close cannot register for a past date */
     var body=c
-      ? {type:'waitlist',name:n,email:v,answer:'next-date',consent:true,source:src('zoom-17-11-after'),botcheck:f.botcheck.value}
+      ? (closed()
+          ? {type:'waitlist',name:n,email:v,answer:'next-date',consent:true,source:src('zoom-24-11-after'),botcheck:f.botcheck.value}
+          : {type:'registration',name:n,email:v,answer:'open-zoom-24-11',consent:false,source:src(over()?'zoom-17-11-after':'zoom-17-11-full'),botcheck:f.botcheck.value})
       : {type:'registration',name:n,email:v,answer:'open-zoom-17-11',consent:$('fConsent').checked,source:src('zoom-17-11'),botcheck:f.botcheck.value};
-    var mode=c?'waitlist':'registration';
+    var next=c&&!closed();   /* 17.11 is full: this press registers for 24.11 (Anat's words, 16.11) */
+    var mode=next?'next-date-registration':(c?'waitlist':'registration');
     function no(){
       ph('zoom_signup_failed',{mode:mode});
       fail('זה לא נשמר. אפשר לנסות שוב, או לכתוב ל <a href="mailto:anat@connecthedots.co" dir="ltr">anat@connecthedots.co</a>');
@@ -236,7 +263,13 @@ footer .legal a{color:#5C5E6E}
     var settled=false, ac=('AbortController' in window)?new AbortController():null;
     function end(ok,j){
       if(settled) return; settled=true; clearTimeout(timer);
-      if(ok){ph('zoom_signup',{mode:mode,consent:body.consent,has_link:!!j.join_url}); success(j,c);} else no();
+      if(ok&&!c&&j.full===true){
+        /* The last place went between the page loading and the press. Say so, and let them ask for the next one by their own press. */
+        FULL=true; paint(); ph('zoom_signup_full',{});
+        er.textContent='המקום האחרון ל-17.11 נתפס ממש עכשיו. אפשר להירשם ל-24.11: לחצו שוב על הכפתור.'; er.hidden=false; go.disabled=false;
+        return;
+      }
+      if(ok){ph('zoom_signup',{mode:mode,consent:body.consent,has_link:!!j.join_url}); success(j,c,next);} else no();
     }
     var timer=setTimeout(function(){if(ac){try{ac.abort();}catch(x){}} end(false);},12000);
     var opt={method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),mode:'cors'};
