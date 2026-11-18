@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<!-- DESIGN-PASS by=lior on=2026-10-29 card=O-output/216-paid-return-modal-2026-10-29/DESIGN-PASS-2026-10-29.md shots=O-output/216-paid-return-modal-2026-10-29/shots resign=2026-10-29 change=PayPal return (?paid=1|pending|0) moves from the navy strip above the H1 to a centred dialog in the seat-step skin; calendar links become two buttons -->
-<!-- DATE-OK 2026-11-02 Tel Aviv in-room talk in Hebrew, date locked by Anat; US election eve does not touch this audience. -->
+<!-- DESIGN-PASS by=lior on=2026-11-08 card=O-output/226-talk-after-photos-signup-2026-11-08/DESIGN-PASS-2026-11-08.md shots=O-output/226-talk-after-photos-signup-2026-11-08/shots resign=2026-11-08 change=sales page (Anat 8.11 rev): org door primary in hero, bar, after the past dates and in the booking band; past dates back as delivered proof; 2.11 hero photo and strip; next-date signup secondary -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The Human is the Loop · main page, English (7.10). Anat's Claude Design file "The Human is the Loop - Talks EN"
      is the spec. Hebrew lives at /he/; the old /en/ forwards here with its query, so the PayPal return still lands. -->
 <title>The Human is the Loop · Anat Weissman</title>
-<meta name="description" content="Who are you without a title? A talk by Anat Weissman. Live online in English on Nov 5, 2026.">
+<meta name="description" content="The Human is the Loop: a keynote by Anat Weissman for teams and organizations. Who are you without a title?">
 <link rel="canonical" href="https://thehumanistheloop.co/">
 <link rel="alternate" hreflang="en" href="https://thehumanistheloop.co/">
 <link rel="alternate" hreflang="he" href="https://thehumanistheloop.co/he/">
@@ -16,8 +15,8 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://thehumanistheloop.co/">
 <meta property="og:title" content="The Human is the Loop · Anat Weissman">
-<meta property="og:description" content="Who are you without a title? Live online, in English, Nov 5, 2026.">
-<meta property="og:image" content="https://thehumanistheloop.co/og-en-v4.jpg">
+<meta property="og:description" content="Who are you without a title? A talk by Anat Weissman.">
+<meta property="og:image" content="https://thehumanistheloop.co/og-en.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_US">
@@ -112,6 +111,34 @@ html{scroll-behavior:smooth}
 .paid-step .cal a.s:hover{background:#14162B;color:#F4F3EE}
 .paid-step .cal a:focus-visible{outline:3px solid #F5D010;outline-offset:3px}
 @media (max-width:760px){.seat-step.paid-step{width:calc(100% - 32px);max-width:480px;margin:auto;max-height:calc(100% - 32px)}.seat-step.paid-step[open]{animation-name:ssIn}.paid-step .pbody{padding:28px 20px 24px}.paid-step .x{top:20px;inset-inline-end:8px}.paid-step p{font-size:17px}}
+/* After-page (Lior 8.11, card 226): 2.11 photo strip and the next-date signup. */
+.hero-img img{object-position:50% 30%}
+@media (min-width:761px){.hero-img{aspect-ratio:1/1!important}}
+.ph-strip{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.ph-strip li{margin:0;background:#E9E8E1;aspect-ratio:4/5;overflow:hidden}
+.ph-strip img{width:100%;height:100%;object-fit:cover;object-position:50% 28%;display:block}
+@media (max-width:760px){
+  .ph-strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 4px;scroll-padding:0 16px;scrollbar-width:none}
+  .ph-strip::-webkit-scrollbar{display:none}
+  .ph-strip li{flex:0 0 62%;scroll-snap-align:start}
+  .next-wrap{grid-template-columns:minmax(0,1fr)!important;gap:28px!important}
+}
+.nx{position:relative;display:flex;flex-direction:column;gap:16px;max-width:520px}
+.nx .hp{position:absolute;top:0;inset-inline-start:0;width:1px;height:1px;opacity:0;pointer-events:none;border:0;padding:0;min-height:0}
+.nx label{display:flex;flex-direction:column;gap:8px;font-weight:700;font-size:16px;line-height:1.3}
+.nx input{font:inherit;font-size:18px;font-weight:400;padding:14px;border:2px solid #14162B;border-radius:0;background:#fff;color:#14162B;width:100%;min-height:52px;-webkit-appearance:none;appearance:none}
+.nx input:focus-visible{outline:3px solid #F5D010;outline-offset:0}
+.nx input[aria-invalid="true"]{border-color:#B3261E;box-shadow:inset 0 0 0 1px #B3261E}
+.nx .err{color:#B3261E;font-size:15px;line-height:1.3;font-weight:700;margin:-8px 0 0}
+.nx .go{display:flex;justify-content:center;gap:12px;align-items:center;margin-top:4px;background:#1C4FE0;color:#fff;border:0;border-radius:0;padding:18px 24px;font:inherit;font-size:19px;font-weight:700;cursor:pointer;min-height:56px;width:100%}
+.nx .go:hover{background:#14162B}
+.nx .go[disabled]{opacity:.7;cursor:progress}
+.nx .fine{font-size:14px;line-height:1.5;color:#5C5E6E;margin:0}
+.nx .fine a{color:#14162B;text-decoration:underline;text-underline-offset:3px;display:inline-block;padding:12px 0;margin:-12px 0}
+.nx-done{border-top:4px solid #14162B;padding-top:20px;max-width:520px}
+.nx-done h3{margin:0 0 10px;font-family:'Rubik',sans-serif;font-weight:900;font-size:30px;line-height:1.1;color:#14162B}
+.nx-done p{margin:0;font-size:18px;line-height:1.6;color:#3A3C4D}
+.nx-done h3:focus{outline:none}
 </style>
 </head>
 <body>
@@ -133,18 +160,31 @@ html{scroll-behavior:smooth}
   <h1 class="h1" style="margin:0 0 32px;font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(40px,7.6vw,104px);line-height:.95;letter-spacing:-.03em;color:#14162B">The Human <em style="font-weight:300;font-style:italic;color:#F23A2E">is</em> the Loop</h1>
   <div class="two" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:40px;align-items:stretch">
     <div style="display:flex;flex-direction:column;justify-content:flex-end;gap:22px;padding-bottom:8px">
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#F23A2E" data-next="tag">NEXT UP · ONLINE</span>
-      <p style="margin:0;font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(30px,3.4vw,46px);line-height:1.1;color:#1C4FE0" data-next="line">Thursday, Nov 5, 2026<br>Online · 11:00 ET / 16:00 UK</p>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#F23A2E">FOR YOUR ORGANIZATION</span>
+      <p style="margin:0;font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(30px,3.4vw,46px);line-height:1.1;color:#1C4FE0">Bring this talk<br>to your room.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center">
-        <a data-next="door" href="https://fifty.connecthedots.co/api/seat-en" data-ph="seat_door_click" data-place="hero" style="background:#1C4FE0;color:#fff;text-decoration:none;padding:20px 34px;font-size:20px;font-weight:700;display:inline-flex;gap:14px;align-items:center">Get tickets <span aria-hidden="true">→</span></a>
-        <a href="#dates" style="color:#14162B;font-weight:700;font-size:17px;text-decoration:underline;text-underline-offset:4px">All dates, live and online</a>
+        <a href="mailto:anat@connecthedots.co?subject=The%20Human%20is%20the%20Loop%20for%20my%20organization" data-ph="org_mailto" data-place="hero" style="background:#1C4FE0;color:#fff;text-decoration:none;padding:20px 34px;font-size:20px;font-weight:700;display:inline-flex;gap:14px;align-items:center">Book it for your team <span aria-hidden="true">→</span></a>
+        <a href="#next" data-ph="next_door_click" data-place="hero" style="color:#14162B;font-weight:700;font-size:17px;text-decoration:underline;text-underline-offset:4px">Tell me the next open date</a>
       </div>
     </div>
     <div class="hero-img" style="background:#E9E8E1;aspect-ratio:4/3;overflow:hidden">
-      <img src="/img/room-sunset.jpg" alt="Anat Weissman facing the room at sunset" style="width:100%;height:100%;object-fit:cover;display:block">
+      <img src="/img/2-11/hero-174211929.jpg" alt="Anat Weissman on stage in Tel Aviv, November 2, 2026, smiling at the room" width="900" height="1600" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;display:block">
     </div>
   </div>
   <div style="height:4px;background:#F5D010;margin-top:40px"></div>
+</section>
+
+<!-- 2.11 PHOTO STRIP (Lior 8.11, card 226). Only the kept frames of O-output/223 selection.md (her face, no identifiable audience face). -->
+<section id="room-2-11" class="sec" data-screen-label="photos-2-11" aria-labelledby="ph-label" style="max-width:1240px;margin:0 auto;padding:72px 28px 0">
+  <span id="ph-label" style="display:block;margin-bottom:20px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#5C5E6E">FROM THE ROOM · TEL AVIV, NOV 2, 2026</span>
+  <ul class="ph-strip">
+    <li><img src="/img/2-11/s1-164835999.jpg" alt="Anat Weissman speaking in Tel Aviv, November 2, 2026" width="675" height="1200" loading="lazy" decoding="async"></li>
+    <li><img src="/img/2-11/s2-165332864.jpg" alt="Anat Weissman speaking in Tel Aviv, November 2, 2026" width="675" height="1200" loading="lazy" decoding="async"></li>
+    <li><img src="/img/2-11/s3-165913095.jpg" alt="Anat Weissman speaking in Tel Aviv, November 2, 2026" width="675" height="1200" loading="lazy" decoding="async"></li>
+    <li><img src="/img/2-11/s4-165913983.jpg" alt="Anat Weissman speaking in Tel Aviv, November 2, 2026" width="675" height="1200" loading="lazy" decoding="async"></li>
+    <li><img src="/img/2-11/s5-174211017.jpg" alt="Anat Weissman speaking in Tel Aviv, November 2, 2026" width="675" height="1200" loading="lazy" decoding="async"></li>
+    <li><img src="/img/2-11/s6-175700970.jpg" alt="Anat Weissman speaking in Tel Aviv, November 2, 2026" width="675" height="1200" loading="lazy" decoding="async"></li>
+  </ul>
 </section>
 
 <section class="sec two" data-screen-label="manifesto" style="max-width:1240px;margin:0 auto;padding:96px 28px 72px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px;align-items:start">
@@ -204,27 +244,56 @@ html{scroll-behavior:smooth}
   </ul>
 </section>
 
-<section id="dates" class="sec" data-screen-label="dates" style="max-width:1240px;margin:0 auto;padding:96px 28px 96px">
+<!-- PAST DATES (Anat 8.11: "אני רוצה שיהיו התאריכים שעברו, כי היו הרצאות"). Proof of delivered talks, never sold: no ticket, no price. Private talks stay off this list. -->
+<section id="dates" class="sec" data-screen-label="dates-past" style="max-width:1240px;margin:0 auto;padding:96px 28px 40px">
   <div style="display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:12px">
-    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#5C5E6E">DATES · LIVE &amp; ONLINE</span>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#5C5E6E">DATES · DELIVERED</span>
     <h2 style="margin:0;font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(40px,5vw,68px);line-height:1;color:#1C4FE0">Dates</h2>
   </div>
-  <p style="margin:0 0 40px;font-size:18px;line-height:1.7;color:#3A3C4D;max-width:640px">Same talk, live online from anywhere.</p>
+  <p style="margin:0 0 40px;font-size:18px;line-height:1.7;color:#3A3C4D;max-width:640px">Twice so far. Next: your room.</p>
   <ol style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column">
     <li class="ev" style="display:grid;grid-template-columns:200px 110px minmax(0,1fr) auto;gap:24px;align-items:center;padding:26px 0;border-top:2px solid #14162B">
-      <span style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Rubik',sans-serif;font-weight:900;font-size:24px;line-height:1;white-space:nowrap">Nov 5, 2026</span><span style="font-size:15px;color:#5C5E6E">Thursday</span></span>
-      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:#F23A2E">ONLINE</span>
-      <span class="ev-title" style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Rubik',sans-serif;font-weight:900;font-size:20px;line-height:1.2">The Human is the Loop · English</span><span style="font-size:15px;color:#5C5E6E">Live · 11:00 ET · 16:00 UK · 18:00 Israel · 60 min · $25</span></span>
-      <a class="ev-cta" href="https://fifty.connecthedots.co/api/seat-en" data-ph="seat_door_click" data-place="dates-en" style="background:#1C4FE0;color:#fff;text-decoration:none;padding:14px 24px;font-weight:700;font-size:16px;white-space:nowrap">Get tickets</a>
+      <span style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Rubik',sans-serif;font-weight:900;font-size:24px;line-height:1;white-space:nowrap">Nov 2, 2026</span><span style="font-size:15px;color:#5C5E6E">Monday</span></span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:#F23A2E">IN ROOM</span>
+      <span class="ev-title" style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Rubik',sans-serif;font-weight:900;font-size:20px;line-height:1.2">The Human is the Loop · Hebrew</span><span style="font-size:15px;color:#5C5E6E">Orca, Tel Aviv</span></span>
+      <span class="ev-cta" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:#5C5E6E;white-space:nowrap">TOOK PLACE</span>
     </li>
     <li class="ev" style="display:grid;grid-template-columns:200px 110px minmax(0,1fr) auto;gap:24px;align-items:center;padding:26px 0;border-top:2px solid #14162B">
-      <span style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Rubik',sans-serif;font-weight:900;font-size:24px;line-height:1;white-space:nowrap">Nov 16, 2026</span><span style="font-size:15px;color:#5C5E6E">Monday</span></span>
+      <span style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Rubik',sans-serif;font-weight:900;font-size:24px;line-height:1;white-space:nowrap">Sep 6, 2026</span><span style="font-size:15px;color:#5C5E6E">Sunday</span></span>
       <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:#F23A2E">IN ROOM</span>
-      <span class="ev-title" style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Rubik',sans-serif;font-weight:900;font-size:20px;line-height:1.2">The Human is the Loop · Hebrew</span><span style="font-size:15px;color:#5C5E6E">Private talk</span></span>
-      <span class="ev-cta" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:#5C5E6E;white-space:nowrap">INVITE ONLY</span>
+      <span class="ev-title" style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Rubik',sans-serif;font-weight:900;font-size:20px;line-height:1.2">The Human is the Loop · Hebrew</span><span style="font-size:15px;color:#5C5E6E">Orca, Tel Aviv</span></span>
+      <span class="ev-cta" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em;color:#5C5E6E;white-space:nowrap">TOOK PLACE</span>
     </li>
     <li style="border-top:2px solid #14162B"></li>
   </ol>
+  <div style="margin-top:36px"><a href="mailto:anat@connecthedots.co?subject=The%20Human%20is%20the%20Loop%20for%20my%20organization" data-ph="org_mailto" data-place="dates" style="background:#1C4FE0;color:#fff;text-decoration:none;padding:20px 34px;font-size:20px;font-weight:700;display:inline-flex;gap:14px;align-items:center">Book it for your team <span aria-hidden="true">→</span></a></div>
+</section>
+
+<section id="next" class="sec" data-screen-label="next-date" style="max-width:1240px;margin:0 auto;padding:56px 28px 96px">
+  <div style="display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:12px">
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#5C5E6E">NEXT DATE</span>
+    <h2 style="margin:0;font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(30px,3.4vw,44px);line-height:1.05;color:#14162B">Want to know if and when the next talk is?</h2>
+  </div>
+  <div class="next-wrap" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:60px;align-items:start;border-top:2px solid #14162B;padding-top:28px;margin-top:28px">
+    <div style="display:flex;flex-direction:column;gap:22px">
+      <p style="margin:0;font-size:20px;line-height:1.6;color:#14162B;font-weight:600;max-width:520px">The next open date isn't set yet. Leave your name and email and I'll write to you when it is. That's all this list is for.</p>
+      <p style="margin:0;font-size:17px;line-height:1.6;color:#3A3C4D">Want it for your team or organization? <a href="mailto:anat@connecthedots.co?subject=The%20Human%20is%20the%20Loop%20for%20my%20organization" data-ph="org_mailto" data-place="next" style="color:#14162B;font-weight:700;text-decoration:underline;text-underline-offset:4px">Write to me</a></p>
+    </div>
+    <div>
+      <form id="nextForm" class="nx" novalidate>
+        <label>Name<input id="nxName" name="name" type="text" autocomplete="name" maxlength="80" required enterkeyhint="next"></label>
+        <label>Email<input id="nxEmail" name="email" type="email" inputmode="email" autocomplete="email" maxlength="120" required enterkeyhint="go"></label>
+        <p class="err" id="nxErr" role="alert" hidden>Please enter your name and a valid email</p>
+        <input type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+        <button type="submit" class="go" id="nxGo">Tell me the next date <span aria-hidden="true">→</span></button>
+        <p class="fine">Your details are kept only to tell you about the next date. <a href="https://thehumanistheloop.co/privacy">Privacy policy</a></p>
+      </form>
+      <div id="nxDone" class="nx-done" role="status" hidden>
+        <h3 id="nxDoneH" tabindex="-1">Got it.</h3>
+        <p id="nxDoneP">You'll hear from me when the next date opens. A confirmation is on its way to your inbox.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 
@@ -302,12 +371,11 @@ html{scroll-behavior:smooth}
     <div style="display:flex;flex-direction:column;gap:18px">
       <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:#CFE0FF">BOOKING · CTD 001</span>
       <h2 style="margin:0;font-family:'Rubik',sans-serif;font-weight:900;font-size:clamp(56px,8vw,120px);line-height:.95">Want in?</h2>
-      <p style="margin:0;font-size:20px;line-height:1.6">Live online, from anywhere.<br>A symbolic price that turns "maybe" into "see you there".</p>
-      <p style="margin:0;font-size:15px;color:#CFE0FF"><a href="https://thehumanistheloop.co/takanon" style="color:#fff">Terms</a></p>
+      <p style="margin:0;font-size:20px;line-height:1.6">In the room or online, in Hebrew or in English.<br>Write to me and we'll find the date.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:14px">
-      <a href="#dates" style="background:#fff;color:#1C4FE0;text-decoration:none;padding:22px 30px;font-size:22px;font-weight:700;text-align:center;font-family:'Rubik',sans-serif">Pick a date</a>
-      <a href="mailto:anat@connecthedots.co?subject=The%20Human%20is%20the%20Loop%20for%20my%20organization" data-ph="org_mailto" data-place="booking" style="border:2px solid #fff;color:#fff;text-decoration:none;padding:16px 30px;font-size:17px;font-weight:700;text-align:center">Want this talk at your organization? Write to me</a>
+      <a href="mailto:anat@connecthedots.co?subject=The%20Human%20is%20the%20Loop%20for%20my%20organization" data-ph="org_mailto" data-place="booking" style="background:#fff;color:#1C4FE0;text-decoration:none;padding:22px 30px;font-size:22px;font-weight:700;text-align:center;font-family:'Rubik',sans-serif">Book the talk for your organization</a>
+      <a href="#next" data-ph="next_door_click" data-place="booking" style="border:2px solid #fff;color:#fff;text-decoration:none;padding:16px 30px;font-size:17px;font-weight:700;text-align:center">Tell me the next open date</a>
       <div style="display:flex;gap:18px;justify-content:center;font-size:15px;margin-top:8px;flex-wrap:wrap">
         <span style="color:#CFE0FF">Share:</span>
         <a href="https://wa.me/?text=The%20Human%20is%20the%20Loop%20%C2%B7%20https%3A%2F%2Fthehumanistheloop.co%2F%3Futm_source%3Dwhatsapp%26utm_medium%3Dcontent%26utm_campaign%3Dtalk-en-share" data-ph="share_click" data-place="whatsapp" style="color:#fff">WhatsApp</a>
@@ -324,7 +392,7 @@ html{scroll-behavior:smooth}
     <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.1em">CTD 001 · TRACK 03 · SPEAKING · THE HUMAN IS THE LOOP</span>
     <div style="display:flex;gap:16px;flex-wrap:wrap">
       <a href="mailto:anat@connecthedots.co" style="color:#14162B">anat@connecthedots.co</a>
-      <a href="tel:+972544850294" style="color:#14162B">+972-54-485-0294</a>
+      <a href="tel:+972544850294" style="color:#14162B">+972 (0)54-485-0294</a>
       <a href="https://thehumanistheloop.co/privacy" style="color:#14162B">Privacy</a>
       <a href="https://connecthedots.co/accessibility.html" style="color:#14162B">Accessibility</a>
     </div>
@@ -334,94 +402,50 @@ html{scroll-behavior:smooth}
 <div class="bar" style="position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(980px,100%);background:#1C4FE0;color:#fff;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 24px;box-shadow:0 -8px 30px rgba(20,22,43,.15);z-index:50">
   <div style="display:flex;flex-direction:column;gap:4px;min-width:0">
     <span style="font-family:'Rubik',sans-serif;font-weight:900;font-size:18px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">The Human is the Loop</span>
-    <span style="font-size:14px;color:#CFE0FF" data-next="bar">Thursday, Nov 5, 2026 | Online · 11:00 ET / 16:00 UK</span>
+    <span style="font-size:14px;color:#CFE0FF">For teams and organizations</span>
   </div>
   <div style="display:flex;gap:10px;align-items:center">
-    <a class="bar-all" href="#dates" style="color:#fff;font-weight:700;font-size:15px;white-space:nowrap;padding:14px 10px">All dates</a>
-    <a id="barTickets" data-next="door" href="https://fifty.connecthedots.co/api/seat-en" data-ph="seat_door_click" data-place="bar" style="background:#fff;color:#1C4FE0;text-decoration:none;padding:14px 24px;font-weight:700;font-size:16px;white-space:nowrap">Get tickets</a>
+    <a id="barBook" href="mailto:anat@connecthedots.co?subject=The%20Human%20is%20the%20Loop%20for%20my%20organization" data-ph="org_mailto" data-place="bar" style="background:#fff;color:#1C4FE0;text-decoration:none;padding:14px 24px;font-weight:700;font-size:16px;white-space:nowrap">Book the talk</a>
   </div>
 </div>
 
 </div>
 
-<dialog id="paidStep" class="seat-step paid-step" aria-labelledby="paidT" aria-describedby="paidD">
-  <div class="pbody">
-    <button type="button" class="x" id="paidX" aria-label="Close">&times;</button>
-    <div id="paidNote"></div>
-  </div>
-</dialog>
-<!-- FORM-FLOW store=https://fifty.connecthedots.co/api/flow owner=Adam followup=24h -->
-<dialog id="seatStep" class="seat-step" aria-labelledby="seatStepT">
-  <form id="seatForm" novalidate>
-    <button type="button" class="x" id="seatX" aria-label="Close">&times;</button>
-    <h2 id="seatStepT">One step before payment</h2>
-    <label>Email<input id="seatEmail" enterkeyhint="go" name="email" type="email" inputmode="email" autocomplete="email" required autofocus></label>
-    <p class="err" id="seatErr" role="alert" hidden>Please enter a valid email</p>
-    <label><span>Name <span class="opt">(optional)</span></span><input id="seatName" enterkeyhint="go" name="name" type="text" autocomplete="name" maxlength="80"></label>
-    <input type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
-    <button type="submit" class="go" id="seatGo">Continue to payment <span aria-hidden="true">→</span></button>
-    <p class="fine">We keep your email only to get back to you about the talk. <a href="https://thehumanistheloop.co/privacy">Privacy policy</a></p>
-  </form>
-</dialog>
+<!-- FORM-FLOW store=https://seats.connecthedots.co/api/flow owner=Adam followup=48h -->
 <script>
 (function(){
   function ph(ev,p){try{if(window.posthog&&posthog.capture)posthog.capture(ev,p||{},{transport:'sendBeacon'});}catch(e){}}
   document.querySelectorAll('[data-ph]').forEach(function(el){el.addEventListener('click',function(){ph(el.getAttribute('data-ph'),{place:el.getAttribute('data-place')||''});});});
 
-  /* Anat 13.10: "תוסיף את שלב המייל לפני מורנינג". Every 2.11 ticket door asks for an address
-     first, then goes straight to Morning. The step never blocks payment: whatever the store
-     answers, or if it never answers, the press ends on Morning. One address per visit: a
-     second press goes straight through. Checked at click time, so after 2.11 (when the doors
-     move to the 5.11 PayPal seat) nothing is intercepted. */
-  var SEAT='https://mrng.to/pxuVnuzSm5', LEAD='https://fifty.connecthedots.co/api/seat-lead', EN='https://fifty.connecthedots.co/api/seat-en', mode='', LANG='en';
-  var dlg=document.getElementById('seatStep');
-  function given(){try{return sessionStorage.getItem('seatLead')==='1';}catch(e){return false;}}
-  function go(){location.href=SEAT;}
-  if(dlg && typeof dlg.showModal==='function'){
-    var form=document.getElementById('seatForm'), em=document.getElementById('seatEmail'), nm=document.getElementById('seatName'),
-        err=document.getElementById('seatErr'), btn=document.getElementById('seatGo'), place='';
-    /* Anat 29.10: "there cant be someone signing up without an email." The 5.11 PayPal door
-       opens the same step, every time, and the step itself posts to the rail, which stores
-       the person and only then opens the PayPal order. No address, no order. */
-    function openStep(m,pl){mode=m; place=pl||''; err.hidden=true; em.removeAttribute('aria-invalid'); btn.disabled=false; dlg.showModal(); em.focus();}
-    if(/[?&]seat=1(?:&|$)/.test(location.search)){openStep('en','return'); try{history.replaceState(null,'',location.pathname);}catch(x){}}
-    document.addEventListener('click',function(e){
-      var a=e.target.closest&&e.target.closest('a[href]');
-      if(!a) return;
-      var en=a.href.indexOf(EN)===0;
-      if(!en&&a.href.indexOf(SEAT)!==0) return;
-      if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey){if(en)e.preventDefault(); else return;}
-      if(!en&&given()) return;
+  var LANG='en';
+
+  /* The next-date signup (Anat 8.11: "מקום להשאיר פרטים אם רוצים לדעת תאריך להרצאה הבאה").
+     Posts to the talk-seats lead rail, which stores the row and wakes the lead-mail rail:
+     a confirmation to the person and the row to Anat's inbox, reply-to the person. */
+  var NX='https://seats.connecthedots.co/api/lead';
+  var nf=document.getElementById('nextForm');
+  if(nf){
+    var nn=document.getElementById('nxName'), ne=document.getElementById('nxEmail'), nr=document.getElementById('nxErr'), ng=document.getElementById('nxGo');
+    nf.addEventListener('submit',function(e){
       e.preventDefault();
-      openStep(en?'en':'he',a.getAttribute('data-place')||'');
-    });
-    document.getElementById('seatX').addEventListener('click',function(){dlg.close();});
-    dlg.addEventListener('click',function(e){if(e.target===dlg) dlg.close();});
-    form.addEventListener('submit',function(e){
-      e.preventDefault();
-      var v=(em.value||'').trim();
-      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){err.hidden=false; em.setAttribute('aria-invalid','true'); em.focus(); return;}
-      em.removeAttribute('aria-invalid'); err.hidden=true; btn.disabled=true;
-      var q=new URLSearchParams(location.search), body={email:v,name:(nm.value||'').trim(),lang:LANG,place:place,botcheck:form.botcheck.value};
-      ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){body[k]=q.get(k)||'';});
-      if(mode==='en'){
-        ph('seat_email_captured',{place:place,lang:LANG,talk:'5.11',has_name:!!body.name});
-        var f=document.createElement('form'); f.method='POST'; f.action=EN; f.style.display='none';
-        Object.keys(body).forEach(function(k){if(k==='lang')return; var i=document.createElement('input'); i.type='hidden'; i.name=k; i.value=body[k]; f.appendChild(i);});
-        document.body.appendChild(f); f.submit(); return;
+      var v=(ne.value||'').trim(), n=(nn.value||'').trim(), bad=false;
+      [nn,ne].forEach(function(i){i.removeAttribute('aria-invalid');});
+      if(!n){nn.setAttribute('aria-invalid','true'); bad=true;}
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){ne.setAttribute('aria-invalid','true'); bad=true;}
+      if(bad){nr.hidden=false; (n?ne:nn).focus(); return;}
+      nr.hidden=true; ng.disabled=true;
+      var q=new URLSearchParams(location.search), src='after-page-en';
+      ['utm_source','utm_medium','utm_campaign'].forEach(function(k){if(q.get(k)) src+='|'+k.slice(4)+'='+q.get(k).slice(0,30);});
+      var body={type:'waitlist',name:n,email:v,answer:'next-date',consent:true,source:src,botcheck:nf.botcheck.value};
+      function done(ok){
+        nf.hidden=true;
+        var d=document.getElementById('nxDone'); d.hidden=false;
+        if(!ok){document.getElementById('nxDoneH').textContent='Not saved.'; document.getElementById('nxDoneP').innerHTML='Something went wrong on my side. Write to <a href="mailto:anat@connecthedots.co?subject=Next%20date">anat@connecthedots.co</a> and I\'ll add you myself.';}
+        try{document.getElementById('nxDoneH').focus();}catch(x){}
+        ph(ok?'next_date_signup':'next_date_signup_failed',{lang:LANG});
       }
-      var done=false;
-      function finish(stored){
-        if(done) return; done=true;
-        try{sessionStorage.setItem('seatLead','1');}catch(x){}
-        ph('seat_email_captured',{place:place,lang:LANG,stored:!!stored,has_name:!!body.name});
-        go();
-      }
-      setTimeout(function(){finish(false);},2500);
-      try{
-        fetch(LEAD,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),keepalive:true,mode:'cors'})
-          .then(function(r){finish(r.ok);},function(){finish(false);});
-      }catch(x){finish(false);}
+      fetch(NX,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),mode:'cors'})
+        .then(function(r){return r.json().then(function(j){done(r.ok&&j&&j.stored===true);},function(){done(false);});},function(){done(false);});
     });
   }
 
@@ -436,29 +460,6 @@ html{scroll-behavior:smooth}
     });
   });
 
-  /* Anat 7.10: the nearest date leads. After 2.11 ends (Israel time) the hero and the bar move to 5.11. */
-  if(Date.now() > Date.parse('2026-11-02T23:00:00+02:00')){
-    var N={tag:'NEXT UP \u00b7 ONLINE', line:'Thursday, Nov 5, 2026<br>Online \u00b7 11:00 ET / 16:00 UK', bar:'Thursday, Nov 5, 2026 | Online \u00b7 11:00 ET / 16:00 UK', door:'https://fifty.connecthedots.co/api/seat-en'};
-    document.querySelectorAll('[data-next]').forEach(function(el){var k=el.getAttribute('data-next'); if(k==='door') el.href=N.door; else el.innerHTML=N[k];});
-  }
-
-  /* The PayPal return. /api/seat-en sends the buyer back with ?paid=1, 0 or pending
-     (via /en/, which forwards here with the query intact). */
-  var m=/[?&]paid=([01]|pending)(?:&|$)/.exec(location.search);
-  if(!m) return;
-  var ok=m[1]==='1', pend=m[1]==='pending';
-  var n=document.getElementById('paidNote');
-  n.innerHTML = ok ? '<h2 id="paidT" tabindex="-1">You have a seat \u00b7 Nov 5.</h2><p id="paidD">Thank you. A confirmation with your join link is on its way to your email.</p><div class="cal"><a class="p" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=The+Human+is+the+Loop+%C2%B7+Anat+Weissman+%28online%29&amp;dates=20261105T160000Z%2F20261105T170000Z&amp;details=Live+online+talk+by+Anat+Weissman%2C+in+English.+The+join+link+arrives+by+email+before+the+talk.+https%3A%2F%2Fthehumanistheloop.co&amp;location=Online&amp;ctz=Asia%2FJerusalem" target="_blank" rel="noopener" data-ph="cal_add" data-place="google">Add to Google Calendar</a><a class="s" href="/event-5-11.ics" download="the-human-is-the-loop-5-11.ics" data-ph="cal_add" data-place="ics">Apple / Outlook</a></div>'
-    : pend ? '<h2 id="paidT" tabindex="-1">Payment received \u00b7 confirming.</h2><p id="paidD">Thank you. PayPal is still confirming your payment. Your confirmation and join link are on their way to your email.</p>'
-    : '<h2 id="paidT" tabindex="-1">The payment did not complete.</h2><p id="paidD">Your seat is not saved yet. Try again, or write to <a href="mailto:anat@connecthedots.co">anat@connecthedots.co</a> and I will sort it out.</p>';
-  var pd=document.getElementById('paidStep');
-  document.getElementById('paidX').addEventListener('click',function(){pd.close();});
-  pd.addEventListener('click',function(e){if(e.target===pd) pd.close();});
-  if(typeof pd.showModal==='function'){pd.showModal();} else {pd.setAttribute('open','');}
-  try{document.getElementById('paidT').focus();}catch(e){}
-  if(ok||pend){var bt=document.getElementById('barTickets'); bt.href='mailto:anat@connecthedots.co?subject=My%20seat%20%C2%B7%205%20November'; bt.textContent='Questions?';}
-  ph(ok?'seat_paid':pend?'seat_pay_pending':'seat_pay_failed',{place:'return'});
-  try{history.replaceState(null,'',location.pathname);}catch(e){}
 })();
 </script>
 </body>
