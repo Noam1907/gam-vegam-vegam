@@ -107,7 +107,7 @@ footer .legal a{color:#5C5E6E}
 
   <!-- CLOSED: the page turns itself after the conversation. No registration for a past date. -->
   <div id="closedView" hidden>
-    <p class="when"><span>השיחה הפתוחה התקיימה</span><span><b>יום שלישי, 24.11.2026</b></span></p>
+    <p class="when"><span>השיחה הפתוחה התקיימה</span><span><b>יום שלישי, 17.11.2026</b></span></p>
     <h2 class="sub">רוצים לדעת אם ומתי ההרצאה הבאה?</h2>
   </div>
 
@@ -166,7 +166,7 @@ footer .legal a{color:#5C5E6E}
   var TITLE='מי אני בלי טייטל? שיחה פתוחה עם ענת וייסמן';
   /* The next date (Anat 16.11): Tuesday 24.11.2026 21:00. From the moment 17.11 is full or over, the page registers for it,
      until 24.11 22:30 (20:30Z); only then does it fall back to the plain "tell me the next date" signup. */
-  var CLOSE2=Date.UTC(2026,10,24,20,30,0);
+  var CLOSE2=Date.UTC(2026,10,17,20,30,0);
   function over(){return Date.now()>=CLOSE;}
   function closed(){return Date.now()>=CLOSE2;}
   /* The room cap: the rail says when the conversation is full. If the question fails, the page stays open as before. */
