@@ -198,6 +198,7 @@ footer{margin-top:26px}
   <!-- Doors 3 and 4: one small component, twice. -->
   <nav class="sm" aria-label="עוד">
     <a id="li" href="https://www.linkedin.com/in/anatdotconnector/" target="_blank" rel="noopener">ענת וייסמן בלינקדאין</a>
+    <a id="ig" href="https://www.instagram.com/anat_weiss_man/" target="_blank" rel="noopener">ענת וייסמן באינסטגרם</a>
     <button type="button" id="share">אפשר להעביר הלאה</button>
     <p id="shareOk" role="status" aria-live="polite"></p>
   </nav>
@@ -226,6 +227,7 @@ footer{margin-top:26px}
   $('waBtn').addEventListener('click',function(){ph('bli_whatsapp_click',{place:'button'});});
   $('waQr').addEventListener('click',function(){ph('bli_whatsapp_click',{place:'qr'});});
   $('li').addEventListener('click',function(){ph('bli_linkedin_click',{});});
+  $('ig').addEventListener('click',function(){ph('bli_instagram_click',{});});
 
   /* Pass it on: the phone's own share sheet, or the address copied. It shares this page, tagged so a passed link can be told apart. */
   var ok=$('shareOk');
