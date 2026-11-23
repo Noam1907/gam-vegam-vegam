@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="he">
 <head>
-<!-- DESIGN-PASS by=lior on=2026-11-19 card=O-output/251-bli-title-page-2026-11-19/DESIGN-PASS-2026-11-19.md shots=O-output/251-bli-title-page-2026-11-19/shots change=the page becomes the standing group page: four doors, the group skin, no date -->
+<!-- DESIGN-PASS by=lior on=2026-11-23 card=O-output/251-bli-title-page-2026-11-19/DESIGN-PASS-2026-11-23.md shots=O-output/251-bli-title-page-2026-11-19/shots change=LinkedIn and Instagram become icon doors beside pass-it-on -->
 <meta charset="utf-8">
 <!-- BRAND-CONTACT no-phone: a public page shared from LinkedIn; her words "לא טלפון", Anat 2026-11-12 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- בלי טייטל · the standing page (card 251, 19.11.2026). Four doors: the WhatsApp group, a next-time signup, her LinkedIn, pass it on.
+<!-- בלי טייטל · the standing page (card 251, 19.11.2026). Five doors: the WhatsApp group, a next-time signup, her LinkedIn, her Instagram, pass it on.
      Skin: the group brand (card 239), not the House. No date and no hour on this page: she decides in the morning.
      The path says "zoom" because the address is already out in the world. -->
 <title>בלי טייטל. בלי מצגות. עם כוס יין.</title>
@@ -81,10 +81,12 @@ h2{margin:0;font-family:var(--f-d);font-weight:700;font-size:40px;line-height:1}
 .done h2:focus{outline:none}
 .done p{margin:10px 0 0;font-size:18px}
 
-/* Doors three and four: the same small outlined door, twice. */
-.sm{margin:30px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+/* Doors three to five: one small outlined row. LinkedIn and Instagram are square icon doors, pass-it-on is the word door beside them. */
+.sm{margin:30px 0 0;display:grid;grid-template-columns:52px 52px minmax(0,1fr);gap:10px}
 .sm a,.sm button{display:flex;align-items:center;justify-content:center;min-height:48px;padding:8px 10px;border:2px solid var(--pink);border-radius:0;background:none;color:var(--pink);font:inherit;font-weight:700;font-size:15px;line-height:1.2;text-align:center;text-decoration:none;cursor:pointer}
 .sm a:hover,.sm button:hover{background:var(--pink);color:var(--green)}
+.sm a{min-height:52px;padding:0}
+.sm a svg{display:block;width:24px;height:24px;fill:currentColor;pointer-events:none}
 .sm p{grid-column:1/-1;margin:0;font-size:14px;min-height:0}
 .sm p:empty{display:none}
 
@@ -126,8 +128,10 @@ footer{margin-top:26px}
   .qr svg{display:block;width:100%;height:auto}
   .wa .scan .btn{margin:0 0 6px;width:auto;flex:1}
   .slip{padding:34px 28px 28px}
-  .sm{margin-top:56px;grid-template-columns:auto auto;justify-content:start}
-  .sm a,.sm button{padding:8px 22px;font-size:16px}
+  .sm{margin-top:56px;grid-template-columns:56px 56px auto;justify-content:start}
+  .sm a{min-height:56px}
+  .sm a svg{width:26px;height:26px}
+  .sm button{padding:8px 22px;font-size:16px}
   .brand{font-size:14px}.legal{font-size:12px}
   .flyer__tabs{margin-top:40px}
 }
@@ -195,10 +199,10 @@ footer{margin-top:26px}
 
   </div>
 
-  <!-- Doors 3 and 4: one small component, twice. -->
+  <!-- Doors 3 to 5: two icon doors and one text door in one row. -->
   <nav class="sm" aria-label="עוד">
-    <a id="li" href="https://www.linkedin.com/in/anatdotconnector/" target="_blank" rel="noopener">ענת וייסמן בלינקדאין</a>
-    <a id="ig" href="https://www.instagram.com/anat_weiss_man/" target="_blank" rel="noopener">ענת וייסמן באינסטגרם</a>
+    <a id="li" href="https://www.linkedin.com/in/anatdotconnector/" target="_blank" rel="noopener" aria-label="ענת וייסמן בלינקדאין"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11.5H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1v5.85h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75v5.29h-4z"/></svg></a>
+    <a id="ig" href="https://www.instagram.com/anat_weiss_man/" target="_blank" rel="noopener" aria-label="ענת וייסמן באינסטגרם"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/></svg></a>
     <button type="button" id="share">אפשר להעביר הלאה</button>
     <p id="shareOk" role="status" aria-live="polite"></p>
   </nav>
