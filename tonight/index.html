@@ -3,8 +3,8 @@
 <head>
 <!-- DESIGN-PASS by=lior on=2026-11-24 card=O-output/255-bli-title-tonight-2026-11-24/DESIGN-PASS-2026-11-24.md shots=O-output/255-bli-title-tonight-2026-11-24/shots change=v3 (+10:40 waiting list, group line, cap with the date): /tonight/ rebuilt as a ticket for one evening (pink ground, date leads, form first), standing-page doors only after registering; WhatsApp required -->
 <!-- TONIGHT PAGE (card 255, v3, 24.11.2026). Its own object, not a mode of /zoom/. Shown while Date.now() < 2026-11-24 20:30Z
-     (22:30 Asia/Jerusalem, UTC+2 in November). https://seats.connecthedots.co/api/open decides open or full; any answer other than
-     "open-zoom-24-11", or any moment after 22:30, forwards to /zoom/. A slow or failed fetch (3s) shows tonight's form. -->
+     (21:00 Asia/Jerusalem, UTC+2 in November). https://seats.connecthedots.co/api/open decides open or full; any answer other than
+     "open-zoom-24-11", or any moment after 21:00, forwards to /zoom/. A slow or failed fetch (3s) shows tonight's form. -->
 <meta charset="utf-8">
 <!-- BRAND-CONTACT no-phone: a public page shared from LinkedIn; her words "לא טלפון", Anat 2026-11-12 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -186,9 +186,9 @@ html[data-mode=wait] .ticket > *{visibility:hidden}
 <p class="legal"><a href="https://thehumanistheloop.co/privacy">מדיניות פרטיות</a><a href="https://connecthedots.co/accessibility.html">הצהרת נגישות</a></p>
 
 <!-- FORM-FLOW store=https://seats.connecthedots.co/api/flow owner=Adam followup=12h mail=../mail/bli-title-tonight-confirm.html -->
-<!-- FORM-FLOW-NOTE (card 255, v3): one form, one rail. Tonight form (until 24.11 22:30): type=registration answer=open-zoom-24-11, phone REQUIRED;
+<!-- FORM-FLOW-NOTE (card 255, v3): one form, one rail. Tonight form (until 24.11 21:00): type=registration answer=open-zoom-24-11, phone REQUIRED;
      mail bli-title-tonight-confirm.html when a place is taken, bli-title-full-confirm.html when the rail answers full; follow-up same day (12h).
-     After 22:30 this address forwards to /zoom/, whose standing form (type=waitlist answer=next-date) has its own manifest. -->
+     After 21:00 this address forwards to /zoom/, whose standing form (type=waitlist answer=next-date) has its own manifest. -->
 <!-- The mail path is relative to this file: ../mail/ in the site repo is thehumanistheloop.co/mail/. -->
 <script>
 /* Tonight (card 255). One time check and one question to the rail decide open or full; anything else is /zoom/. */
@@ -196,13 +196,13 @@ html[data-mode=wait] .ticket > *{visibility:hidden}
   function ph(ev,p){try{if(window.posthog&&posthog.capture)posthog.capture(ev,p||{},{transport:'sendBeacon'});}catch(e){}}
   function $(id){return document.getElementById(id);}
   var ROOT=document.documentElement;
-  var CLOSE=Date.UTC(2026,10,24,20,30,0);           /* 24.11.2026 22:30 Asia/Jerusalem */
+  var CLOSE=Date.UTC(2026,10,24,19,0,0);           /* 24.11.2026 21:00 Asia/Jerusalem */
   var ANSWER='open-zoom-24-11';
   var OPEN='https://seats.connecthedots.co/api/open';
   var RAIL='https://seats.connecthedots.co/api/lead';
   var PAGE='https://thehumanistheloop.co/tonight/';
   function live(){return Date.now()<CLOSE;}
-  if(!live()){location.replace('/zoom/'); return;}  /* after 22:30 this address forwards to the standing page */
+  if(!live()){location.replace('/zoom/'); return;}  /* after 21:00 this address forwards to the standing page */
 
   var decided=false, FULL=false, busy=false, finished=false;
   ROOT.setAttribute('data-mode','wait');
@@ -227,7 +227,7 @@ html[data-mode=wait] .ticket > *{visibility:hidden}
   try{
     fetch(OPEN,{mode:'cors',cache:'no-store'}).then(function(r){return r.json();}).then(decide,function(){decide(null);});
   }catch(x){decide(null);}
-  /* A tab left open past 22:30 goes back to the standing page, unless it is showing someone their own confirmation. */
+  /* A tab left open past 21:00 goes back to the standing page, unless it is showing someone their own confirmation. */
   var tEnd=CLOSE-Date.now(); if(tEnd>0&&tEnd<2147483647) setTimeout(function(){if(!finished&&!busy) location.replace('/zoom/');},tEnd);
 
   function src(base){
