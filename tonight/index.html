@@ -152,8 +152,9 @@ html[data-mode=wait] .ticket > *{visibility:hidden}
       </div>
       <div id="tDone" class="done" role="status" aria-live="polite" hidden>
         <h2 id="tDoneH" tabindex="-1">איזה כיף שנרשמת!</h2>
-        <p id="tDoneP">נפגשים היום ב-21:00. הלינק כאן, וגם במייל שלך.</p>
-        <a class="btn join" id="tJoin" href="#" target="_blank" rel="noopener" hidden>הלינק לשיחה <span aria-hidden="true">←</span></a>
+        <p id="tDoneP">נפגשים היום ב-21:00. הלינק לשיחה בתוך האירוע ביומן, וגם במייל שלך.</p>
+        <a class="btn join" id="tJoin" href="#" target="_blank" rel="noopener">לשמור ביומן <span aria-hidden="true">←</span></a>
+        <p id="tIcsP">יומן של אפל או אאוטלוק? <a id="tIcs" href="#" download="bli-title-02.ics">הקובץ ליומן כאן</a>.</p>
         <p class="drink">חובה להגיע עם דרינק כלשהו :-)</p>
         <p class="cancel">במידה ובסוף לא יכולים להגיע, חשוב לעדכן אותי בוואטסאפ או <a href="mailto:anat@connecthedots.co">במייל</a>, כדי שנוכל להכניס אחרים.</p>
       </div>
@@ -242,8 +243,12 @@ html[data-mode=wait] .ticket > *{visibility:hidden}
   }
   function registered(j){
     var url=(j&&typeof j.join_url==='string'&&/^https:\/\/[^\s"'<>]+$/.test(j.join_url))?j.join_url:'';
-    if(url){$('tJoin').href=url; $('tJoin').hidden=false; $('tDoneP').textContent='נפגשים היום ב-21:00. הלינק כאן, וגם במייל שלך.';}
-    else{$('tJoin').hidden=true; $('tDoneP').textContent='נפגשים היום ב-21:00. הלינק בדרך למייל שלך.';}
+    /* Anat 24.11: no way back to this page, so the screen saves the event to a calendar; the link rides inside the event (and in the mail). */
+    var room=url||'https://seats.connecthedots.co/api/join';
+    var title='בלי טייטל #02', note='שיחה פתוחה עם ענת וייסמן. הלינק לשיחה: '+room+'  חובה להגיע עם דרינק כלשהו :-)';
+    $('tJoin').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent(title)+'&dates=20261124T190000Z/20261124T200000Z&location='+encodeURIComponent(room)+'&details='+encodeURIComponent(note);
+    var ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Connecting the Dots//bli-title//HE','BEGIN:VEVENT','UID:bli-title-02-20261124@thehumanistheloop.co','DTSTAMP:20261124T080000Z','DTSTART:20261124T190000Z','DTEND:20261124T200000Z','SUMMARY:'+title,'LOCATION:'+room,'URL:'+room,'DESCRIPTION:'+note.replace(/,/g,'\\,'),'END:VEVENT','END:VCALENDAR'].join('\r\n');
+    $('tIcs').href='data:text/calendar;charset=utf-8,'+encodeURIComponent(ics);
     show('tDone','tDoneH');
   }
   function fullAfterPress(){
@@ -298,7 +303,8 @@ html[data-mode=wait] .ticket > *{visibility:hidden}
     fetch(RAIL,opt)
       .then(function(r){return r.json().then(function(j){end(r.ok&&j&&j.ok===true&&j.stored===true,j);},function(){end(false);});},function(){end(false);});
   });
-  $('tJoin').addEventListener('click',function(){ph('zoom_join_click',{place:'success',mode:'tonight'});});
+  $('tJoin').addEventListener('click',function(){ph('zoom_calendar_click',{place:'success',mode:'tonight',kind:'google'});});
+  $('tIcs').addEventListener('click',function(){ph('zoom_calendar_click',{place:'success',mode:'tonight',kind:'ics'});});
 
   /* The doors after registering. Every door is counted. */
   $('waBtn').addEventListener('click',function(){ph('bli_whatsapp_click',{place:'button'});});
