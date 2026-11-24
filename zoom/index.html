@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="he">
 <head>
-<!-- DESIGN-PASS by=lior on=2026-11-23 card=O-output/251-bli-title-page-2026-11-19/DESIGN-PASS-2026-11-23.md shots=O-output/251-bli-title-page-2026-11-19/shots change=LinkedIn and Instagram become icon doors beside pass-it-on -->
+<!-- DESIGN-PASS by=lior on=2026-11-24 card=O-output/255-bli-title-tonight-2026-11-24/DESIGN-PASS-2026-11-24.md shots=O-output/255-bli-title-tonight-2026-11-24/shots change=dated tonight mode for #02 (24.11 21:00), registration capped at 10, ends itself 22:30 -->
+<!-- TONIGHT MODE (card 255, 24.11.2026): the standing page below is untouched. A tonight layer sits on top of it, shown only while
+     Date.now() < 2026-11-24 20:30Z (22:30 Asia/Jerusalem, UTC+2 in November) AND https://seats.connecthedots.co/api/open answers
+     answer === "open-zoom-24-11". Any other answer, a failed or slow fetch (3s), or any moment after 22:30: the standing page, exactly. -->
 <meta charset="utf-8">
 <!-- BRAND-CONTACT no-phone: a public page shared from LinkedIn; her words "לא טלפון", Anat 2026-11-12 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -142,6 +145,25 @@ footer{margin-top:26px}
   .no-row{margin:0}
   .say{white-space:nowrap}
 }
+/* Tonight mode (card 255). html[data-mode] is set by the script only; without it nothing below applies. */
+html[data-mode=wait] .say,html[data-mode=wait] .lede,html[data-mode=wait] .doors{visibility:hidden}
+.tn{margin:16px 0 0;max-width:34em}
+.tn p{margin:0}
+.tn .when{font-weight:700;font-size:22px;line-height:1.25}
+.tn .when span{display:block;font-weight:500;font-size:18px}
+.tn .scr2{margin-top:4px;font-weight:700;font-size:17px}
+.tn .why{margin-top:10px}
+html[data-mode=tonight] .slip{order:-1}
+.f input[type=tel]{font:inherit;font-size:18px;font-weight:400;padding:11px 14px;border:2px solid var(--green);border-radius:0;background:transparent;color:var(--green);width:100%;min-height:50px;-webkit-appearance:none;appearance:none}
+.f .hint{font-weight:400;font-size:14px;line-height:1.35}
+.slip h2.big{font-family:var(--f-d);font-size:44px;line-height:1}
+.slip .lead{margin:10px 0 0;font-size:17px;line-height:1.45}
+.done .join{margin-top:16px}
+.done .join:hover{text-decoration:underline;text-underline-offset:4px}
+.done p.drink{font-weight:700}
+.done p.small{font-size:16px}
+.done a{text-underline-offset:3px}
+@media (min-width:761px){.tn{font-size:19px;margin-top:16px}.tn .when{font-size:27px}.tn .when span{font-size:20px}.tn .scr2{font-size:19px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -160,10 +182,15 @@ footer{margin-top:26px}
     <div class="side">
       <div class="no-row">
         <span class="no">#02</span>
-        <p class="say"><b>יום שלישי.</b> מחליטה בבוקר. נפגשים בערב.</p>
+        <p class="say" id="sayStd"><b>יום שלישי.</b> מחליטה בבוקר. נפגשים בערב.</p>
+        <p class="say" id="sayTn" hidden><b>נפגשים היום.</b> יום שלישי 24.11, 21:00.</p>
       </div>
-      <p class="lede"><b>מי אני בלי הטייטל שלי?</b> שיחה פתוחה עם ענת וייסמן.</p>
-      <p class="lede">מקום לדבר על מה שהעולם המשתנה פוגש אצלנו בבטן ובראש. לשאול שאלות, להקשיב, להתלבט בקול.</p>
+      <div class="tn" id="tnLines" hidden>
+        <p class="scr2">על המסך | שעה אחת</p>
+        <p class="why">בלי אג׳נדה, בלי מצגות. רק כוס יין (או כל דרינק אחר) ושיחה פתוחה על מי אנחנו בלי הטייטל.</p>
+      </div>
+      <p class="lede" id="ledeHost"><b>מי אני בלי הטייטל שלי?</b> שיחה פתוחה עם ענת וייסמן.</p>
+      <p class="lede" id="ledeMore">מקום לדבר על מה שהעולם המשתנה פוגש אצלנו בבטן ובראש. לשאול שאלות, להקשיב, להתלבט בקול.</p>
     </div>
   </div>
 
@@ -195,6 +222,31 @@ footer{margin-top:26px}
         <h2 id="doneH" tabindex="-1">איזה כיף.</h2>
         <p>אז אולי ניפגש בשלישי הקרוב? נדע בבוקר.</p>
       </div>
+
+      <!-- Tonight (card 255): the registration for 24.11, capped at 10 by the rail. Hidden unless the script switches tonight mode on. -->
+      <div id="tAsk" hidden>
+        <h2 id="tH">עד 10 אנשים.</h2>
+        <p class="lead" id="tFullLead" hidden>במידה ויתפנה מקום, אעדכן בוואטסאפ. אחרת, נתראה בפעם הבאה.</p>
+        <form id="tf" class="f" novalidate>
+          <label for="tName">שם<input id="tName" name="name" type="text" autocomplete="name" maxlength="80" required enterkeyhint="next"></label>
+          <label for="tEmail">מייל<input id="tEmail" name="email" type="email" inputmode="email" autocomplete="email" maxlength="120" required enterkeyhint="next" dir="ltr"></label>
+          <label for="tPhone">וואטסאפ<input id="tPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" enterkeyhint="go" dir="ltr" aria-describedby="tPhoneHint"><span class="hint" id="tPhoneHint">לא חובה. כדי שאוכל לעדכן בוואטסאפ ברגע האחרון.</span></label>
+          <p class="err" id="tErr" role="alert" hidden></p>
+          <input type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+          <button type="submit" class="btn" id="tGo"><span id="tGoT">להרשמה</span> <span aria-hidden="true">←</span></button>
+        </form>
+      </div>
+      <div id="tDone" class="done" role="status" aria-live="polite" hidden>
+        <h2 id="tDoneH" tabindex="-1">איזה כיף שנרשמת!</h2>
+        <p id="tDoneP">נפגשים היום ב-21:00. הלינק כאן, וגם במייל שלך.</p>
+        <a class="btn join" id="tJoin" href="#" target="_blank" rel="noopener" hidden>הלינק לשיחה <span aria-hidden="true">←</span></a>
+        <p class="drink">חובה להגיע עם דרינק כלשהו :-)</p>
+        <p class="small">אם ברגע האחרון לא מסתדר להגיע, אשמח לעדכון בוואטסאפ או <a href="mailto:anat@connecthedots.co">במייל</a>.</p>
+      </div>
+      <div id="tWait" class="done" role="status" aria-live="polite" hidden>
+        <h2 id="tWaitH" tabindex="-1">קיבלתי.</h2>
+        <p id="tWaitP">במידה ויתפנה מקום, אעדכן אותך בוואטסאפ. אחרת, נתראה בפעם הבאה.</p>
+      </div>
     </section>
 
   </div>
@@ -218,7 +270,130 @@ footer{margin-top:26px}
 
 <p class="legal"><a href="https://thehumanistheloop.co/privacy">מדיניות פרטיות</a><a href="https://connecthedots.co/accessibility.html">הצהרת נגישות</a></p>
 
-<!-- FORM-FLOW store=https://seats.connecthedots.co/api/flow owner=Adam followup=48h mail=https://thehumanistheloop.co/mail/bli-title-confirm.html -->
+<!-- FORM-FLOW store=https://seats.connecthedots.co/api/flow owner=Adam followup=12h mail=../mail/bli-title-tonight-confirm.html -->
+<!-- FORM-FLOW-NOTE (card 255): two forms, one rail. Tonight form (until 24.11 22:30): type=registration answer=open-zoom-24-11, phone optional;
+     mail bli-title-tonight-confirm.html when a place is taken, bli-title-full-confirm.html when the rail answers full; follow-up same day (12h).
+     Standing form (always after 22:30): type=waitlist answer=next-date, mail https://thehumanistheloop.co/mail/bli-title-confirm.html, follow-up 48h. -->
+<!-- The mail path is relative to this file: ../mail/ in the site repo is thehumanistheloop.co/mail/. -->
+<script>
+/* Tonight mode switch (card 255). One time check and one question to the rail decide; everything else is the standing page. */
+(function(){
+  function ph(ev,p){try{if(window.posthog&&posthog.capture)posthog.capture(ev,p||{},{transport:'sendBeacon'});}catch(e){}}
+  function $(id){return document.getElementById(id);}
+  var ROOT=document.documentElement;
+  var CLOSE=Date.UTC(2026,10,24,20,30,0);           /* 24.11.2026 22:30 Asia/Jerusalem */
+  var ANSWER='open-zoom-24-11';
+  var OPEN='https://seats.connecthedots.co/api/open';
+  var RAIL='https://seats.connecthedots.co/api/lead';
+  function live(){return Date.now()<CLOSE;}
+  if(!live()) return;                               /* after 22:30 nothing below runs: the standing page */
+
+  var decided=false, FULL=false, busy=false, finished=false;
+  ROOT.setAttribute('data-mode','wait');
+  function standing(){
+    ROOT.removeAttribute('data-mode');
+    ['sayTn','tnLines','tAsk','tDone','tWait'].forEach(function(id){$(id).hidden=true;});
+    ['sayStd','ledeHost','ledeMore','ask'].forEach(function(id){$(id).hidden=false;});
+    $('done').hidden=true;
+    document.querySelector('.slip').setAttribute('aria-labelledby','fH');
+  }
+  function tonight(full){
+    ROOT.setAttribute('data-mode','tonight');
+    ['sayStd','ledeHost','ledeMore','ask','done'].forEach(function(id){$(id).hidden=true;});
+    ['sayTn','tnLines','tAsk'].forEach(function(id){$(id).hidden=false;});
+    document.querySelector('.slip').setAttribute('aria-labelledby','tH');
+    if(full){
+      FULL=true;
+      $('tH').textContent='מלא להיום.'; $('tH').className='big';
+      $('tFullLead').hidden=false;
+      document.querySelector('#tnLines .why').hidden=true;   /* full: the room description gives way so the button stays on a phone's first screen */
+      $('tGoT').textContent='עדכנו אותי אם מתפנה';
+    }
+  }
+  function decide(j){
+    if(decided) return; decided=true; clearTimeout(t0);
+    if(live()&&j&&j.answer===ANSWER){
+      tonight(j.full===true);
+      if(j.full===true) ph('zoom_full_view',{mode:'tonight'});
+    }else standing();
+  }
+  /* A slow rail must not hold the page: after 3 seconds the standing page shows. */
+  var t0=setTimeout(function(){decide(null);},3000);
+  try{
+    fetch(OPEN,{mode:'cors',cache:'no-store'}).then(function(r){return r.json();}).then(decide,function(){decide(null);});
+  }catch(x){decide(null);}
+  /* A tab left open past 22:30 goes back to the standing page, unless it is showing someone their own confirmation. */
+  var tEnd=CLOSE-Date.now(); if(tEnd>0&&tEnd<2147483647) setTimeout(function(){if(!finished&&!busy) standing();},tEnd);
+
+  function src(base){
+    var q=new URLSearchParams(location.search), s=base;
+    ['utm_source','utm_campaign'].forEach(function(k){if(q.get(k)) s+='|'+k.slice(4)+'='+q.get(k).slice(0,30);});
+    return s;
+  }
+  function show(id,focus){
+    $('tAsk').hidden=true; $(id).hidden=false; finished=true;
+    try{$(focus).focus();}catch(x){}
+  }
+  function registered(j){
+    var url=(j&&typeof j.join_url==='string'&&/^https:\/\/[^\s"'<>]+$/.test(j.join_url))?j.join_url:'';
+    if(url){$('tJoin').href=url; $('tJoin').hidden=false; $('tDoneP').textContent='נפגשים היום ב-21:00. הלינק כאן, וגם במייל שלך.';}
+    else{$('tJoin').hidden=true; $('tDoneP').textContent='נפגשים היום ב-21:00. הלינק בדרך למייל שלך.';}
+    show('tDone','tDoneH');
+  }
+  function fullAfterPress(){
+    $('tWaitH').textContent='מלא להיום.';
+    $('tWaitP').textContent='המקום האחרון נתפס ממש עכשיו. הפרטים שלך אצלי: במידה ויתפנה מקום, אעדכן בוואטסאפ. אחרת, נתראה בפעם הבאה.';
+    show('tWait','tWaitH');
+  }
+  function waitlisted(){
+    $('tWaitH').textContent='קיבלתי.';
+    $('tWaitP').textContent='במידה ויתפנה מקום, אעדכן אותך בוואטסאפ. אחרת, נתראה בפעם הבאה.';
+    show('tWait','tWaitH');
+  }
+
+  var f=$('tf'), fn=$('tName'), fe=$('tEmail'), fp=$('tPhone'), er=$('tErr'), go=$('tGo');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(busy) return;
+    var n=(fn.value||'').trim(), v=(fe.value||'').trim(), p=(fp.value||'').trim(), bad=false;
+    [fn,fe,fp].forEach(function(i){i.removeAttribute('aria-invalid');});
+    if(!n){fn.setAttribute('aria-invalid','true'); bad=true;}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){fe.setAttribute('aria-invalid','true'); bad=true;}
+    var digits=p.replace(/\D/g,'');
+    var badPhone=p!==''&&(digits.length<9||digits.length>15||/[^\d\s+\-().]/.test(p));
+    if(badPhone){fp.setAttribute('aria-invalid','true');}
+    if(bad||badPhone){
+      er.textContent=bad?'צריך שם וכתובת מייל תקינה':'מספר הוואטסאפ לא נראה תקין. אפשר גם להשאיר ריק.';
+      er.hidden=false; (!n?fn:(bad?fe:fp)).focus(); return;
+    }
+    er.hidden=true; busy=true; go.disabled=true;
+    var wasFull=FULL;
+    var body={type:'registration',name:n,email:v,phone:p,answer:ANSWER,consent:true,source:src('bli-title-tonight'),botcheck:f.botcheck.value};
+    var settled=false, ac=('AbortController' in window)?new AbortController():null;
+    function end(ok,j){
+      if(settled) return; settled=true; clearTimeout(timer); busy=false;
+      if(!ok){
+        ph('zoom_signup_failed',{mode:'tonight'});
+        er.innerHTML='זה לא נשמר. אפשר לנסות שוב, או לכתוב ל <a href="mailto:anat@connecthedots.co" dir="ltr">anat@connecthedots.co</a>'; er.hidden=false; go.disabled=false;
+        return;
+      }
+      if(j.full===true){
+        ph('zoom_signup_full',{mode:'tonight',when:wasFull?'load':'press',has_phone:!!p});
+        if(wasFull) waitlisted(); else fullAfterPress();
+        return;
+      }
+      ph('zoom_signup',{mode:'tonight',consent:true,has_link:!!j.join_url,has_phone:!!p});
+      registered(j);
+    }
+    var timer=setTimeout(function(){if(ac){try{ac.abort();}catch(x){}} end(false);},12000);
+    var opt={method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),mode:'cors'};
+    if(ac) opt.signal=ac.signal;
+    fetch(RAIL,opt)
+      .then(function(r){return r.json().then(function(j){end(r.ok&&j&&j.ok===true&&j.stored===true,j);},function(){end(false);});},function(){end(false);});
+  });
+  $('tJoin').addEventListener('click',function(){ph('zoom_join_click',{place:'success',mode:'tonight'});});
+})();
+</script>
 <script>
 (function(){
   function ph(ev,p){try{if(window.posthog&&posthog.capture)posthog.capture(ev,p||{},{transport:'sendBeacon'});}catch(e){}}
