@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html dir="rtl" lang="he">
 <head>
-<!-- DESIGN-PASS by=lior on=2026-11-24 card=O-output/255-bli-title-tonight-2026-11-24/DESIGN-PASS-2026-11-24.md shots=O-output/255-bli-title-tonight-2026-11-24/shots change=dated tonight mode for #02 (24.11 21:00), registration capped at 10, ends itself 22:30 -->
-<!-- TONIGHT MODE (card 255, 24.11.2026): the standing page below is untouched. A tonight layer sits on top of it, shown only while
-     Date.now() < 2026-11-24 20:30Z (22:30 Asia/Jerusalem, UTC+2 in November) AND https://seats.connecthedots.co/api/open answers
-     answer === "open-zoom-24-11". Any other answer, a failed or slow fetch (3s), or any moment after 22:30: the standing page, exactly. -->
+<!-- DESIGN-PASS by=lior on=2026-11-24 card=O-output/255-bli-title-tonight-2026-11-24/DESIGN-PASS-2026-11-24.md shots=O-output/255-bli-title-tonight-2026-11-24/shots change=v3 (+10:40 waiting list, group line, cap with the date): /tonight/ rebuilt as a ticket for one evening (pink ground, date leads, form first), standing-page doors only after registering; WhatsApp required -->
+<!-- TONIGHT PAGE (card 255, v3, 24.11.2026). Its own object, not a mode of /zoom/. Shown while Date.now() < 2026-11-24 20:30Z
+     (22:30 Asia/Jerusalem, UTC+2 in November). https://seats.connecthedots.co/api/open decides open or full; any answer other than
+     "open-zoom-24-11", or any moment after 22:30, forwards to /zoom/. A slow or failed fetch (3s) shows tonight's form. -->
 <meta charset="utf-8">
 <!-- BRAND-CONTACT no-phone: a public page shared from LinkedIn; her words "לא טלפון", Anat 2026-11-12 -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- בלי טייטל · the standing page (card 251, 19.11.2026). Five doors: the WhatsApp group, a next-time signup, her LinkedIn, her Instagram, pass it on.
-     Skin: the group brand (card 239), not the House. No date and no hour on this page: she decides in the morning.
-     The path says "zoom" because the address is already out in the world. -->
-<title>בלי טייטל. בלי מצגות. עם כוס יין.</title>
+<!-- Skin: the group brand (card 239), inverted the way tonight's banner is: pink ground, bottle green ink, pale pink paper.
+     The standing page /zoom/ is green ground; this one is pink, so the two never look alike at a glance. No black, white or grey. -->
+<title>הרשמה: נפגשים היום, 24.11 ב-21:00</title>
 <meta name="description" content="נפגשים היום, יום שלישי 24.11, 21:00. שיחה פתוחה עם ענת וייסמן, על המסך. עד 10 אנשים.">
 <link rel="canonical" href="https://thehumanistheloop.co/tonight/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://thehumanistheloop.co/tonight/">
-<meta property="og:title" content="בלי טייטל. בלי מצגות. עם כוס יין.">
+<meta property="og:title" content="הרשמה: נפגשים היום, 24.11 ב-21:00">
 <meta property="og:description" content="נפגשים היום, יום שלישי 24.11, 21:00. על המסך, עד 10 אנשים.">
 <meta property="og:image" content="https://thehumanistheloop.co/zoom/og-bli-title.jpg">
 <meta property="og:image:width" content="1200">
@@ -24,7 +23,7 @@
 <meta property="og:locale" content="he_IL">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://thehumanistheloop.co/zoom/og-bli-title.jpg">
-<meta name="theme-color" content="#0B4A34">
+<meta name="theme-color" content="#FF9ACB">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Karantina:wght@700&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
@@ -34,203 +33,118 @@ posthog.init('phc_E7RT8uONsICJRF5lKqYhsyys29rP0BKObdRHyYSCdQx',{disable_session_
 posthog.register({page_lang:'he'});
 </script>
 <style>
-/* The group brand (card 239): bottle green ground, bubblegum ink, pale pink only for paper objects. No black, white or grey. */
 :root{--green:#0B4A34;--pink:#FF9ACB;--paper:#FFD6EA;--f-d:'Karantina','Heebo','Arial Hebrew',sans-serif;--f-b:'Heebo','Arial Hebrew',Arial,sans-serif}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--green);color:var(--pink);font-family:var(--f-b);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{margin:0;background:var(--pink);color:var(--green);font-family:var(--f-b);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 [hidden]{display:none!important}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
-.slip :focus-visible,.qr:focus-visible{outline-color:var(--green)}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px}
 .wrap{max-width:1040px;margin:0 auto;padding:0 16px}
 
-.k{margin:0;padding:16px 0 8px;border-bottom:2px solid currentColor;display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-weight:700;font-size:16px;line-height:1.2}
+/* The series is a small label, said once. */
+.k{margin:0;padding:14px 0 8px;border-bottom:2px solid currentColor;display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-weight:700;font-size:15px;line-height:1.2}
 .k small{font-weight:500;font-size:13px;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
 
-h1{margin:16px 0 0;font-family:var(--f-d);font-weight:700;font-size:clamp(104px,33vw,224px);line-height:.8;white-space:nowrap}
-.st{position:relative;display:inline-block}
-.st > svg{position:absolute;left:-4%;width:108%;top:50%;height:.34em;transform:translateY(-38%);overflow:visible}
-.scr{fill:currentColor;stroke:var(--green);stroke-width:3;paint-order:stroke;stroke-linejoin:round}
+/* What this is, then when: the word "הרשמה" as a stamp, the day as the headline, the date and hour as the second headline. */
+.tag{display:inline-block;margin:16px 0 0;padding:3px 12px 2px;background:var(--green);color:var(--pink);font-weight:700;font-size:17px;line-height:1.4;transform:rotate(-1.5deg)}
+h1{margin:6px 0 0;font-family:var(--f-d);font-weight:700;font-size:clamp(80px,23vw,150px);line-height:.85;white-space:nowrap}
+.when{margin:2px 0 0;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.when b{font-family:var(--f-d);font-weight:700;font-size:clamp(54px,15vw,96px);line-height:.9;direction:ltr;unicode-bidi:isolate;white-space:nowrap}
+.when b{display:inline-flex;gap:.3em}.when b i{font-style:normal}
+.when span{font-weight:700;font-size:18px;line-height:1.2}
+.facts{margin:8px 0 0;font-weight:500;font-size:16px;line-height:1.35}
+.facts b{font-weight:700}
+.why{margin:18px 0 0;max-width:34em;font-size:16px}
 
-.no-row{display:flex;align-items:center;gap:14px;margin:16px 0 0}
-.no{font-family:var(--f-d);font-weight:700;font-size:72px;line-height:.8;direction:ltr;unicode-bidi:isolate;flex:none}
-.say{margin:0;font-weight:500;font-size:17px;line-height:1.3}
-.say b{display:block;font-weight:700;font-size:22px;line-height:1.2}
-.lede{margin:14px 0 0;max-width:34em}
-.lede b{display:block;font-weight:700}
-
-h2{margin:0;font-family:var(--f-d);font-weight:700;font-size:40px;line-height:1}
-.doors{margin-top:26px;display:grid;gap:30px}
-.wa p{margin:6px 0 0}
-.btn{display:flex;justify-content:center;align-items:center;gap:12px;width:100%;min-height:56px;margin-top:14px;padding:14px 22px;border:0;border-radius:0;background:var(--pink);color:var(--green);font:inherit;font-size:19px;font-weight:700;line-height:1.2;text-decoration:none;cursor:pointer}
-.btn:hover{background:var(--paper)}
-.qr{display:none}
-
-/* Paper object: the slip you leave your name on. Pinned, like everything on the board. */
-.slip{position:relative;background:var(--paper);color:var(--green);padding:26px 18px 20px}
-.slip::before{content:"";position:absolute;top:-9px;left:50%;width:18px;height:18px;border-radius:50%;background:var(--pink);transform:translateX(-50%)}
-.slip h2{font-family:var(--f-b);font-size:20px;line-height:1.3;text-wrap:balance}
-.f{position:relative;display:flex;flex-direction:column;gap:12px;margin-top:16px}
+/* The ticket: the one door. Paper, bordered, a perforation across the top with two notches. */
+.ticket{position:relative;margin-top:16px;background:var(--paper);border:2px solid var(--green);padding:20px 16px 18px}
+.ticket::before,.ticket::after{content:"";position:absolute;top:-2px;width:22px;height:12px;background:var(--pink);border:2px solid var(--green);border-top:0;border-radius:0 0 22px 22px}
+.ticket::before{right:22px}.ticket::after{left:22px}
+.ticket h2{margin:0;font-family:var(--f-d);font-weight:700;font-size:42px;line-height:.95}
+.ticket h2:focus{outline:none}
+.ticket .lead{margin:8px 0 0;font-size:17px;line-height:1.45}
+.f{position:relative;display:flex;flex-direction:column;gap:10px;margin-top:14px}
 .f .hp{position:absolute;top:0;inset-inline-start:0;width:1px;height:1px;opacity:0;pointer-events:none;border:0;padding:0;min-height:0}
-.f label{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:15px;line-height:1.3}
-.f input[type=text],.f input[type=email]{font:inherit;font-size:18px;font-weight:400;padding:11px 14px;border:2px solid var(--green);border-radius:0;background:transparent;color:var(--green);width:100%;min-height:50px;-webkit-appearance:none;appearance:none}
+.f label{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:15px;line-height:1.3}
+.f input[type=text],.f input[type=email],.f input[type=tel]{font:inherit;font-size:18px;font-weight:400;padding:9px 14px;border:2px solid var(--green);border-radius:0;background:transparent;color:var(--green);width:100%;min-height:48px;-webkit-appearance:none;appearance:none}
 .f input[aria-invalid="true"]{box-shadow:inset 0 0 0 2px var(--green)}
+.f .hint{font-weight:400;font-size:14px;line-height:1.35}
 .err{margin:0;font-size:15px;line-height:1.4;font-weight:700}
-.slip .btn{margin-top:0;background:var(--green);color:var(--pink)}
-.slip .btn:hover{background:var(--green);text-decoration:underline;text-underline-offset:4px}
-.slip .btn[disabled]{opacity:.7;cursor:progress}
-.done h2{font-family:var(--f-d);font-size:44px;line-height:1}
-.done h2:focus{outline:none}
+.btn{display:flex;justify-content:center;align-items:center;gap:12px;width:100%;min-height:56px;padding:14px 22px;border:0;border-radius:0;background:var(--green);color:var(--pink);font:inherit;font-size:19px;font-weight:700;line-height:1.2;text-decoration:none;cursor:pointer}
+.btn:hover{text-decoration:underline;text-underline-offset:4px}
+.btn[disabled]{opacity:.7;cursor:progress}
 .done p{margin:10px 0 0;font-size:18px}
+.done .join{margin-top:16px}
+.done p.drink{font-weight:700}
+.done p.cancel{margin-top:16px;padding-top:14px;border-top:2px dashed var(--green);font-size:17px;font-weight:500}
+.done a{text-underline-offset:3px}
 
-/* Doors three to five: one small outlined row. LinkedIn and Instagram are square icon doors, pass-it-on is the word door beside them. */
-.sm{margin:30px 0 0;display:grid;grid-template-columns:52px 52px minmax(0,1fr);gap:10px}
-.sm a,.sm button{display:flex;align-items:center;justify-content:center;min-height:48px;padding:8px 10px;border:2px solid var(--pink);border-radius:0;background:none;color:var(--pink);font:inherit;font-weight:700;font-size:15px;line-height:1.2;text-align:center;text-decoration:none;cursor:pointer}
-.sm a:hover,.sm button:hover{background:var(--pink);color:var(--green)}
-.sm a{min-height:52px;padding:0}
+/* After the ticket is taken: the standing doors, for registrants only. */
+.more{margin-top:30px}
+.door{display:flex;justify-content:center;align-items:center;gap:10px;min-height:56px;padding:12px 18px;border:2px solid var(--green);color:var(--green);font-weight:700;font-size:16px;line-height:1.3;text-align:center;text-decoration:none}
+.door:hover{background:var(--green);color:var(--pink)}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sm{margin:12px 0 0;display:grid;grid-template-columns:52px 52px minmax(0,1fr);gap:10px}
+.sm a,.sm button{display:flex;align-items:center;justify-content:center;min-height:52px;padding:8px 10px;border:2px solid var(--green);border-radius:0;background:none;color:var(--green);font:inherit;font-weight:700;font-size:15px;line-height:1.2;text-align:center;text-decoration:none;cursor:pointer}
+.sm a{padding:0}
+.sm a:hover,.sm button:hover{background:var(--green);color:var(--pink)}
 .sm a svg{display:block;width:24px;height:24px;fill:currentColor;pointer-events:none}
-.sm p{grid-column:1/-1;margin:0;font-size:14px;min-height:0}
+.sm p{grid-column:1/-1;margin:0;font-size:14px}
 .sm p:empty{display:none}
 
-footer{margin-top:26px}
+footer{margin-top:34px}
 .brand{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:0 10px;font-size:13px;line-height:1.2}
 .brand a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
 .brand a:first-child{font-weight:700}
 .brand a:hover,.legal a:hover{text-decoration:underline;text-underline-offset:3px}
-.legal{margin:0;padding:2px 16px 6px;display:flex;justify-content:center;gap:0 18px;font-size:11px;line-height:1.2}
+.legal{margin:0;padding:2px 16px 10px;display:flex;justify-content:center;gap:0 18px;font-size:11px;line-height:1.2}
 .legal a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none}
 
-/* The tear-off tabs, the brand's signature (card 239, .talk .flyer__tabs + .post). A tab always carries a word. */
-.flyer__tabs{--u:clamp(13.4px,3.7vw,24px);font-size:var(--u);display:flex;align-items:flex-start;gap:.14em;height:5.4em;margin:26px auto 0;padding:0 .2em;max-width:1040px;border-top:.1em dashed var(--pink);overflow:hidden}
-.flyer__tabs i{flex:1;height:4.5em;font-style:normal;display:grid;place-items:center;background:var(--paper);color:var(--green);padding-bottom:.4em;border-top:.1em dashed var(--green);transform-origin:50% 0;
-  clip-path:polygon(0 0,100% 0,100% 96%,94% 98.5%,89% 96.5%,83% 99%,77% 97%,70% 98%,64% 95.5%,57% 98.5%,50% 97%,44% 99%,37% 96%,30% 98%,23% 95.5%,16% 98.5%,9% 96.5%,0 98%)}
-.flyer__tabs i:nth-child(2n){clip-path:polygon(0 0,100% 0,100% 97.5%,95% 95.5%,88% 98%,82% 96%,76% 99%,69% 96.5%,63% 98.5%,55% 95.5%,49% 98%,42% 96.5%,35% 99%,28% 96%,21% 98.5%,14% 95.5%,7% 98%,0 96.5%);transform:rotate(-.7deg)}
-.flyer__tabs i:nth-child(3n){transform:rotate(.9deg)}
-.flyer__tabs i.torn{transform:none;clip-path:polygon(0 0,100% 0,100% 14%,94% 18%,88% 13%,81% 20%,75% 15%,68% 22%,61% 16%,55% 19%,48% 12%,41% 18%,34% 15%,27% 23%,20% 16%,13% 19%,6% 13%,0 17%)}
-.flyer__tabs i.half{transform-origin:100% 0;transform:rotate(-9deg);position:relative;z-index:1;
-  clip-path:polygon(0 7%,6% 3.5%,11% 6%,17% 2.5%,23% 4.5%,30% 1%,36% 3%,42% 0,100% 0,100% 97.5%,95% 95.5%,88% 98%,82% 96%,76% 99%,69% 96.5%,63% 98.5%,55% 95.5%,49% 98%,42% 96.5%,35% 99%,28% 96%,21% 98.5%,14% 95.5%,7% 98%,0 96.5%)}
-.flyer__tabs i.peel{position:relative;transform:rotate(.4deg);clip-path:polygon(0 0,100% 0,100% 96%,94% 98.5%,89% 96.5%,83% 99%,77% 97%,70% 98%,64% 95.5%,57% 98.5%,50% 97%,44% 99%,0 70%)}
-.flyer__tabs i.peel::after{content:"";position:absolute;inset:0;background:var(--pink);clip-path:polygon(0 70%,44% 99%,36.3% 63.9%)}
-.flyer__tabs span{font-family:var(--f-d);font-weight:700;font-size:1.2em;line-height:.95;text-align:center}
-.flyer__tabs i.peel span{transform:translate(.3em,-.45em)}
+/* Until the rail answers (3s at most), the ticket waits blank, so a full evening never flashes as open. */
+html[data-mode=wait] .ticket > *{visibility:hidden}
 
 @media (min-width:761px){
   .wrap{padding:0 32px}
-  .k{padding-top:26px;font-size:18px}.k small{font-size:15px}
-  h1{margin-top:28px;font-size:clamp(196px,26vw,224px)}
-  .no-row{gap:18px;margin-top:24px}.no{font-size:96px}
-  .say{font-size:19px}.say b{font-size:27px}
-  .lede{font-size:19px;margin-top:16px}
-  .doors{grid-template-columns:1fr 1fr;gap:56px;margin-top:56px;align-items:start}
-  h2{font-size:52px}
-  .wa p{font-size:19px}
-  .wa .scan{display:flex;gap:22px;align-items:flex-end;margin-top:20px}
-  /* Paper object: the QR is a card on the board. On a phone nobody scans their own screen, so it is not shown there. */
-  .qr{display:block;flex:none;width:176px;background:var(--paper);color:var(--green);padding:8px;transform:rotate(-2deg)}
-  .qr svg{display:block;width:100%;height:auto}
-  .wa .scan .btn{margin:0 0 6px;width:auto;flex:1}
-  .slip{padding:34px 28px 28px}
-  .sm{margin-top:56px;grid-template-columns:56px 56px auto;justify-content:start}
-  .sm a{min-height:56px}
-  .sm a svg{width:26px;height:26px}
-  .sm button{padding:8px 22px;font-size:16px}
-  .brand{font-size:14px}.legal{font-size:12px}
-  .flyer__tabs{margin-top:40px}
+  .k{padding-top:24px;font-size:17px}.k small{font-size:15px}
+  .tag{font-size:19px;margin-top:30px}
+  .facts{font-size:19px}.why{font-size:18px}
+  .ticket{padding:28px 26px 24px}
+  .ticket h2{font-size:52px}
 }
 @media (min-width:1000px){
-  .hero{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:48px;align-items:end;margin-top:34px}
-  h1{margin:0;font-size:clamp(150px,15.5vw,196px)}
-  .hero .side{padding-bottom:4px}
-  .no-row{margin:0}
-  .say{white-space:nowrap}
+  .top{display:grid;grid-template-columns:minmax(0,1fr) 420px;column-gap:56px;align-items:start}
+  .ticket{margin-top:40px}
+  .more{grid-column:2}
 }
-/* Tonight mode (card 255). html[data-mode] is set by the script only; without it nothing below applies. */
-html[data-mode=wait] .say,html[data-mode=wait] .lede,html[data-mode=wait] .doors{visibility:hidden}
-.tn{margin:16px 0 0;max-width:34em}
-.tn p{margin:0}
-.tn .when{font-weight:700;font-size:22px;line-height:1.25}
-.tn .when span{display:block;font-weight:500;font-size:18px}
-.tn .scr2{margin-top:4px;font-weight:700;font-size:17px}
-.tn .why{margin-top:10px}
-html[data-mode=tonight] .slip{order:-1}
-.f input[type=tel]{font:inherit;font-size:18px;font-weight:400;padding:11px 14px;border:2px solid var(--green);border-radius:0;background:transparent;color:var(--green);width:100%;min-height:50px;-webkit-appearance:none;appearance:none}
-.f .hint{font-weight:400;font-size:14px;line-height:1.35}
-.slip h2.big{font-family:var(--f-d);font-size:44px;line-height:1}
-.slip .lead{margin:10px 0 0;font-size:17px;line-height:1.45}
-.done .join{margin-top:16px}
-.done .join:hover{text-decoration:underline;text-underline-offset:4px}
-.done p.drink{font-weight:700}
-.done p.small{font-size:16px}
-.done a{text-underline-offset:3px}
-@media (min-width:761px){.tn{font-size:19px;margin-top:16px}.tn .when{font-size:27px}.tn .when span{font-size:20px}.tn .scr2{font-size:19px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="scr" viewBox="0 0 200 40" preserveAspectRatio="none"><path class="scr" d="M5.1 25.9 L6.4 26.8 L7.7 27.5 L9.1 28.1 L10.5 28.7 L12.0 29.1 L13.4 29.6 L14.9 29.9 L16.4 30.2 L18.0 30.4 L19.5 30.5 L21.0 30.6 L22.6 30.5 L24.1 30.5 L25.7 30.3 L27.2 30.1 L28.8 29.9 L30.3 29.5 L31.8 29.2 L33.3 28.8 L34.8 28.4 L36.2 27.9 L37.7 27.4 L39.1 26.9 L40.5 26.4 L41.9 25.9 L43.2 25.4 L44.6 24.9 L45.9 24.5 L47.2 24.0 L48.5 23.6 L49.8 23.2 L51.0 22.8 L52.2 22.5 L53.4 22.2 L54.6 21.9 L55.7 21.7 L56.8 21.6 L57.9 21.4 L59.0 21.4 L60.1 21.3 L61.2 21.3 L62.2 21.4 L63.3 21.5 L64.4 21.6 L65.5 21.8 L66.5 22.0 L67.7 22.2 L68.8 22.5 L69.9 22.8 L71.1 23.2 L72.3 23.6 L73.5 24.0 L74.7 24.5 L75.9 25.0 L77.2 25.5 L78.5 26.0 L79.8 26.6 L81.2 27.1 L82.5 27.7 L83.9 28.2 L85.3 28.8 L86.8 29.3 L88.2 29.8 L89.7 30.3 L91.2 30.8 L92.8 31.2 L94.3 31.6 L95.9 31.9 L97.5 32.2 L99.1 32.4 L100.7 32.6 L102.3 32.7 L104.0 32.7 L105.6 32.7 L107.2 32.6 L108.8 32.5 L110.4 32.3 L112.0 32.0 L113.6 31.7 L115.1 31.3 L116.6 30.9 L118.1 30.5 L119.6 30.1 L121.1 29.6 L122.5 29.1 L123.9 28.6 L125.3 28.0 L126.7 27.5 L128.0 27.0 L129.3 26.5 L130.6 25.9 L131.9 25.4 L133.2 25.0 L134.4 24.5 L135.6 24.1 L136.8 23.7 L138.0 23.3 L139.2 23.0 L140.3 22.7 L141.5 22.5 L142.6 22.2 L143.7 22.0 L144.8 21.9 L145.9 21.8 L147.0 21.7 L148.1 21.7 L149.2 21.7 L150.4 21.7 L151.5 21.8 L152.7 21.9 L153.9 22.1 L155.1 22.2 L156.3 22.5 L157.5 22.7 L158.8 23.0 L160.0 23.3 L161.3 23.6 L162.6 24.0 L164.0 24.3 L165.3 24.7 L166.7 25.1 L168.1 25.5 L169.5 25.9 L170.9 26.2 L172.3 26.6 L173.8 26.9 L175.2 27.3 L176.7 27.6 L178.1 27.8 L179.6 28.0 L181.1 28.2 L182.6 28.3 L184.1 28.4 L185.6 28.4 L187.0 28.4 L188.5 28.3 L190.0 28.1 L191.4 27.9 L192.9 27.5 L194.2 26.9 L193.8 21.7 L192.4 21.3 L191.2 21.1 L190.0 20.9 L188.7 20.7 L187.5 20.5 L186.3 20.3 L185.1 20.0 L183.9 19.7 L182.7 19.4 L181.5 19.0 L180.3 18.6 L179.1 18.2 L177.9 17.8 L176.6 17.3 L175.4 16.8 L174.1 16.3 L172.9 15.8 L171.6 15.3 L170.3 14.7 L169.0 14.2 L167.6 13.6 L166.3 13.1 L164.9 12.6 L163.5 12.0 L162.1 11.5 L160.7 11.1 L159.2 10.6 L157.7 10.2 L156.3 9.8 L154.7 9.5 L153.2 9.2 L151.7 8.9 L150.1 8.8 L148.6 8.6 L147.0 8.5 L145.4 8.5 L143.8 8.6 L142.3 8.7 L140.7 8.8 L139.1 9.0 L137.6 9.2 L136.0 9.5 L134.5 9.9 L133.0 10.2 L131.5 10.6 L130.0 11.1 L128.6 11.5 L127.2 12.0 L125.8 12.5 L124.4 12.9 L123.0 13.4 L121.7 13.9 L120.3 14.3 L119.0 14.8 L117.8 15.2 L116.5 15.6 L115.3 16.0 L114.1 16.3 L112.9 16.6 L111.7 16.9 L110.6 17.1 L109.5 17.3 L108.4 17.5 L107.3 17.6 L106.2 17.7 L105.2 17.7 L104.1 17.7 L103.0 17.7 L102.0 17.6 L100.9 17.5 L99.8 17.3 L98.7 17.2 L97.6 16.9 L96.5 16.7 L95.3 16.4 L94.2 16.0 L93.0 15.6 L91.7 15.2 L90.5 14.8 L89.2 14.3 L87.9 13.9 L86.6 13.4 L85.3 12.8 L83.9 12.3 L82.5 11.8 L81.1 11.3 L79.7 10.8 L78.2 10.3 L76.7 9.8 L75.2 9.4 L73.7 9.0 L72.1 8.6 L70.6 8.3 L69.0 8.0 L67.4 7.8 L65.8 7.7 L64.2 7.6 L62.6 7.5 L60.9 7.6 L59.3 7.7 L57.7 7.9 L56.1 8.1 L54.5 8.4 L53.0 8.7 L51.4 9.2 L49.9 9.6 L48.4 10.1 L46.9 10.6 L45.5 11.2 L44.1 11.8 L42.7 12.4 L41.3 13.0 L39.9 13.7 L38.6 14.3 L37.3 14.9 L36.0 15.5 L34.7 16.2 L33.4 16.7 L32.2 17.3 L31.0 17.9 L29.7 18.4 L28.6 18.9 L27.4 19.3 L26.2 19.7 L25.1 20.1 L23.9 20.4 L22.8 20.7 L21.6 20.9 L20.5 21.1 L19.4 21.3 L18.2 21.4 L17.0 21.5 L15.9 21.5 L14.7 21.5 L13.5 21.4 L12.2 21.3 L11.0 21.2 L9.7 21.0 L8.3 20.9 L6.9 20.9Z"/></symbol></svg>
-
 <div class="wrap">
 
 <header>
-  <p class="k"><span>אבידות ומציאות</span><small lang="en">The Human is the Loop</small></p>
+  <p class="k"><span>בלי טייטל #02</span><small lang="en">The Human is the Loop</small></p>
 </header>
 
 <main>
-  <div class="hero">
-    <h1>בלי <span class="st">טייטל<svg aria-hidden="true" focusable="false"><use href="#scr"/></svg></span></h1>
-    <div class="side">
-      <div class="no-row">
-        <span class="no">#02</span>
-        <p class="say" id="sayStd"><b>יום שלישי.</b> מחליטה בבוקר. נפגשים בערב.</p>
-        <p class="say" id="sayTn" hidden><b>נפגשים היום.</b> יום שלישי 24.11, 21:00.</p>
-      </div>
-      <div class="tn" id="tnLines" hidden>
-        <p class="scr2">על המסך | שעה אחת</p>
-        <p class="why">בלי אג׳נדה, בלי מצגות. רק כוס יין (או כל דרינק אחר) ושיחה פתוחה.</p>
-      </div>
-      <p class="lede" id="ledeHost"><b>מי אני בלי הטייטל שלי?</b> שיחה פתוחה עם ענת וייסמן.</p>
-      <p class="lede" id="ledeMore">מקום לדבר על מה שהעולם המשתנה פוגש אצלנו בבטן ובראש. לשאול שאלות, להקשיב, להתלבט בקול.</p>
+  <div class="top">
+    <div class="hero">
+      <p class="tag">הרשמה</p>
+      <h1>נפגשים היום</h1>
+      <p class="when"><b><i>24.11</i><i>21:00</i></b><span>יום שלישי</span></p>
+      <p class="facts">על המסך | שעה אחת | <b>עד 10 אנשים</b></p>
+      <p class="why" id="why">עם ענת וייסמן. בלי אג׳נדה, בלי מצגות. רק כוס יין (או כל דרינק אחר) ושיחה פתוחה.</p>
     </div>
-  </div>
 
-  <div class="doors">
-
-    <!-- Door 1: the WhatsApp group. A button on a phone, the QR beside it on a desktop. -->
-    <section class="wa" aria-labelledby="waH">
-      <h2 id="waH">הקבוצה בוואטסאפ</h2>
-      <p>קבוצה שקטה (רק אני כותבת).</p>
-      <div class="scan">
-        <a class="qr" id="waQr" href="https://chat.whatsapp.com/F1q8mly0pP2FuHqjcTP8EX" target="_blank" rel="noopener"><svg viewBox="-3 -3 39 39" role="img" aria-label="קוד QR לקבוצת הוואטסאפ" shape-rendering="crispEdges"><path fill="currentColor" d="M0 0h7v1h-7zM9 0h1v1h-1zM11 0h1v1h-1zM13 0h2v1h-2zM17 0h3v1h-3zM21 0h3v1h-3zM26 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM9 1h3v1h-3zM13 1h5v1h-5zM21 1h1v1h-1zM24 1h1v1h-1zM26 1h1v1h-1zM32 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM8 2h2v1h-2zM11 2h3v1h-3zM15 2h1v1h-1zM17 2h2v1h-2zM21 2h1v1h-1zM23 2h1v1h-1zM26 2h1v1h-1zM28 2h3v1h-3zM32 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h2v1h-2zM11 3h1v1h-1zM14 3h3v1h-3zM20 3h1v1h-1zM23 3h1v1h-1zM26 3h1v1h-1zM28 3h3v1h-3zM32 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h1v1h-1zM11 4h3v1h-3zM15 4h1v1h-1zM17 4h2v1h-2zM21 4h2v1h-2zM26 4h1v1h-1zM28 4h3v1h-3zM32 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h3v1h-3zM15 5h3v1h-3zM20 5h1v1h-1zM22 5h1v1h-1zM24 5h1v1h-1zM26 5h1v1h-1zM32 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h1v1h-1zM24 6h1v1h-1zM26 6h7v1h-7zM8 7h1v1h-1zM15 7h1v1h-1zM18 7h1v1h-1zM21 7h2v1h-2zM0 8h1v1h-1zM2 8h5v1h-5zM10 8h2v1h-2zM13 8h5v1h-5zM20 8h1v1h-1zM22 8h1v1h-1zM24 8h1v1h-1zM26 8h5v1h-5zM1 9h5v1h-5zM7 9h2v1h-2zM11 9h2v1h-2zM16 9h1v1h-1zM18 9h3v1h-3zM23 9h2v1h-2zM26 9h2v1h-2zM29 9h4v1h-4zM2 10h1v1h-1zM4 10h1v1h-1zM6 10h1v1h-1zM9 10h2v1h-2zM15 10h2v1h-2zM18 10h1v1h-1zM21 10h1v1h-1zM24 10h2v1h-2zM28 10h1v1h-1zM30 10h1v1h-1zM0 11h2v1h-2zM3 11h1v1h-1zM5 11h1v1h-1zM7 11h1v1h-1zM9 11h1v1h-1zM12 11h1v1h-1zM14 11h2v1h-2zM21 11h1v1h-1zM25 11h1v1h-1zM28 11h4v1h-4zM6 12h2v1h-2zM10 12h2v1h-2zM15 12h1v1h-1zM18 12h1v1h-1zM21 12h2v1h-2zM25 12h1v1h-1zM28 12h2v1h-2zM32 12h1v1h-1zM0 13h3v1h-3zM4 13h1v1h-1zM9 13h2v1h-2zM12 13h5v1h-5zM20 13h1v1h-1zM30 13h3v1h-3zM4 14h1v1h-1zM6 14h6v1h-6zM13 14h1v1h-1zM17 14h3v1h-3zM21 14h1v1h-1zM25 14h4v1h-4zM30 14h2v1h-2zM1 15h2v1h-2zM4 15h2v1h-2zM8 15h2v1h-2zM12 15h3v1h-3zM16 15h1v1h-1zM19 15h3v1h-3zM23 15h4v1h-4zM29 15h2v1h-2zM0 16h1v1h-1zM4 16h1v1h-1zM6 16h1v1h-1zM8 16h2v1h-2zM16 16h2v1h-2zM19 16h2v1h-2zM22 16h1v1h-1zM25 16h1v1h-1zM27 16h3v1h-3zM32 16h1v1h-1zM0 17h1v1h-1zM4 17h1v1h-1zM7 17h3v1h-3zM11 17h1v1h-1zM13 17h1v1h-1zM17 17h5v1h-5zM23 17h1v1h-1zM26 17h2v1h-2zM29 17h4v1h-4zM1 18h1v1h-1zM3 18h7v1h-7zM11 18h3v1h-3zM15 18h1v1h-1zM17 18h1v1h-1zM20 18h3v1h-3zM26 18h3v1h-3zM30 18h2v1h-2zM3 19h1v1h-1zM8 19h1v1h-1zM10 19h2v1h-2zM16 19h3v1h-3zM21 19h2v1h-2zM24 19h1v1h-1zM27 19h4v1h-4zM2 20h1v1h-1zM4 20h10v1h-10zM15 20h2v1h-2zM20 20h3v1h-3zM24 20h2v1h-2zM27 20h1v1h-1zM29 20h1v1h-1zM31 20h2v1h-2zM0 21h2v1h-2zM3 21h2v1h-2zM7 21h2v1h-2zM11 21h5v1h-5zM17 21h2v1h-2zM21 21h3v1h-3zM25 21h2v1h-2zM30 21h1v1h-1zM32 21h1v1h-1zM0 22h1v1h-1zM2 22h2v1h-2zM5 22h2v1h-2zM9 22h1v1h-1zM13 22h1v1h-1zM15 22h3v1h-3zM20 22h2v1h-2zM24 22h1v1h-1zM27 22h2v1h-2zM30 22h2v1h-2zM0 23h1v1h-1zM2 23h2v1h-2zM5 23h1v1h-1zM7 23h1v1h-1zM9 23h1v1h-1zM12 23h1v1h-1zM14 23h2v1h-2zM21 23h7v1h-7zM29 23h2v1h-2zM0 24h1v1h-1zM4 24h3v1h-3zM8 24h1v1h-1zM11 24h1v1h-1zM13 24h1v1h-1zM15 24h1v1h-1zM17 24h1v1h-1zM22 24h9v1h-9zM8 25h1v1h-1zM11 25h6v1h-6zM18 25h3v1h-3zM22 25h1v1h-1zM24 25h1v1h-1zM28 25h1v1h-1zM30 25h1v1h-1zM32 25h1v1h-1zM0 26h7v1h-7zM10 26h1v1h-1zM13 26h4v1h-4zM18 26h1v1h-1zM20 26h2v1h-2zM23 26h2v1h-2zM26 26h1v1h-1zM28 26h1v1h-1zM30 26h2v1h-2zM0 27h1v1h-1zM6 27h1v1h-1zM8 27h1v1h-1zM10 27h1v1h-1zM12 27h1v1h-1zM14 27h1v1h-1zM16 27h1v1h-1zM19 27h1v1h-1zM21 27h1v1h-1zM23 27h2v1h-2zM28 27h4v1h-4zM0 28h1v1h-1zM2 28h3v1h-3zM6 28h1v1h-1zM8 28h1v1h-1zM14 28h1v1h-1zM18 28h1v1h-1zM21 28h1v1h-1zM24 28h6v1h-6zM31 28h2v1h-2zM0 29h1v1h-1zM2 29h3v1h-3zM6 29h1v1h-1zM8 29h2v1h-2zM15 29h3v1h-3zM20 29h2v1h-2zM24 29h2v1h-2zM28 29h1v1h-1zM30 29h3v1h-3zM0 30h1v1h-1zM2 30h3v1h-3zM6 30h1v1h-1zM8 30h1v1h-1zM10 30h2v1h-2zM13 30h1v1h-1zM19 30h1v1h-1zM21 30h2v1h-2zM26 30h2v1h-2zM30 30h1v1h-1zM0 31h1v1h-1zM6 31h1v1h-1zM9 31h4v1h-4zM16 31h1v1h-1zM19 31h3v1h-3zM28 31h1v1h-1zM30 31h1v1h-1zM0 32h7v1h-7zM8 32h2v1h-2zM11 32h1v1h-1zM13 32h1v1h-1zM17 32h4v1h-4zM22 32h4v1h-4zM27 32h1v1h-1zM29 32h1v1h-1zM31 32h1v1h-1z"/></svg></a>
-        <a class="btn" id="waBtn" href="https://chat.whatsapp.com/F1q8mly0pP2FuHqjcTP8EX" target="_blank" rel="noopener">להצטרפות <span aria-hidden="true">←</span></a>
-      </div>
-    </section>
-
-    <!-- Door 2: name and mail, for whoever is not on WhatsApp. The same rail and the same row the live page already writes. -->
-    <section class="slip" aria-labelledby="fH">
-      <div id="ask">
-        <h2 id="fH">פחות בעניין של וואטסאפ? השאירו מייל ותקבלו עדכון.</h2>
-        <form id="f" class="f" novalidate>
-          <label for="fName">שם<input id="fName" name="name" type="text" autocomplete="name" maxlength="80" required enterkeyhint="next"></label>
-          <label for="fEmail">מייל<input id="fEmail" name="email" type="email" inputmode="email" autocomplete="email" maxlength="120" required enterkeyhint="go" dir="ltr"></label>
-          <p class="err" id="fErr" role="alert" hidden></p>
-          <input type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
-          <button type="submit" class="btn" id="fGo">אני רוצה לדעת <span aria-hidden="true">←</span></button>
-        </form>
-      </div>
-      <div id="done" class="done" role="status" aria-live="polite" hidden>
-        <h2 id="doneH" tabindex="-1">איזה כיף.</h2>
-        <p>אז אולי ניפגש בשלישי הקרוב? נדע בבוקר.</p>
-      </div>
-
-      <!-- Tonight (card 255): the registration for 24.11, capped at 10 by the rail. Hidden unless the script switches tonight mode on. -->
-      <div id="tAsk" hidden>
-        <h2 id="tH">עד 10 אנשים.</h2>
-        <p class="lead" id="tFullLead" hidden>במידה ויתפנה מקום, אעדכן בוואטסאפ. אחרת, נתראה בפעם הבאה.</p>
+    <section class="ticket" aria-labelledby="tH">
+      <div id="tAsk">
+        <h2 id="tH" class="vh">הרשמה</h2>
+        <p class="lead" id="tFullLead" hidden>אפשר להיכנס לרשימת המתנה. אם מישהו יבטל, אעדכן בוואטסאפ.</p>
         <form id="tf" class="f" novalidate>
           <label for="tName">שם<input id="tName" name="name" type="text" autocomplete="name" maxlength="80" required enterkeyhint="next"></label>
           <label for="tEmail">מייל<input id="tEmail" name="email" type="email" inputmode="email" autocomplete="email" maxlength="120" required enterkeyhint="next" dir="ltr"></label>
-          <label for="tPhone">וואטסאפ<input id="tPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" enterkeyhint="go" dir="ltr" aria-describedby="tPhoneHint"><span class="hint" id="tPhoneHint">לא חובה. כדי שאוכל לעדכן בוואטסאפ ברגע האחרון.</span></label>
+          <label for="tPhone">וואטסאפ<input id="tPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" required enterkeyhint="go" dir="ltr" aria-describedby="tPhoneHint"><span class="hint" id="tPhoneHint">כדי שאוכל לעדכן בוואטסאפ ברגע האחרון.</span></label>
           <p class="err" id="tErr" role="alert" hidden></p>
           <input type="text" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
           <button type="submit" class="btn" id="tGo"><span id="tGoT">להרשמה</span> <span aria-hidden="true">←</span></button>
@@ -241,23 +155,25 @@ html[data-mode=tonight] .slip{order:-1}
         <p id="tDoneP">נפגשים היום ב-21:00. הלינק כאן, וגם במייל שלך.</p>
         <a class="btn join" id="tJoin" href="#" target="_blank" rel="noopener" hidden>הלינק לשיחה <span aria-hidden="true">←</span></a>
         <p class="drink">חובה להגיע עם דרינק כלשהו :-)</p>
-        <p class="small">אם ברגע האחרון לא מסתדר להגיע, אשמח לעדכון בוואטסאפ או <a href="mailto:anat@connecthedots.co">במייל</a>.</p>
+        <p class="cancel">במידה ובסוף לא יכולים להגיע, חשוב לעדכן אותי בוואטסאפ או <a href="mailto:anat@connecthedots.co">במייל</a>, כדי שנוכל להכניס אחרים.</p>
       </div>
       <div id="tWait" class="done" role="status" aria-live="polite" hidden>
         <h2 id="tWaitH" tabindex="-1">קיבלתי.</h2>
-        <p id="tWaitP">במידה ויתפנה מקום, אעדכן אותך בוואטסאפ. אחרת, נתראה בפעם הבאה.</p>
+        <p id="tWaitP">נכנסת לרשימת ההמתנה. אם מישהו יבטל, אעדכן אותך בוואטסאפ. אחרת, נתראה בפעם הבאה.</p>
       </div>
     </section>
 
+    <!-- After the ticket is taken (or the waiting list joined): the group and the follow doors. Hidden before. -->
+    <section class="more" id="more" aria-label="עוד" hidden>
+      <a class="door" id="waBtn" href="https://chat.whatsapp.com/F1q8mly0pP2FuHqjcTP8EX" target="_blank" rel="noopener">עוד לא בקבוצת הוואטסאפ? כאן מצטרפים <span aria-hidden="true">←</span></a>
+      <nav class="sm" aria-label="עוד">
+        <a id="li" href="https://www.linkedin.com/in/anatdotconnector/" target="_blank" rel="noopener" aria-label="ענת וייסמן בלינקדאין"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11.5H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1v5.85h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75v5.29h-4z"/></svg></a>
+        <a id="ig" href="https://www.instagram.com/anat_weiss_man/" target="_blank" rel="noopener" aria-label="ענת וייסמן באינסטגרם"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/></svg></a>
+        <button type="button" id="share">אפשר להעביר הלאה</button>
+        <p id="shareOk" role="status" aria-live="polite"></p>
+      </nav>
+    </section>
   </div>
-
-  <!-- Doors 3 to 5: two icon doors and one text door in one row. -->
-  <nav class="sm" aria-label="עוד">
-    <a id="li" href="https://www.linkedin.com/in/anatdotconnector/" target="_blank" rel="noopener" aria-label="ענת וייסמן בלינקדאין"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11.5H3zM9.5 9.75h3.8v1.6h.06c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.77 2.65 4.77 6.1v5.85h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75v5.29h-4z"/></svg></a>
-    <a id="ig" href="https://www.instagram.com/anat_weiss_man/" target="_blank" rel="noopener" aria-label="ענת וייסמן באינסטגרם"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.25-3.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5z"/></svg></a>
-    <button type="button" id="share">אפשר להעביר הלאה</button>
-    <p id="shareOk" role="status" aria-live="polite"></p>
-  </nav>
 </main>
 
 <footer>
@@ -266,17 +182,15 @@ html[data-mode=tonight] .slip{order:-1}
 
 </div>
 
-<div class="flyer__tabs" aria-hidden="true"><i><span>אני<br>ספונטנית</span></i><i><span>אני<br>ספונטני</span></i><i class="torn"></i><i><span>איפה<br>נרשמים?</span></i><i class="half"><span>קערות<br>טיבטיות</span></i><i><span>מי שבא<br>בא</span></i><i class="peel"><span>הכול<br>לגיטימי</span></i></div>
-
 <p class="legal"><a href="https://thehumanistheloop.co/privacy">מדיניות פרטיות</a><a href="https://connecthedots.co/accessibility.html">הצהרת נגישות</a></p>
 
 <!-- FORM-FLOW store=https://seats.connecthedots.co/api/flow owner=Adam followup=12h mail=../mail/bli-title-tonight-confirm.html -->
-<!-- FORM-FLOW-NOTE (card 255): two forms, one rail. Tonight form (until 24.11 22:30): type=registration answer=open-zoom-24-11, phone optional;
+<!-- FORM-FLOW-NOTE (card 255, v3): one form, one rail. Tonight form (until 24.11 22:30): type=registration answer=open-zoom-24-11, phone REQUIRED;
      mail bli-title-tonight-confirm.html when a place is taken, bli-title-full-confirm.html when the rail answers full; follow-up same day (12h).
-     Standing form (always after 22:30): type=waitlist answer=next-date, mail https://thehumanistheloop.co/mail/bli-title-confirm.html, follow-up 48h. -->
+     After 22:30 this address forwards to /zoom/, whose standing form (type=waitlist answer=next-date) has its own manifest. -->
 <!-- The mail path is relative to this file: ../mail/ in the site repo is thehumanistheloop.co/mail/. -->
 <script>
-/* Tonight mode switch (card 255). One time check and one question to the rail decide; everything else is the standing page. */
+/* Tonight (card 255). One time check and one question to the rail decide open or full; anything else is /zoom/. */
 (function(){
   function ph(ev,p){try{if(window.posthog&&posthog.capture)posthog.capture(ev,p||{},{transport:'sendBeacon'});}catch(e){}}
   function $(id){return document.getElementById(id);}
@@ -285,29 +199,20 @@ html[data-mode=tonight] .slip{order:-1}
   var ANSWER='open-zoom-24-11';
   var OPEN='https://seats.connecthedots.co/api/open';
   var RAIL='https://seats.connecthedots.co/api/lead';
+  var PAGE='https://thehumanistheloop.co/tonight/';
   function live(){return Date.now()<CLOSE;}
   if(!live()){location.replace('/zoom/'); return;}  /* after 22:30 this address forwards to the standing page */
 
   var decided=false, FULL=false, busy=false, finished=false;
   ROOT.setAttribute('data-mode','wait');
-  function standing(){
-    ROOT.removeAttribute('data-mode');
-    ['sayTn','tnLines','tAsk','tDone','tWait'].forEach(function(id){$(id).hidden=true;});
-    ['sayStd','ledeHost','ledeMore','ask'].forEach(function(id){$(id).hidden=false;});
-    $('done').hidden=true;
-    document.querySelector('.slip').setAttribute('aria-labelledby','fH');
-  }
   function tonight(full){
     ROOT.setAttribute('data-mode','tonight');
-    ['sayStd','ledeHost','ledeMore','ask','done'].forEach(function(id){$(id).hidden=true;});
-    ['sayTn','tnLines','tAsk'].forEach(function(id){$(id).hidden=false;});
-    document.querySelector('.slip').setAttribute('aria-labelledby','tH');
     if(full){
       FULL=true;
-      $('tH').textContent='מלא להיום.'; $('tH').className='big';
+      $('tH').textContent='מלא להיום.'; $('tH').className='';
       $('tFullLead').hidden=false;
-      document.querySelector('#tnLines .why').hidden=true;   /* full: the room description gives way so the button stays on a phone's first screen */
-      $('tGoT').textContent='עדכנו אותי אם מתפנה';
+      $('why').hidden=true;   /* full: the room description gives way so the button stays on a phone's first screen */
+      $('tGoT').textContent='לרשימת ההמתנה';
     }
   }
   function decide(j){
@@ -331,6 +236,8 @@ html[data-mode=tonight] .slip{order:-1}
   }
   function show(id,focus){
     $('tAsk').hidden=true; $(id).hidden=false; finished=true;
+    $('why').hidden=true; $('more').hidden=false;
+    document.querySelector('.ticket').setAttribute('aria-labelledby',focus);
     try{$(focus).focus();}catch(x){}
   }
   function registered(j){
@@ -341,12 +248,12 @@ html[data-mode=tonight] .slip{order:-1}
   }
   function fullAfterPress(){
     $('tWaitH').textContent='מלא להיום.';
-    $('tWaitP').textContent='המקום האחרון נתפס ממש עכשיו. הפרטים שלך אצלי: במידה ויתפנה מקום, אעדכן בוואטסאפ. אחרת, נתראה בפעם הבאה.';
+    $('tWaitP').textContent='המקום האחרון נתפס ממש עכשיו. נכנסת לרשימת ההמתנה. אם מישהו יבטל, אעדכן אותך בוואטסאפ. אחרת, נתראה בפעם הבאה.';
     show('tWait','tWaitH');
   }
   function waitlisted(){
     $('tWaitH').textContent='קיבלתי.';
-    $('tWaitP').textContent='במידה ויתפנה מקום, אעדכן אותך בוואטסאפ. אחרת, נתראה בפעם הבאה.';
+    $('tWaitP').textContent='נכנסת לרשימת ההמתנה. אם מישהו יבטל, אעדכן אותך בוואטסאפ. אחרת, נתראה בפעם הבאה.';
     show('tWait','tWaitH');
   }
 
@@ -354,16 +261,17 @@ html[data-mode=tonight] .slip{order:-1}
   f.addEventListener('submit',function(e){
     e.preventDefault();
     if(busy) return;
-    var n=(fn.value||'').trim(), v=(fe.value||'').trim(), p=(fp.value||'').trim(), bad=false;
+    var n=(fn.value||'').trim(), v=(fe.value||'').trim(), p=(fp.value||'').trim();
     [fn,fe,fp].forEach(function(i){i.removeAttribute('aria-invalid');});
-    if(!n){fn.setAttribute('aria-invalid','true'); bad=true;}
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){fe.setAttribute('aria-invalid','true'); bad=true;}
+    var badN=!n, badE=!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
     var digits=p.replace(/\D/g,'');
-    var badPhone=p!==''&&(digits.length<9||digits.length>15||/[^\d\s+\-().]/.test(p));
-    if(badPhone){fp.setAttribute('aria-invalid','true');}
-    if(bad||badPhone){
-      er.textContent=bad?'צריך שם וכתובת מייל תקינה':'מספר הוואטסאפ לא נראה תקין. אפשר גם להשאיר ריק.';
-      er.hidden=false; (!n?fn:(bad?fe:fp)).focus(); return;
+    var noP=p==='', badP=!noP&&(digits.length<9||digits.length>15||/[^\d\s+\-().]/.test(p));
+    if(badN) fn.setAttribute('aria-invalid','true');
+    if(badE) fe.setAttribute('aria-invalid','true');
+    if(noP||badP) fp.setAttribute('aria-invalid','true');
+    if(badN||badE||noP||badP){
+      er.textContent=(badN||badE||noP)?'צריך שם, מייל ומספר וואטסאפ':'מספר הוואטסאפ לא נראה תקין.';
+      er.hidden=false; (badN?fn:(badE?fe:fp)).focus(); return;
     }
     er.hidden=true; busy=true; go.disabled=true;
     var wasFull=FULL;
@@ -391,22 +299,11 @@ html[data-mode=tonight] .slip{order:-1}
       .then(function(r){return r.json().then(function(j){end(r.ok&&j&&j.ok===true&&j.stored===true,j);},function(){end(false);});},function(){end(false);});
   });
   $('tJoin').addEventListener('click',function(){ph('zoom_join_click',{place:'success',mode:'tonight'});});
-})();
-</script>
-<script>
-(function(){
-  function ph(ev,p){try{if(window.posthog&&posthog.capture)posthog.capture(ev,p||{},{transport:'sendBeacon'});}catch(e){}}
-  function $(id){return document.getElementById(id);}
 
-  var RAIL='https://seats.connecthedots.co/api/lead';
-  var PAGE='https://thehumanistheloop.co/tonight/';
-
-  /* Every door is counted. */
+  /* The doors after registering. Every door is counted. */
   $('waBtn').addEventListener('click',function(){ph('bli_whatsapp_click',{place:'button'});});
-  $('waQr').addEventListener('click',function(){ph('bli_whatsapp_click',{place:'qr'});});
   $('li').addEventListener('click',function(){ph('bli_linkedin_click',{});});
   $('ig').addEventListener('click',function(){ph('bli_instagram_click',{});});
-
   /* Pass it on: the phone's own share sheet, or the address copied. It shares this page, tagged so a passed link can be told apart. */
   var ok=$('shareOk');
   $('share').addEventListener('click',function(){
@@ -419,43 +316,6 @@ html[data-mode=tonight] .slip{order:-1}
     }else if(navigator.clipboard&&navigator.clipboard.writeText){
       navigator.clipboard.writeText(url).then(copied,manual);
     }else{manual();}
-  });
-
-  /* The signup. The same body the live page's closed state already posts: a waitlist row, answer next-date. No date, no link. */
-  var f=$('f'), fn=$('fName'), fe=$('fEmail'), er=$('fErr'), go=$('fGo');
-  function src(base){
-    var q=new URLSearchParams(location.search), s=base;
-    ['utm_source','utm_campaign'].forEach(function(k){if(q.get(k)) s+='|'+k.slice(4)+'='+q.get(k).slice(0,30);});
-    return s;
-  }
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    if(go.disabled) return;
-    var v=(fe.value||'').trim(), n=(fn.value||'').trim(), bad=false;
-    [fn,fe].forEach(function(i){i.removeAttribute('aria-invalid');});
-    if(!n){fn.setAttribute('aria-invalid','true'); bad=true;}
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){fe.setAttribute('aria-invalid','true'); bad=true;}
-    if(bad){er.textContent='צריך שם וכתובת מייל תקינה'; er.hidden=false; (n?fe:fn).focus(); return;}
-    er.hidden=true; go.disabled=true;
-    var body={type:'waitlist',name:n,email:v,answer:'next-date',consent:true,source:src('bli-title-page'),botcheck:f.botcheck.value};
-    function no(){
-      ph('zoom_signup_failed',{mode:'waitlist'});
-      er.innerHTML='זה לא נשמר. אפשר לנסות שוב, או לכתוב ל <a href="mailto:anat@connecthedots.co" dir="ltr">anat@connecthedots.co</a>'; er.hidden=false; go.disabled=false;
-    }
-    /* A hanging rail is a failure too: after 12 seconds the request is aborted and the same failure path runs. */
-    var settled=false, ac=('AbortController' in window)?new AbortController():null;
-    function end(good){
-      if(settled) return; settled=true; clearTimeout(timer);
-      if(!good){no(); return;}
-      ph('zoom_signup',{mode:'waitlist',consent:true,has_link:false});
-      $('ask').hidden=true; $('done').hidden=false;
-      try{$('doneH').focus();}catch(x){}
-    }
-    var timer=setTimeout(function(){if(ac){try{ac.abort();}catch(x){}} end(false);},12000);
-    var opt={method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body),mode:'cors'};
-    if(ac) opt.signal=ac.signal;
-    fetch(RAIL,opt)
-      .then(function(r){return r.json().then(function(j){end(r.ok&&j&&j.ok===true&&j.stored===true);},function(){end(false);});},function(){end(false);});
   });
 })();
 </script>
